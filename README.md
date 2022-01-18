@@ -2,6 +2,9 @@
 
 ## SETUP
 
+- styled-components
+- react-icons
+
 ### RUN PROJECT
 
 npm install - to initialise the project
