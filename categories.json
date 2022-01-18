@@ -1,0 +1,22 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Mortgage/Rent",
+      "icon": "faHome",
+      "color": "#800000"
+    },
+    {
+      "id": 2,
+      "name": "Food",
+      "icon": "faBlender",
+      "color": "#006400"
+    },
+    {
+      "id": 3,
+      "name": "Car",
+      "icon": "faCar",
+      "color": "#191970"
+    }
+  ]
+}
