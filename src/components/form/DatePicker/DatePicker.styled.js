@@ -4,6 +4,7 @@ export const StyledDatePicker = styled.div`
   display: flex;
   flex-direction: column;
   width: 150px;
+  margin: 0.5rem;
 
   & > label {
     font-size: 0.7rem;

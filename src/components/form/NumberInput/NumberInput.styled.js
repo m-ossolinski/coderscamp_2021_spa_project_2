@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledTextInput = styled.div`
+export const StyledNumberInput = styled.div`
   position: relative;
   padding: 15px 0 0;
   margin-top: 10px;

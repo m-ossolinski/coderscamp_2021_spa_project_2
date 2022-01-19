@@ -2,18 +2,15 @@ import styled from "styled-components";
 
 export const StyledTransactionForm = styled.div`
   width: 500px;
-  height: 500px;
-
-  & > div:nth-child(1){
-    width: 100%;
-  padding: 0.5rem 1rem;
-
+  height: 400px;
+  border: 1px solid salmon;
+  padding: 0.5rem;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  & .TransactionForm-wrapper {
+    display: flex;
   }
-
-  & 
-
-  & span {
-    align-self: center;
 `;
