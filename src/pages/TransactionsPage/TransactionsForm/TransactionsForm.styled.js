@@ -10,8 +10,9 @@ export const StyledTransactionForm = styled.div`
 
   display: flex;
   justify-content: space-between;
-  background-color: pink;
   }
+
+  & 
 
   & span {
     align-self: center;
