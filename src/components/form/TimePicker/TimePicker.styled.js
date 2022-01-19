@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledTimePicker = styled.div`
   display: flex;
   flex-direction: column;
-  width: 150px;
+  width: 90%;
   margin: 0.5rem;
 
   & > label {

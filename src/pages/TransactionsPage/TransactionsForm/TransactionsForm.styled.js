@@ -12,5 +12,6 @@ export const StyledTransactionForm = styled.div`
 
   & .TransactionForm-wrapper {
     display: flex;
+    width: 80%;
   }
 `;

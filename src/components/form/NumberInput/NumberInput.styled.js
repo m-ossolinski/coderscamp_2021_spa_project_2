@@ -1,9 +1,6 @@
 import styled from "styled-components";
 
 export const StyledNumberInput = styled.div`
-  position: relative;
-  padding: 15px 0 0;
-  margin-top: 10px;
   width: 90%;
 
   & > label {
