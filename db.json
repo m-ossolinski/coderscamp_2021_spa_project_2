@@ -3,19 +3,19 @@
     {
       "id": 1,
       "name": "Mortgage/Rent",
-      "icon": "faHome",
+      "icon": "FaHome",
       "color": "#800000"
     },
     {
       "id": 2,
       "name": "Food",
-      "icon": "faBlender",
+      "icon": "FaBlender",
       "color": "#006400"
     },
     {
       "id": 3,
       "name": "Car",
-      "icon": "faCar",
+      "icon": "FaCar",
       "color": "#191970"
     }
   ]

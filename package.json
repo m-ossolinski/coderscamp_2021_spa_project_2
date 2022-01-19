@@ -5,7 +5,7 @@
   "scripts": {
     "test": "jest --watchAll --verbose",
     "dev": "parcel src/index.html",
-    "server": "json-server --watch categories.json --port 8000",
+    "server": "json-server --watch db.json --port 8000",
     "prod": "parcel build src/index.html --public-url ./"
   },
   "repository": {
