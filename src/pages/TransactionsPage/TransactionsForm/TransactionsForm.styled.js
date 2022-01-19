@@ -5,14 +5,15 @@ export const StyledTransactionForm = styled.div`
   height: 500px;
   background-color: lightgreen;
 
-  & div:first-child {
+  & > div:nth-child(1){
     width: 100%;
-  background-color: pink;
   padding: 0.5rem 1rem;
 
   display: flex;
   justify-content: space-between;
+  background-color: pink;
   }
+
   & span {
     align-self: center;
 `;
