@@ -1,5 +1,6 @@
 import { StyledTransactionForm } from "./TransactionsForm.styled";
 import { DatePicker } from "../../../components/form/DatePicker/DatePicker";
+import { TimePicker } from "../../../components/form/TimePicker/TimePicker";
 
 export const TransactionForm = () => {
   return (
@@ -11,6 +12,7 @@ export const TransactionForm = () => {
 
       <div>
         <DatePicker />
+        <TimePicker />
       </div>
     </StyledTransactionForm>
   );
