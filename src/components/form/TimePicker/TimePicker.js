@@ -1,20 +1,23 @@
 import { StyledTimePicker } from "./TimePicker.styled";
 import { useInputState } from "../../../services/hooks/useInputState";
 
-export const TimePicker = () => {
+export const TimePicker = ({ field, handleForm }) => {
   const today = new Date();
   const currentTime = today.getHours() + ":" + today.getMinutes();
-  const [time, handleTime] = useInputState(currentTime);
+  const [time, handleTime] = useInputState("");
   return (
     <StyledTimePicker>
-      <label htmlFor="appt">Choose a time:</label>
+      <label htmlFor={field}>Choose a time:</label>
 
       <input
         type="time"
-        id="appt"
-        name="appt"
+        id={field}
+        name={field}
         value={time}
-        onChange={handleTime}
+        onChange={(e) => {
+          handleTime(e);
+          handleForm(field, time);
+        }}
       ></input>
     </StyledTimePicker>
   );

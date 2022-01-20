@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledTransactionForm = styled.div`
+export const StyledTransactionForm = styled.form`
   width: 500px;
   height: 400px;
   border: 1px solid salmon;
