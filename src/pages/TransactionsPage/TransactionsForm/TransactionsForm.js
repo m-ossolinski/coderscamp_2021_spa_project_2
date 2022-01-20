@@ -69,7 +69,12 @@ export const TransactionForm = () => {
       />
       <div>
         <FormButton type={"submit"}>Submit</FormButton>
-        <FormButton type={"button"}>Cancel</FormButton>
+        <FormButton
+          type={"button"}
+          handleClick={() => console.log("closing modal")}
+        >
+          Cancel
+        </FormButton>
       </div>
     </StyledTransactionForm>
   );
