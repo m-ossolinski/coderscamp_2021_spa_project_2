@@ -1,6 +1,6 @@
 import React from "react";
-import Modal from "./components/Modal";
-import useModal from "./services/hooks/useModal";
+import Modal from "./Modal";
+import useModal from "../services/hooks/useModal";
 
 export default function ModalExample() {
   return (
