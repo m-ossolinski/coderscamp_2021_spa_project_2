@@ -1,0 +1,18 @@
+export const iconList = [
+  "FaAffiliatetheme",
+  "FaAirbnb",
+  "FaAlgolia",
+  "FaAlipay",
+  "FaAmazonPay",
+  "FaAmazon",
+  "FaAmilia",
+  "FaAndroid",
+  "FaAffiliatetheme",
+  "FaAirbnb",
+  "FaAlgolia",
+  "FaAlipay",
+  "FaAmazonPay",
+  "FaAmazon",
+  "FaAmilia",
+  "FaAndroid",
+];
