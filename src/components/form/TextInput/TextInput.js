@@ -11,10 +11,8 @@ export const TextInput = ({ label, field, handleForm }) => {
         id={field}
         name={field}
         value={text}
-        onChange={(e) => {
-          handleText(e);
-          handleForm(field, text);
-        }}
+        onChange={handleText}
+        onBlur={() => handleForm(field, text)}
       />
     </StyledTextInput>
   );

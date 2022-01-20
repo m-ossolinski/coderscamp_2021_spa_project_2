@@ -12,10 +12,8 @@ export const NumberInput = ({ label, field, handleForm }) => {
         id={field}
         name={field}
         value={number}
-        onChange={(e) => {
-          handleNumber(e);
-          handleForm(field, number);
-        }}
+        onChange={handleNumber}
+        onBlur={() => handleForm(field, number)}
         min="0"
       />
     </StyledNumberInput>
