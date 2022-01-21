@@ -28,38 +28,50 @@ export const StyledModal = styled.div`
     z-index: 100;
     background: white;
     position: relative;
-    margin: 1.75rem auto;
-    border-radius: 3px;
+    margin: 1rem auto;
+    border-radius: 10px;
     max-width: 500px;
-    padding: 2rem;
+    padding: 1rem;
   }
 
   .modal-header {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
   }
 
-  .modal-close-button {
+  .modal-btn-close {
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
     font-size: 1.4rem;
     font-weight: 700;
     line-height: 1;
     color: #000;
-    opacity: 0.3;
     cursor: pointer;
     border: none;
   }
 
-  button {
-    font-size: 0.9rem;
-    font-weight: 700;
-    border: none;
-    border-radius: 3px;
-    padding: 0.3rem 1rem;
-    margin-left: 0.5rem;
+  .modal-body {
+    min-height: 300px;
+    margin-top: 1rem;
   }
 
-  .button-default {
-    background: #247ba0;
-    color: #fff;
+  .button-wrapper {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .button-wrapper > button {
+    font-size: 1rem;
+    padding: 5px 25px;
+    border-radius: 10px;
+    background-color: grey;
+    color: white;
+    border: 0px;
   }
 `;
