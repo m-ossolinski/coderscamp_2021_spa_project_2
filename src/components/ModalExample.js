@@ -40,8 +40,8 @@ export default function ModalExample() {
         firstBtnFunc={modalContent[2].run}
         secondBtnName={modalContent[3].name} // set to null to hide button
         secondBtnFunc={modalContent[3].run}
-        thirdBtnName={modalContent[4].name}
-        thridNtnFunc={modalContent[4].run} // set to null to hide button
+        thirdBtnName={modalContent[4].name} // set to null to hide button
+        thridNtnFunc={modalContent[4].run}
       />
     </>
   );
