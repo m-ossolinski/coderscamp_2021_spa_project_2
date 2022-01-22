@@ -1,5 +1,5 @@
 import React from "react";
-import ModalExample from "./components/ModalExample";
+import { ModalExample } from "./components/ModalExample";
 
 const App = () => {
   return (

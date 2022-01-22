@@ -1,16 +1,14 @@
 import { useState } from "react";
 
-const useModal = () => {
-  const [isShowing, setIsShowing] = useState(false);
+export const useModal = () => {
+  const [isVisible, setIsVisible] = useState(false);
 
-  function toggle() {
-    setIsShowing(!isShowing);
-  }
+  const toggleVisibility = () => {
+    setIsVisible(!isVisible);
+  };
 
   return {
-    isShowing,
-    toggle,
+    isVisible,
+    toggleVisibility,
   };
 };
-
-export default useModal;

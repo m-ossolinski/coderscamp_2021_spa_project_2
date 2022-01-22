@@ -1,9 +1,9 @@
 import React from "react";
 import Modal from "./Modal";
-import useModal from "../services/hooks/useModal";
+import { useModal } from "../services/hooks/useModal";
 
-export default function ModalExample() {
-  const { isShowing, toggle } = useModal();
+export const ModalExample = () => {
+  const { isVisible, toggleVisibility } = useModal();
   const modalContent = [
     { title: "Modal Title" },
     { content: "Text" },
@@ -19,30 +19,22 @@ export default function ModalExample() {
         console.log("second btn clicked");
       },
     },
-    {
-      name: "Info",
-      run: function () {
-        console.log("third btn clicked");
-      },
-    },
   ];
   return (
     <>
-      <button className="button-default" onClick={toggle}>
+      <button className="button-default" onClick={toggleVisibility}>
         Show Modal
       </button>
       <Modal
-        isShowing={isShowing} //state
-        hide={toggle} //toggle hidden on close
+        isVisible={isVisible} //state
+        toggleVisibility={toggleVisibility} //toggle hidden on close
         header={modalContent[0].title}
         content={modalContent[1].content}
         firstBtnName={modalContent[2].name} // set to null to hide button
         firstBtnFunc={modalContent[2].run}
         secondBtnName={modalContent[3].name} // set to null to hide button
         secondBtnFunc={modalContent[3].run}
-        thirdBtnName={modalContent[4].name} // set to null to hide button
-        thridNtnFunc={modalContent[4].run}
       />
     </>
   );
-}
+};

@@ -3,18 +3,16 @@ import ReactDOM from "react-dom";
 import { StyledModal } from "./Modal.styled";
 
 const Modal = ({
-  isShowing,
-  hide,
+  isVisible,
+  toggleVisibility,
   header,
   content,
   firstBtnName,
   firstBtnFunc,
   secondBtnName,
   secondBtnFunc,
-  thirdBtnName,
-  thirdBtnFunc,
 }) =>
-  isShowing
+  isVisible
     ? ReactDOM.createPortal(
         <StyledModal>
           <div className="modal-overlay" />
@@ -22,7 +20,7 @@ const Modal = ({
             <div className="modal">
               <div className="modal-header">
                 {header ? <h3>{header}</h3> : "No modal title provided"}
-                <button className="modal-btn-close" onClick={hide}>
+                <button className="modal-btn-close" onClick={toggleVisibility}>
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
@@ -35,9 +33,6 @@ const Modal = ({
                 ) : null}
                 {secondBtnName ? (
                   <button onClick={secondBtnFunc}>{secondBtnName}</button>
-                ) : null}
-                {thirdBtnName ? (
-                  <button onClick={thirdBtnFunc}>{thirdBtnName}</button>
                 ) : null}
               </div>
             </div>
