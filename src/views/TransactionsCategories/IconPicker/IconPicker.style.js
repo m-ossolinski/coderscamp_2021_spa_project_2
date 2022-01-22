@@ -8,3 +8,11 @@ export const IconPickerWrapper = styled.div`
   width: 20rem;
   max-height: 20rem;
 `;
+
+export const IconWrapper = styled.button`
+  width: 2rem;
+  height: 2rem;
+  background-color: transparent;
+  border: 1px solid #808080;
+  font-size: 1.2rem;
+`;
