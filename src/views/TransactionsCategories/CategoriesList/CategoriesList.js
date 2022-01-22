@@ -1,18 +1,30 @@
 import React from "react";
+import AddCategory from "../AddCategory/AddCategory";
 import CategoryItem from "../CategoryItem/CategoryItem";
+import { Table } from "./CategoryList.style";
 
-const CategoriesList = ({ categories }) => {
+const CategoriesList = ({
+  categories,
+  createCategory,
+  removeCategory,
+  editCategory,
+}) => {
   return (
     <>
-      <table>
+      <AddCategory categories={categories} createCategory={createCategory} />
+      <Table>
         <tbody>
           {categories.map((category) => (
-            <tr key={category.name}>
-              <CategoryItem category={category} />
+            <tr key={category.id}>
+              <CategoryItem
+                category={category}
+                removeCategory={removeCategory}
+                editCategory={editCategory}
+              />
             </tr>
           ))}
         </tbody>
-      </table>
+      </Table>
     </>
   );
 };

@@ -1,22 +1,22 @@
 {
   "categories": [
     {
-      "id": 1,
-      "name": "Mortgage/Rent",
-      "icon": "FaHome",
-      "color": "#800000"
-    },
-    {
-      "id": 2,
       "name": "Food",
-      "icon": "FaBlender",
-      "color": "#006400"
+      "color": "#178c2e",
+      "icon": "FaBirthdayCake",
+      "id": 2
     },
     {
-      "id": 3,
-      "name": "Car",
-      "icon": "FaCar",
-      "color": "#191970"
+      "id": 17,
+      "name": "Transport",
+      "color": "#1132d4",
+      "icon": "FaCar"
+    },
+    {
+      "id": 90,
+      "name": "Party",
+      "color": "#d51aa3",
+      "icon": "FaReadme"
     }
   ]
 }
