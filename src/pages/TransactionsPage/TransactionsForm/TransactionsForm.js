@@ -59,6 +59,18 @@ export const TransactionForm = (closeModal) => {
   const handleCloseModal = () => {
     // closeModal();
   };
+
+  const validateTitle = (title) => {
+    if (title === "") {
+      // add error
+    }
+    if (title !== "" && title.length < 3) {
+      // add error
+    } else {
+      // no error
+    }
+  };
+
   return (
     <StyledTransactionForm onSubmit={handleSubmit}>
       <Input
