@@ -3,7 +3,7 @@ import { DatePicker } from "../../../components/form/DatePicker/DatePicker";
 import { Input } from "../../../components/form/Input/Input";
 import { RadioInput } from "../../../components/form/RadioInput/RadioInput";
 import { DropdownInput } from "../../../components/form/DropdownInput/DropdownInput";
-import { FormButton } from "../../../components/form/FormButton/FormButton";
+import { Button } from "../../../components/Button/Button";
 import { useInputState } from "../../../services/hooks/useInputState";
 import { useState } from "react";
 
@@ -67,13 +67,13 @@ export const TransactionForm = () => {
         handleChange={setType}
       />
       <div>
-        <FormButton type={"submit"}>Submit</FormButton>
-        <FormButton
+        <Button type={"submit"}>Submit</Button>
+        <Button
           type={"button"}
           handleClick={() => console.log("closing modal")}
         >
           Cancel
-        </FormButton>
+        </Button>
       </div>
     </StyledTransactionForm>
   );
