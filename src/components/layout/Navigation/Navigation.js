@@ -1,16 +1,20 @@
 import { Link } from "react-router-dom";
+import styled from "styled-components";
+
+const Nav = styled.nav`
+  flex-basis: 30%;
+  display: flex;
+  flex-direction: column;
+`;
 
 const Navigation = () => {
   return (
     <div>
-      <div>
-        <Link to="/">Logo</Link>
-      </div>
-      <nav>
-        <Link to="/home">Home</Link>
+      <Nav>
+        <Link to="/">Home</Link>
         <Link to="/transactions">Transactions</Link>
         <Link to="/signup">Signup</Link>
-      </nav>
+      </Nav>
     </div>
   );
 };
