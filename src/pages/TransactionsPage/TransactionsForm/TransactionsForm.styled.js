@@ -8,4 +8,17 @@ export const StyledTransactionForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  & > div:nth-child(3) {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  & > div:nth-child(5) {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    justify-content: center;
+  }
 `;

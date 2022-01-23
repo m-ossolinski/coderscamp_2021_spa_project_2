@@ -13,9 +13,10 @@ export const RadioInput = ({ options, field, label, value, handleChange }) => {
             name={field}
             value={o}
             onChange={handleChange}
-            checked={o === value}
+            checked={o === value ? true : false}
           />
-          <label htmlFor={o}>{o}</label>
+          <label htmlFor={o}></label>
+          <p>{o}</p>
         </div>
       ))}
     </StyledRadioInput>

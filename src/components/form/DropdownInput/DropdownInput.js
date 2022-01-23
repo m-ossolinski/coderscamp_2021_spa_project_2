@@ -1,5 +1,6 @@
 import { StyledDropdownInput } from "./DropdownInput.styled";
 import { useState } from "react";
+import { AiOutlineArrowDown } from "react-icons/ai";
 
 export const DropdownInput = ({ options, name, label, handleChange }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -9,7 +10,7 @@ export const DropdownInput = ({ options, name, label, handleChange }) => {
       <p>{label}</p>
       <div>
         <button type="button" onClick={() => setIsVisible(!isVisible)}>
-          {name}
+          {name} <AiOutlineArrowDown />
         </button>
         {isVisible === false ? (
           ""
