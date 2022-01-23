@@ -73,5 +73,6 @@ export const StyledModal = styled.div`
     background-color: grey;
     color: white;
     border: 0px;
+    cursor: pointer;
   }
 `;

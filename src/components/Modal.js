@@ -1,39 +1,38 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { StyledModal } from "./Modal.styled";
+import PropTypes from "prop-types";
 
 const Modal = ({
   isVisible,
   toggleVisibility,
-  header,
-  content,
-  firstBtnName,
-  firstBtnFunc,
-  secondBtnName,
-  secondBtnFunc,
-}) =>
-  isVisible
+  modalHeader,
+  cancelBtnLabel,
+  submitBtnLabel,
+  onSubmit,
+  children,
+}) => {
+  const onCancel = () => {
+    toggleVisibility();
+  };
+  return isVisible
     ? ReactDOM.createPortal(
         <StyledModal>
           <div className="modal-overlay" />
           <div className="modal-wrapper">
             <div className="modal">
               <div className="modal-header">
-                {header ? <h3>{header}</h3> : "No modal title provided"}
+                <h3>{modalHeader ?? "Edit transaction"}</h3>
                 <button className="modal-btn-close" onClick={toggleVisibility}>
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div className="modal-body">
-                {content ? <div>{content}</div> : "No modal title provided"}
+                {children ? <div>{children}</div> : null}
               </div>
               <div className="button-wrapper">
-                {firstBtnName ? (
-                  <button onClick={firstBtnFunc}>{firstBtnName}</button>
-                ) : null}
-                {secondBtnName ? (
-                  <button onClick={secondBtnFunc}>{secondBtnName}</button>
-                ) : null}
+                <button onClick={onCancel}>{cancelBtnLabel ?? "Cancel"}</button>
+                <button onClick={onSubmit}>{submitBtnLabel ?? "Submit"}</button>
               </div>
             </div>
           </div>
@@ -41,5 +40,14 @@ const Modal = ({
         document.body
       )
     : null;
+};
+
+Modal.propTypes = {
+  children: PropTypes.node,
+  modalHeader: PropTypes.string,
+  cancelBtnLabel: PropTypes.string,
+  submitBtnLabel: PropTypes.string,
+  onSubmit: PropTypes.func,
+};
 
 export default Modal;
