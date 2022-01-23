@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledRadioInput = styled.div`
+export const StyledRadioButton = styled.div`
   display: flex;
   align-items: center;
   padding: 0.5rem 0;

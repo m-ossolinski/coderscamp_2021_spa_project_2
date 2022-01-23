@@ -1,12 +1,12 @@
-import { StyledDropdownInput } from "./DropdownInput.styled";
+import { StyledDropdown } from "./Dropdown.styled";
 import { useState } from "react";
 import { AiOutlineArrowDown } from "react-icons/ai";
 
-export const DropdownInput = ({ options, name, label, handleChange }) => {
+export const Dropdown = ({ options, name, label, handleChange }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   return (
-    <StyledDropdownInput>
+    <StyledDropdown>
       <p>{label}</p>
       <div>
         <button type="button" onClick={() => setIsVisible(!isVisible)}>
@@ -32,6 +32,6 @@ export const DropdownInput = ({ options, name, label, handleChange }) => {
           </div>
         )}
       </div>
-    </StyledDropdownInput>
+    </StyledDropdown>
   );
 };

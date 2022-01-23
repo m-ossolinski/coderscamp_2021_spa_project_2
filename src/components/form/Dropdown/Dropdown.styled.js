@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledDropdownInput = styled.div`
+export const StyledDropdown = styled.div`
   position: relative;
   display: flex;
   align-items: center;

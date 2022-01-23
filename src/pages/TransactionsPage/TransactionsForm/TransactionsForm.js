@@ -1,8 +1,8 @@
 import { StyledTransactionForm } from "./TransactionsForm.styled";
 import { DatePicker } from "../../../components/form/DatePicker/DatePicker";
 import { Input } from "../../../components/form/Input/Input";
-import { RadioInput } from "../../../components/form/RadioInput/RadioInput";
-import { DropdownInput } from "../../../components/form/DropdownInput/DropdownInput";
+import { RadioButton } from "../../../components/form/RadioButton/RadioButton";
+import { Dropdown } from "../../../components/form/Dropdown/Dropdown";
 import { Button } from "../../../components/Button/Button";
 import { useInputState } from "../../../services/hooks/useInputState";
 import { useState, useEffect } from "react";
@@ -60,31 +60,40 @@ export const TransactionForm = (closeModal) => {
     // closeModal();
   };
 
+  const paymentOptions = [
+    { id: "1-option", type: "cash" },
+    { id: "2-option", type: "card" },
+  ];
+  const paymentTypes = [
+    { id: "1-type", type: "income" },
+    { id: "2-type", type: "expense" },
+  ];
+
   return (
     <StyledTransactionForm onSubmit={handleSubmit}>
       <Input
-        type={"text"}
+        type="text"
         label={"Title:"}
         field={"title"}
         value={title}
         handleChange={setTitle}
       />
       <Input
-        type={"text"}
+        type="text"
         label={"Description:"}
         field={"description"}
         value={description}
         handleChange={setDescription}
       />
       <div>
-        <DropdownInput
+        <Dropdown
           options={["rent", "clothes", "food"]}
           name={category}
           handleChange={setCategory}
           label={"Choose category:"}
         />
         <Input
-          type={"number"}
+          type="number"
           label={"Paid:"}
           field={"amount"}
           value={amount}
@@ -93,15 +102,15 @@ export const TransactionForm = (closeModal) => {
       </div>
       <DatePicker field={"date"} value={date} handleChange={setDate} />
       <div>
-        <RadioInput
-          options={["cash", "card"]}
+        <RadioButton
+          options={paymentOptions}
           field={"paymenType"}
           label={"Paid by:"}
           value={paymentType}
           handleChange={setPaymentType}
         />
-        <RadioInput
-          options={["income", "expense"]}
+        <RadioButton
+          options={paymentTypes}
           field={"type"}
           label={"In/out:"}
           value={type}
@@ -109,11 +118,11 @@ export const TransactionForm = (closeModal) => {
         />
       </div>
       <div>
-        <Button type={"submit"}>Submit</Button>
-        <Button type={"button"} handleClick={resetInputs}>
+        <Button type="submit">Submit</Button>
+        <Button type="button" handleClick={resetInputs}>
           Reset
         </Button>
-        <Button type={"button"} handleClick={handleCloseModal}>
+        <Button type="button" handleClick={handleCloseModal}>
           Cancel
         </Button>
       </div>
