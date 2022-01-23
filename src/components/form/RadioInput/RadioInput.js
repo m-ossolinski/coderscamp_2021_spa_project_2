@@ -1,9 +1,6 @@
 import { StyledRadioInput } from "./RadioInput.styled";
-import { useInputState } from "../../../services/hooks/useInputState";
 
-export const RadioInput = ({ options, field, label, handleForm }) => {
-  const [value, handleValue] = useInputState(options[0]);
-
+export const RadioInput = ({ options, field, label, value, handleChange }) => {
   return (
     <StyledRadioInput>
       <p>{label}</p>
@@ -15,11 +12,8 @@ export const RadioInput = ({ options, field, label, handleForm }) => {
             id={o}
             name={field}
             value={o}
-            onChange={(e) => {
-              handleValue(e);
-              handleForm(field, value);
-            }}
-            checked={value === o}
+            onChange={handleChange}
+            checked={o === value}
           />
           <label htmlFor={o}>{o}</label>
         </div>

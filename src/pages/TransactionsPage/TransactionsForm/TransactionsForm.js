@@ -1,29 +1,20 @@
 import { StyledTransactionForm } from "./TransactionsForm.styled";
 import { DatePicker } from "../../../components/form/DatePicker/DatePicker";
-import { TimePicker } from "../../../components/form/TimePicker/TimePicker";
-import { TextInput } from "../../../components/form/TextInput/TextInput";
+import { Input } from "../../../components/form/Input/Input";
 import { RadioInput } from "../../../components/form/RadioInput/RadioInput";
 import { DropdownInput } from "../../../components/form/DropdownInput/DropdownInput";
-import { NumberInput } from "../../../components/form/NumberInput/NumberInput";
 import { FormButton } from "../../../components/form/FormButton/FormButton";
+import { useInputState } from "../../../services/hooks/useInputState";
 import { useState } from "react";
 
 export const TransactionForm = () => {
-  const [form, setForm] = useState({
-    title: "",
-    type: "income",
-    date: "",
-    time: "",
-    amount: 0,
-    category: "",
-    description: "",
-    paymentType: "cash",
-  });
-  console.log(form);
-
-  const handleForm = (field, payload) => {
-    setForm((prevState) => ({ ...prevState, [field]: payload }));
-  };
+  const [title, setTitle, resetTitle] = useInputState("");
+  const [description, setDescription, resetDescription] = useInputState("");
+  const [amount, setAmount, resetAmount] = useInputState(0);
+  const [type, setType, resetType] = useInputState("income");
+  const [date, setDate, resetDate] = useInputState("");
+  const [category, setCategory] = useState("unselected");
+  const [paymentType, setPaymentType, resetPaymentType] = useInputState("cash");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,39 +24,47 @@ export const TransactionForm = () => {
   };
   return (
     <StyledTransactionForm onSubmit={handleSubmit}>
-      <TextInput
+      <Input
+        type={"text"}
         label={"Transaction title:"}
         field={"title"}
-        handleForm={handleForm}
+        value={title}
+        handleChange={setTitle}
+      />
+      <Input
+        type={"text"}
+        label={"Description:"}
+        field={"description"}
+        value={description}
+        handleChange={setDescription}
+      />
+      <DatePicker field={"date"} value={date} handleChange={setDate} />
+      <DropdownInput
+        options={["rent", "clothes", "food"]}
+        name={category}
+        handleChange={setCategory}
+        label={"Choose category:"}
+      />
+      <Input
+        type={"number"}
+        label={"Paid:"}
+        field={"amount"}
+        value={amount}
+        handleChange={setAmount}
+      />
+      <RadioInput
+        options={["cash", "card"]}
+        field={"paymenType"}
+        label={""}
+        value={paymentType}
+        handleChange={setPaymentType}
       />
       <RadioInput
         options={["income", "expense"]}
         field={"type"}
         label={""}
-        handleForm={handleForm}
-      />
-      <div className="TransactionForm-wrapper">
-        <DatePicker field={"date"} handleForm={handleForm} />
-        <TimePicker field={"time"} handleForm={handleForm} />
-      </div>
-      <div>
-        <DropdownInput
-          options={["rent", "clothes", "food"]}
-          name={"category"}
-          label={"Choose category:"}
-        />
-        <NumberInput label={"Paid:"} field={"amount"} handleForm={handleForm} />
-      </div>
-      <TextInput
-        label={"Description:"}
-        field={"description"}
-        handleForm={handleForm}
-      />
-      <RadioInput
-        options={["cash", "debit card", "credit card"]}
-        field={"paymenType"}
-        label={"Payment type:"}
-        handleForm={handleForm}
+        value={type}
+        handleChange={setType}
       />
       <div>
         <FormButton type={"submit"}>Submit</FormButton>
