@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import * as Icons from "react-icons/fa";
 import { FaTools, FaTrashAlt } from "react-icons/fa";
-import AddCategoryForm from "../AddCategoryForm/AddCategoryForm";
+import { AddCategoryForm } from "../AddCategoryForm/AddCategoryForm";
 import { IconWrapper, Td } from "./CategoryItem.style";
 
-const CategoryItem = ({ category, removeCategory, editCategory }) => {
-  const [openForm, setOpenForm] = useState(false);
+export const CategoryItem = ({ category, removeCategory, editCategory }) => {
+  const [isVisible, setIsVisible] = useState(false);
 
   const { id, name, color, icon } = category;
   const { [icon]: Icon } = Icons;
 
-  const openFormHandler = () => {
-    setOpenForm(true);
+  let toggleFormVisibility = () => {
+    setIsVisible((isVisible) => !isVisible);
   };
 
   const handleRemoveCategory = () => {
@@ -20,14 +20,14 @@ const CategoryItem = ({ category, removeCategory, editCategory }) => {
 
   return (
     <>
-      {!openForm && (
+      {!isVisible && (
         <Td>
           <IconWrapper>
             <Icon style={{ color: `${color}` }} />
           </IconWrapper>
           {name}
 
-          <IconWrapper onClick={openFormHandler}>
+          <IconWrapper onClick={toggleFormVisibility}>
             <FaTools />
           </IconWrapper>
 
@@ -37,11 +37,12 @@ const CategoryItem = ({ category, removeCategory, editCategory }) => {
         </Td>
       )}
 
-      {openForm && (
+      {isVisible && (
         <td>
           <AddCategoryForm
-            id={id}
             editCategory={editCategory}
+            categoryId={category.id}
+            toggleFormVisibility={toggleFormVisibility}
             category={category}
           />
         </td>
@@ -49,5 +50,3 @@ const CategoryItem = ({ category, removeCategory, editCategory }) => {
     </>
   );
 };
-
-export default CategoryItem;

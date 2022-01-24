@@ -1,10 +1,10 @@
 {
   "categories": [
     {
+      "id": 2,
       "name": "Food",
       "color": "#178c2e",
-      "icon": "FaBirthdayCake",
-      "id": 2
+      "icon": "FaBirthdayCake"
     },
     {
       "id": 17,
@@ -14,9 +14,9 @@
     },
     {
       "id": 90,
-      "name": "Party",
-      "color": "#d51aa3",
-      "icon": "FaReadme"
+      "name": "House",
+      "color": "#e01f1f",
+      "icon": "FaHome"
     }
   ]
 }

@@ -1,29 +1,25 @@
 import React, { useState } from "react";
-import AddCategoryForm from "../AddCategoryForm/AddCategoryForm";
+import { AddCategoryForm } from "../AddCategoryForm/AddCategoryForm";
 
-const AddCategory = ({ categories, createCategory }) => {
-  const [openForm, setOpenForm] = useState(false);
+export const AddCategory = ({ categories, createCategory }) => {
+  const [isVisible, setIsVisible] = useState(false);
 
-  const openFormHandler = () => {
-    setOpenForm(true);
-  };
-
-  const closeFormHandler = () => {
-    setOpenForm(false);
+  const toggleFormVisibility = () => {
+    setIsVisible((isVisible) => !isVisible);
   };
 
   return (
     <div>
-      {!openForm && <button onClick={openFormHandler}>Add Category</button>}
-      {openForm && (
+      {!isVisible && (
+        <button onClick={toggleFormVisibility}>Add Category</button>
+      )}
+      {isVisible && (
         <AddCategoryForm
           categories={categories}
-          closeForm={closeFormHandler}
+          toggleFormVisibility={toggleFormVisibility}
           createCategory={createCategory}
         />
       )}
     </div>
   );
 };
-
-export default AddCategory;

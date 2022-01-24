@@ -1,9 +1,9 @@
 import React from "react";
-import AddCategory from "../AddCategory/AddCategory";
-import CategoryItem from "../CategoryItem/CategoryItem";
+import { AddCategory } from "../AddCategory/AddCategory";
+import { CategoryItem } from "../CategoryItem/CategoryItem";
 import { Table } from "./CategoryList.style";
 
-const CategoriesList = ({
+export const CategoriesList = ({
   categories,
   createCategory,
   removeCategory,
@@ -28,5 +28,3 @@ const CategoriesList = ({
     </>
   );
 };
-
-export default CategoriesList;

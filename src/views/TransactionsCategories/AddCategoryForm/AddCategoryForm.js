@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import IconPicker from "../IconPicker/IconPicker";
+import { IconPicker } from "../IconPicker/IconPicker";
 import { IconWrapper } from "../IconPicker/IconPicker.style";
-import IconPickerItem from "../IconPicker/IconPickerItem";
+import { IconPickerItem } from "../IconPicker/IconPickerItem";
 
 import {
   Form,
@@ -13,72 +13,72 @@ import {
   IconWrapper,
 } from "./AddCategoryForm.style";
 
-const AddCategoryForm = ({
-  closeForm,
+export const AddCategoryForm = ({
+  toggleFormVisibility,
   createCategory,
   editCategory,
+  categoryId,
   category,
-  id,
 }) => {
-  const [name, setName] = useState("");
-  const [icon, setIcon] = useState("");
-  const [color, setColor] = useState("");
-  const [openIconPicker, setOpenIconPicker] = useState(false);
+  const [name, setName] = useState(category ? category.name : "");
+  const [icon, setIcon] = useState(category ? category.icon : "");
+  const [color, setColor] = useState(category ? category.color : "");
+  const [isIconPickerVisible, setIsIconPickerVisible] = useState(false);
 
-  const handleNameChange = (event) => {
+  const nameInputChangeHandler = (event) => {
     setName(event.target.value);
   };
 
-  const handleIconChange = (event) => {
-    event.preventDefault();
+  const iconInputChangeHandler = (event) => {
     event.stopPropagation();
     setIcon(event.currentTarget.value);
-    setOpenIconPicker(false);
+    setIsIconPickerVisible(false);
   };
 
-  const handleColorChange = (event) => {
+  const colorInputChangeHandler = (event) => {
     event.stopPropagation();
     setColor(event.target.value);
   };
 
-  const openIconPickerHandler = (e) => {
-    e.preventDefault();
-    setOpenIconPicker(true);
+  const toggleIconPickerVissibility = (e) => {
+    setIsIconPickerVisible(true);
   };
 
-  const handleCreateCategory = (event) => {
+  const formSubmissionHandler = (event) => {
     event.preventDefault();
-
-    createCategory({
-      id: Math.floor(Math.random() * 100),
-      name: name,
-      color: color,
-      icon: icon,
-    });
-  };
-
-  const handleEditCategory = (event) => {
-    event.preventDefault();
-
-    editCategory(id, {
-      id: id,
-      name: name,
-      color: color,
-      icon: icon,
-    });
+    if (categoryId) {
+      editCategory(categoryId, {
+        id: categoryId,
+        name: name,
+        color: color,
+        icon: icon,
+      });
+    } else if (name === "" || icon === "") {
+      return;
+    } else {
+      createCategory({
+        id: Math.floor(Math.random() * 100),
+        name: name,
+        color: color,
+        icon: icon,
+      });
+      toggleFormVisibility();
+    }
   };
   return (
-    <Form>
+    <Form onSubmit={formSubmissionHandler}>
       <FormGroup>
         <FormLabel>Category Name</FormLabel>
-        <FormInput type="text" value={name} onChange={handleNameChange} />
+        <FormInput type="text" value={name} onChange={nameInputChangeHandler} />
       </FormGroup>
 
       <FormGroup>
         <FormLabel>Select Icon</FormLabel>
-        <FormButton onClick={openIconPickerHandler}></FormButton>
+        <FormButton onClick={toggleIconPickerVissibility}></FormButton>
 
-        {openIconPicker && <IconPicker handleIconChange={handleIconChange} />}
+        {isIconPickerVisible && (
+          <IconPicker iconInputChangeHandler={iconInputChangeHandler} />
+        )}
         {icon && (
           <IconWrapper>
             <IconPickerItem icon={icon} />
@@ -88,17 +88,17 @@ const AddCategoryForm = ({
 
       <FormGroup>
         <FormLabel>Select font Color</FormLabel>
-        <ColorInput type="color" value={color} onChange={handleColorChange} />
+        <ColorInput
+          type="color"
+          value={color}
+          onChange={colorInputChangeHandler}
+        />
       </FormGroup>
 
-      <FormButton type="button" onClick={closeForm}>
+      <FormButton type="button" onClick={toggleFormVisibility}>
         Cancel
       </FormButton>
-      <FormButton onClick={id ? handleEditCategory : handleCreateCategory}>
-        {id ? "Save" : "Add"}
-      </FormButton>
+      <FormButton type="submit">{categoryId ? "Save" : "Add"}</FormButton>
     </Form>
   );
 };
-
-export default AddCategoryForm;

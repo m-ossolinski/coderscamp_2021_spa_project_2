@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
-import CategoriesList from "../CategoriesList/CategoriesList";
+import { CategoriesList } from "../CategoriesList/CategoriesList";
 import categoriesService from "../../../services/api/categoriesService";
 
-const CategoriesPage = () => {
+export const CategoriesPage = () => {
   const [categories, setCategories] = useState([]);
 
   const getCategories = async () => {
     try {
-      const response = await categoriesService.get();
+      const response = await categoriesService.getCategoriesList();
       setCategories(response);
     } catch (error) {
-      console.log(error);
+      throw new Error("Categories list could not be shown.");
     }
   };
 
@@ -20,32 +20,32 @@ const CategoriesPage = () => {
 
   const createCategory = async (category) => {
     try {
-      const newCategory = await categoriesService.create(category);
+      const newCategory = await categoriesService.createCategory(category);
       setCategories([...categories, newCategory]);
     } catch (error) {
-      console.log(error);
+      throw new Error("Category could not have been created.");
     }
   };
 
   const editCategory = async (id, updatedCategory) => {
     try {
-      await categoriesService.update(id, updatedCategory);
+      await categoriesService.updateCategory(id, updatedCategory);
       setCategories(
         categories.map((category) =>
           category.id !== id ? updatedCategory : category
         )
       );
     } catch (error) {
-      console.log(error);
+      throw new Error("Category could not have been eddited");
     }
   };
 
   const removeCategory = async (id) => {
     try {
-      await categoriesService.remove(id);
+      await categoriesService.removeCategory(id);
       setCategories(categories.filter((category) => category.id !== id));
     } catch (error) {
-      console.log(error);
+      throw new Error("Category could not have been delated.");
     }
   };
 
@@ -60,5 +60,3 @@ const CategoriesPage = () => {
     </>
   );
 };
-
-export default CategoriesPage;

@@ -1,5 +1,5 @@
 import React from "react";
-import CategoriesPage from "./views/TransactionsCategories/CategpriesPage/CategoriesPage";
+import { CategoriesPage } from "./views/TransactionsCategories/CategpriesPage/CategoriesPage";
 
 const App = () => {
   return (
