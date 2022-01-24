@@ -1,11 +1,14 @@
-import Navigation from "../Navigation/Navigation";
+import { Navigation } from "../Navigation/Navigation";
+import styled from "styled-components";
 
-const Header = () => {
+const StyledHeader = styled.header`
+  flex-basis: 23%;
+`;
+
+export const Header = () => {
   return (
-    <header className="header">
+    <StyledHeader className="header">
       <Navigation />
-    </header>
+    </StyledHeader>
   );
 };
-
-export default Header;
