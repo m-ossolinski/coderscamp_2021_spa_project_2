@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledNav = styled.nav`
-  padding: 2rem 0 2rem 1rem;
+  padding: 4rem 0 4rem 2rem;
   background-color: #2f80ed;
   overflow: hidden;
 `;
@@ -24,14 +24,14 @@ const StyledListElement = styled.li`
 const StyledNavLink = styled(NavLink)`
   display: block;
   width: 100%;
-  height: 3.5rem;
+  height: 6rem;
   padding-left: 2rem;
-  border-radius: 1.75rem 0 0 1.75rem;
+  border-radius: 3rem 0 0 3rem;
   color: #fcfcfc;
   text-transform: uppercase;
-  font-size: 1.3rem;
+  font-size: 2.2rem;
   text-decoration: none;
-  line-height: 3.5rem;
+  line-height: 5.5rem;
 
   &.active,
   &:hover {
@@ -45,18 +45,18 @@ const StyledNavLink = styled(NavLink)`
     position: absolute;
     right: 0;
     background-color: transparent;
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 5rem;
+    height: 5rem;
     border-radius: 50%;
   }
 
   &::before {
-    top: -3.5rem;
+    top: -5rem;
     box-shadow: 35px 35px 0 10px transparent;
   }
 
   &::after {
-    bottom: -3.5rem;
+    bottom: -5rem;
     box-shadow: 35px -35px 0 10px transparent;
   }
 
