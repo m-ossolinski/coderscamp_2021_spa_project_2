@@ -1,21 +1,29 @@
 import styled from "styled-components";
 
 export const StyledInput = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   width: 100%;
-  padding: 0.5rem 0;
+  & > div {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0;
+    width: 100%;
+  }
 
   & label {
     font-size: 0.7rem;
+    margin-bottom: 10px;
   }
 
   & input {
-    width: 80%;
+    width: 100%;
     height: 30px;
     padding: 5px;
     border: 1px solid lightgray;
     border-radius: 5px;
+  }
+
+  & p {
+    color: red;
+    font-size: 0.7rem;
   }
 `;

@@ -3,21 +3,24 @@ import styled from "styled-components";
 export const StyledDropdown = styled.div`
   position: relative;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   width: 100%;
+  margin: 10px 0;
 
   & p {
     font-size: 0.7rem;
     width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
   & button {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: space-between;
     background-color: #fff;
     color: black;
     height: 30px;
-    width: 80px;
+    width: 105px;
     padding: 5px 10px;
     border: 1px solid lightgray;
     border-radius: 5px;
@@ -47,5 +50,10 @@ export const StyledDropdown = styled.div`
         background-color: gray;
       }
     }
+  }
+
+  & p:last-child {
+    color: red;
+    font-size: 0.7rem;
   }
 `;

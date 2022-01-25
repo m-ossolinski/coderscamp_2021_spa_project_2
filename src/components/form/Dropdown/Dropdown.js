@@ -2,7 +2,16 @@ import { StyledDropdown } from "./Dropdown.styled";
 import { useState } from "react";
 import { AiOutlineArrowDown } from "react-icons/ai";
 
-export const Dropdown = ({ options, name, label, handleChange }) => {
+export const Dropdown = ({
+  options,
+  name,
+  field,
+  label,
+  handleChange,
+  errors,
+  isTouched,
+  handleBlur,
+}) => {
   const [isVisible, setIsVisible] = useState(false);
 
   return (
@@ -32,6 +41,7 @@ export const Dropdown = ({ options, name, label, handleChange }) => {
           </div>
         )}
       </div>
+      {errors[field] && <p>{errors[field]}</p>}
     </StyledDropdown>
   );
 };

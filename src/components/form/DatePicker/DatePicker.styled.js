@@ -1,11 +1,15 @@
 import styled from "styled-components";
 
 export const StyledDatePicker = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   width: 100%;
   padding: 0.5rem 0;
+
+  & div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
 
   & label {
     font-size: 0.7rem;
@@ -17,5 +21,10 @@ export const StyledDatePicker = styled.div`
     padding: 5px;
     border: 1px solid lightgray;
     border-radius: 5px;
+  }
+
+  & p {
+    color: red;
+    font-size: 0.7rem;
   }
 `;
