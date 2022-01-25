@@ -8,65 +8,43 @@ import {
   FormGroup,
   FormLabel,
   FormInput,
-  FormButton,
   ColorInput,
   IconWrapper,
 } from "./AddCategoryForm.style";
 
 export const AddCategoryForm = ({
-  toggleFormVisibility,
-  createCategory,
-  editCategory,
-  categoryId,
-  category,
+  handleName,
+  handleIcon,
+  handleColor,
+  icon,
+  color,
+  name,
 }) => {
-  const [name, setName] = useState(category ? category.name : "");
-  const [icon, setIcon] = useState(category ? category.icon : "");
-  const [color, setColor] = useState(category ? category.color : "");
-  const [isIconPickerVisible, setIsIconPickerVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   const nameInputChangeHandler = (event) => {
-    setName(event.target.value);
+    handleName(event.target.value);
   };
 
   const iconInputChangeHandler = (event) => {
+    event.preventDefault();
     event.stopPropagation();
-    setIcon(event.currentTarget.value);
-    setIsIconPickerVisible(false);
+    handleIcon(event.currentTarget.value);
+    toggleVisibility();
   };
 
   const colorInputChangeHandler = (event) => {
-    event.stopPropagation();
-    setColor(event.target.value);
-  };
-
-  const toggleIconPickerVissibility = (e) => {
-    setIsIconPickerVisible(true);
-  };
-
-  const formSubmissionHandler = (event) => {
     event.preventDefault();
-    if (categoryId) {
-      editCategory(categoryId, {
-        id: categoryId,
-        name: name,
-        color: color,
-        icon: icon,
-      });
-    } else if (name === "" || icon === "") {
-      return;
-    } else {
-      createCategory({
-        id: Math.floor(Math.random() * 100),
-        name: name,
-        color: color,
-        icon: icon,
-      });
-      toggleFormVisibility();
-    }
+    event.stopPropagation();
+    handleColor(event.target.value);
   };
+
+  const toggleVisibility = () => {
+    setIsVisible(!isVisible);
+  };
+
   return (
-    <Form onSubmit={formSubmissionHandler}>
+    <Form>
       <FormGroup>
         <FormLabel>Category Name</FormLabel>
         <FormInput type="text" value={name} onChange={nameInputChangeHandler} />
@@ -74,9 +52,13 @@ export const AddCategoryForm = ({
 
       <FormGroup>
         <FormLabel>Select Icon</FormLabel>
-        <FormButton onClick={toggleIconPickerVissibility}></FormButton>
+        <FormInput
+          onClick={toggleVisibility}
+          value={icon}
+          onChange={iconInputChangeHandler}
+        />
 
-        {isIconPickerVisible && (
+        {isVisible && (
           <IconPicker iconInputChangeHandler={iconInputChangeHandler} />
         )}
         {icon && (
@@ -94,11 +76,6 @@ export const AddCategoryForm = ({
           onChange={colorInputChangeHandler}
         />
       </FormGroup>
-
-      <FormButton type="button" onClick={toggleFormVisibility}>
-        Cancel
-      </FormButton>
-      <FormButton type="submit">{categoryId ? "Save" : "Add"}</FormButton>
     </Form>
   );
 };

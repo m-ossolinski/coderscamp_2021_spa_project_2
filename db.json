@@ -1,22 +1,28 @@
 {
   "categories": [
     {
-      "id": 2,
-      "name": "Food",
-      "color": "#178c2e",
-      "icon": "FaBirthdayCake"
-    },
-    {
-      "id": 17,
-      "name": "Transport",
-      "color": "#1132d4",
-      "icon": "FaCar"
-    },
-    {
       "id": 90,
       "name": "House",
-      "color": "#e01f1f",
+      "color": "#2522e2",
       "icon": "FaHome"
+    },
+    {
+      "id": 34,
+      "name": "Food",
+      "color": "#178c2e",
+      "icon": "FaUtensils"
+    },
+    {
+      "id": 78,
+      "name": "Transport",
+      "color": "#c4b61c",
+      "icon": "FaTruckMoving"
+    },
+    {
+      "id": 37,
+      "name": "qqqqqqqq",
+      "color": "#f22626",
+      "icon": "FaStickerMule"
     }
   ]
 }

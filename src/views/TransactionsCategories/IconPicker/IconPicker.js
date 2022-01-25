@@ -4,7 +4,6 @@ import { iconList } from "../../../assets/iconList";
 import { IconPickerWrapper, IconWrapper } from "./IconPicker.style";
 
 export const IconPicker = ({ iconInputChangeHandler }) => {
-  console.log(iconList);
   return (
     <IconPickerWrapper>
       {iconList.map((icon) => (

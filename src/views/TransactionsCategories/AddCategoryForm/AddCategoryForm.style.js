@@ -45,17 +45,6 @@ export const ColorInput = styled.input`
   }
 `;
 
-export const FormButton = styled.button`
-  background-color: transparent;
-  color: #808080;
-  font-size: 1rem;
-  border: 1px solid #808080;
-  width: 20rem;
-  height: 2rem;
-  text-align: center;
-  margin: 1rem 0;
-`;
-
 export const IconWrapper = styled.button`
   width: 2rem;
   height: 2rem;

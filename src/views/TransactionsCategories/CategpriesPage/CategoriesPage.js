@@ -32,7 +32,7 @@ export const CategoriesPage = () => {
       await categoriesService.updateCategory(id, updatedCategory);
       setCategories(
         categories.map((category) =>
-          category.id !== id ? updatedCategory : category
+          category.id === id ? updatedCategory : category
         )
       );
     } catch (error) {
