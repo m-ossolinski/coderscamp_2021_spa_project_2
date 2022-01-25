@@ -15,7 +15,7 @@ export const ModalExample = () => {
 
       <Modal
         isVisible={isVisible}
-        onCanel={toggleVisibility}
+        onCancel={toggleVisibility}
         modalHeader={"Edit transaction"}
         cancelBtnLabel={"Cancel editting"}
         submitBtnLabel={"Submit changes"}
