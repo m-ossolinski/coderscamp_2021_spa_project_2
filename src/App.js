@@ -1,5 +1,6 @@
 import React from "react";
 import { CategoriesPage } from "./views/TransactionsCategories/CategpriesPage/CategoriesPage";
+import { ModalExample } from "./components/ModalExample";
 
 const App = () => {
   return (
@@ -7,6 +8,7 @@ const App = () => {
       <h1>Welcome to Coders Camp 2021</h1>
       <h2>SPA Project</h2>
       <CategoriesPage />
+      <ModalExample />
     </>
   );
 };
