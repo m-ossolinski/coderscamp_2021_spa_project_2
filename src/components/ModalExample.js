@@ -12,7 +12,7 @@ export const ModalExample = () => {
       </button>
       <Modal
         isVisible={isVisible}
-        toggleVisibility={toggleVisibility}
+        onCanel={toggleVisibility}
         modalHeader={"Edit transaction"}
         cancelBtnLabel={"Cancel editting"}
         submitBtnLabel={"Submit changes"}

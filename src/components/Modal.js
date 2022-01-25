@@ -5,16 +5,13 @@ import PropTypes from "prop-types";
 
 const Modal = ({
   isVisible,
-  toggleVisibility,
+  onCancel,
   modalHeader,
   cancelBtnLabel,
   submitBtnLabel,
   onSubmit,
   children,
 }) => {
-  const onCancel = () => {
-    toggleVisibility();
-  };
   return isVisible
     ? ReactDOM.createPortal(
         <StyledModal>
@@ -23,7 +20,7 @@ const Modal = ({
             <div className="modal">
               <div className="modal-header">
                 <h3>{modalHeader ?? "Edit transaction"}</h3>
-                <button className="modal-btn-close" onClick={toggleVisibility}>
+                <button className="modal-btn-close" onClick={onCancel}>
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
