@@ -13,9 +13,11 @@ const StyledList = styled.ul`
 
 const StyledListElement = styled.li`
   position: relative;
+
   &:hover a::before {
     box-shadow: 35px 35px 0 10px white;
   }
+
   &:hover a::after {
     box-shadow: 35px -35px 0 10px white;
   }
@@ -63,6 +65,7 @@ const StyledNavLink = styled(NavLink)`
   &.active::before {
     box-shadow: 35px 35px 0 10px #fff;
   }
+
   &.active::after {
     box-shadow: 35px -35px 0 10px #fff;
   }
