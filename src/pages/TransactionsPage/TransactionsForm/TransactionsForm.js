@@ -80,8 +80,8 @@ export const TransactionForm = (closeModal) => {
     <StyledTransactionForm onSubmit={handleSubmit}>
       <Input
         type="text"
-        label={"Title:"}
-        field={"title"}
+        label="Title:"
+        field="title"
         value={title}
         handleChange={setTitle}
         errorMessage={formErrors["title"]}
@@ -90,8 +90,8 @@ export const TransactionForm = (closeModal) => {
       />
       <Input
         type="text"
-        label={"Description:"}
-        field={"description"}
+        label="Description:"
+        field="description"
         value={description}
         handleChange={setDescription}
         errorMessage={formErrors["description"]}
@@ -103,15 +103,15 @@ export const TransactionForm = (closeModal) => {
         name={category}
         field="category"
         handleChange={setCategory}
-        label={"Category:"}
+        label="Category:"
         errorMessage={formErrors["category"]}
         isTouched={isTouched}
         handleBlur={handleBlur}
       />
       <Input
         type="number"
-        label={"Paid:"}
-        field={"amount"}
+        label="Paid:"
+        field="amount"
         value={amount}
         handleChange={setAmount}
         errorMessage={formErrors["amount"]}
@@ -129,15 +129,15 @@ export const TransactionForm = (closeModal) => {
       <div>
         <RadioButton
           options={paymentOptions}
-          field={"paymenType"}
-          label={"Paid by:"}
+          field="paymenType"
+          label="Paid by:"
           value={paymentType}
           handleChange={setPaymentType}
         />
         <RadioButton
           options={paymentTypes}
-          field={"type"}
-          label={"In/out:"}
+          field="type"
+          label="In/out:"
           value={type}
           handleChange={setType}
         />
