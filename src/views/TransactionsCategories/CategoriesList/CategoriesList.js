@@ -1,5 +1,5 @@
 import React from "react";
-import { AddCategory } from "../AddCategory/AddCategory";
+import { AddCategoryForm } from "../CategoryForm/AddCategoryForm";
 import { CategoryItem } from "../CategoryItem/CategoryItem";
 import { Table } from "./CategoryList.style";
 
@@ -11,7 +11,7 @@ export const CategoriesList = ({
 }) => {
   return (
     <>
-      <AddCategory categories={categories} createCategory={createCategory} />
+      <AddCategoryForm createCategory={createCategory} />
       <Table>
         <tbody>
           {categories.map((category) => (

@@ -19,10 +19,16 @@
       "icon": "FaTruckMoving"
     },
     {
-      "id": 37,
-      "name": "qqqqqqqq",
-      "color": "#f22626",
+      "id": 88,
+      "name": "kon",
+      "color": "#e61e1e",
       "icon": "FaStickerMule"
+    },
+    {
+      "id": 42,
+      "name": "kkkkkkk",
+      "color": "#a3bb30",
+      "icon": "FaRedhat"
     }
   ]
 }
