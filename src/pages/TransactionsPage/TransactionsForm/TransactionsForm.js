@@ -95,7 +95,7 @@ export const TransactionForm = () => {
   return (
     <>
       <button className="button-default" onClick={toggleVisibility}>
-        Show Modal
+        Add new transaction
       </button>
       <Modal
         isVisible={isVisible}
