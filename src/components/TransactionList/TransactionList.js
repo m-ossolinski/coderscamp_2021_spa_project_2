@@ -1,5 +1,5 @@
 import React from "react";
-import transactions from "./transactions.json";
+import transactions from "../../services/api/transactions.json";
 import { TransactionItem } from "../TransactionItem/TransactionItem";
 
 const TransactionList = () => {
