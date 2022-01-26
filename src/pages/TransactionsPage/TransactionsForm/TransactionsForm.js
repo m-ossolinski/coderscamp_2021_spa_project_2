@@ -36,8 +36,7 @@ export const TransactionForm = () => {
       date: date,
       category: category,
     };
-    const errors = validate(formValues);
-    setFormErrors(errors);
+    setFormErrors(validate(formValues));
   };
 
   const handleBlur = (field) => {
@@ -74,7 +73,6 @@ export const TransactionForm = () => {
       date: true,
       category: true,
     });
-    validateForm();
     if (Object.keys(formErrors).length === 0) {
       toggleVisibility();
       clearFormValues();
