@@ -1,22 +1,22 @@
 import React from "react";
 import { StyledListItem } from "./TransactionItem.styled";
 
-const TransactionItem = () => {
+const TransactionItem = (transaction) => {
   return (
     <StyledListItem>
-      <p class="transaction-type">Deposit</p>
+      <p class="transaction-type">{transaction.type}</p>
       <div class="transaction-info">
         <div class="transaction-info--main">
           <div class="transaction-info--titles">
-            <h1 class="transaction-title">Transaction title</h1>
-            <p class="transaction-category">Transaction category</p>
+            <h1 class="transaction-title">{transaction.title}</h1>
+            <p class="transaction-category">{transaction.category}</p>
           </div>
-          <p class="transaction-date">20.01.2022</p>
+          <p class="transaction-date">{transaction.date}</p>
         </div>
-        <p class="transaction-amount">$ 1200,00</p>
+        <p class="transaction-amount">$ {transaction.amount}</p>
       </div>
       <p class="transaction-description">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut, officiis!
+       {transaction.description}
       </p>
     </StyledListItem>
   );

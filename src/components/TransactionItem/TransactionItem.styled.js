@@ -4,10 +4,12 @@ export const StyledListItem = styled.div`
   padding-bottom: 10px;
   border: none;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  width: 500px;
+  max-width: 500px;
 
   & > .transaction-type {
     padding: 5px 10px;
-    background-color: #baffb4;
+    border: 1px solid rgba(0, 0, 0, 0.2);
   }
 
   & > .transaction-info {
