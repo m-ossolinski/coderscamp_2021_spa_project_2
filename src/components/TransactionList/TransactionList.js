@@ -5,6 +5,7 @@ import { TransactionItem } from "../TransactionItem/TransactionItem";
 const TransactionList = () => {
   const renderList = transactions.map((transaction) => (
     <TransactionItem
+      key={transaction.id}
       title={transaction.title}
       amount={transaction.amount}
       date={transaction.date}

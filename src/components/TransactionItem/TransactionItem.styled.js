@@ -21,7 +21,7 @@ export const StyledListItem = styled.div`
   }
 
   & > .transaction-info .transaction-info--main {
-    padding: 5px 10px;
+    padding: 5px 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -41,7 +41,7 @@ export const StyledListItem = styled.div`
     .transaction-info--titles
     .transaction-category {
     font-style: oblique;
-    margin: 10px;
+    margin: 10px 0;
   }
 
   & > .transaction-info .transaction-info--main .transaction-date {
