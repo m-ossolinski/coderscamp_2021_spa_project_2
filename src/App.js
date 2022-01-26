@@ -1,6 +1,5 @@
 import React from "react";
 import { AppRoutes } from "./routes/AppRoutes";
-import { ModalExample } from "./components/ModalExample";
 import styled from "styled-components";
 
 const AppWrapper = styled.div`
@@ -13,7 +12,6 @@ const App = () => {
     <>
       <AppWrapper>
         <AppRoutes />
-        <ModalExample />
       </AppWrapper>
     </>
   );
