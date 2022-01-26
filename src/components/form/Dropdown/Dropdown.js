@@ -8,7 +8,7 @@ export const Dropdown = ({
   field,
   label,
   handleChange,
-  errors,
+  errorMessage,
   isTouched,
   handleBlur,
 }) => {
@@ -18,7 +18,13 @@ export const Dropdown = ({
     <StyledDropdown>
       <p>{label}</p>
       <div>
-        <button type="button" onClick={() => setIsVisible(!isVisible)}>
+        <button
+          type="button"
+          onClick={() => {
+            setIsVisible(!isVisible);
+            handleBlur(field);
+          }}
+        >
           {name} <AiOutlineArrowDown />
         </button>
         {isVisible === false ? (
@@ -33,6 +39,7 @@ export const Dropdown = ({
                 onClick={(e) => {
                   handleChange(option);
                   setIsVisible(!isVisible);
+                  handleBlur(field);
                 }}
               >
                 {option}
@@ -41,7 +48,7 @@ export const Dropdown = ({
           </div>
         )}
       </div>
-      {errors[field] && <p>{errors[field]}</p>}
+      {errorMessage && isTouched[field] === true && <p>{errorMessage}</p>}
     </StyledDropdown>
   );
 };

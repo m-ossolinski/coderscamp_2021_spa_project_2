@@ -27,7 +27,18 @@ export const TransactionForm = (closeModal) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formErrors);
+    setIsTouched({
+      title: true,
+      description: true,
+      amount: true,
+      date: true,
+      category: true,
+    });
+    validateForm();
+    if (Object.keys(formErrors).length === 0) {
+      console.log("form submitted");
+    }
+    return;
     // pass object to json-server or somewhere else, will add later
     // closeModal();
   };
@@ -48,13 +59,7 @@ export const TransactionForm = (closeModal) => {
     setFormErrors(errors);
   };
 
-  const firstUpdate = useRef(true);
-
   useEffect(() => {
-    if (firstUpdate.current) {
-      firstUpdate.current = false;
-      return;
-    }
     validateForm();
   }, [title, description, amount, date, category]);
 
@@ -79,7 +84,7 @@ export const TransactionForm = (closeModal) => {
         field={"title"}
         value={title}
         handleChange={setTitle}
-        errors={formErrors}
+        errorMessage={formErrors["title"]}
         isTouched={isTouched}
         handleBlur={handleBlur}
       />
@@ -89,7 +94,7 @@ export const TransactionForm = (closeModal) => {
         field={"description"}
         value={description}
         handleChange={setDescription}
-        errors={formErrors}
+        errorMessage={formErrors["description"]}
         isTouched={isTouched}
         handleBlur={handleBlur}
       />
@@ -99,7 +104,7 @@ export const TransactionForm = (closeModal) => {
         field="category"
         handleChange={setCategory}
         label={"Category:"}
-        errors={formErrors}
+        errorMessage={formErrors["category"]}
         isTouched={isTouched}
         handleBlur={handleBlur}
       />
@@ -109,7 +114,7 @@ export const TransactionForm = (closeModal) => {
         field={"amount"}
         value={amount}
         handleChange={setAmount}
-        errors={formErrors}
+        errorMessage={formErrors["amount"]}
         isTouched={isTouched}
         handleBlur={handleBlur}
       />
@@ -117,7 +122,7 @@ export const TransactionForm = (closeModal) => {
         field="date"
         value={date}
         handleChange={setDate}
-        errors={formErrors}
+        errorMessage={formErrors["date"]}
         isTouched={isTouched}
         handleBlur={handleBlur}
       />

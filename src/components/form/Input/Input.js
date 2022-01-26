@@ -6,7 +6,7 @@ export const Input = ({
   field,
   value,
   handleChange,
-  errors,
+  errorMessage,
   isTouched,
   handleBlur,
 }) => {
@@ -23,7 +23,7 @@ export const Input = ({
           onBlur={() => handleBlur(field)}
         />
       </div>
-      {errors[field] && isTouched[field] === true && <p>{errors[field]}</p>}
+      {errorMessage && isTouched[field] === true && <p>{errorMessage}</p>}
     </StyledInput>
   );
 };

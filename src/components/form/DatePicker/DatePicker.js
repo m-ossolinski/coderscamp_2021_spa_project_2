@@ -4,7 +4,7 @@ export const DatePicker = ({
   field,
   value,
   handleChange,
-  errors,
+  errorMessage,
   isTouched,
   handleBlur,
 }) => {
@@ -24,7 +24,7 @@ export const DatePicker = ({
           onBlur={() => handleBlur(field)}
         ></input>
       </div>
-      {errors[field] && isTouched[field] && <p>{errors[field]}</p>}
+      {errorMessage && isTouched[field] === true && <p>{errorMessage}</p>}
     </StyledDatePicker>
   );
 };
