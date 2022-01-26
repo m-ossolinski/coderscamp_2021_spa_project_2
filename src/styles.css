@@ -7,8 +7,6 @@
   box-sizing: border-box;
 }
 
-#root {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+html {
+  font-size: 62.5%;
 }
