@@ -1,7 +1,7 @@
 import React from "react";
 import { StyledListItem } from "./TransactionItem.styled";
 
-const TransactionItem = (transaction) => {
+export const TransactionItem = (transaction) => {
   return (
     <StyledListItem>
       <p class="transaction-type">{transaction.type}</p>
@@ -15,11 +15,7 @@ const TransactionItem = (transaction) => {
         </div>
         <p class="transaction-amount">$ {transaction.amount}</p>
       </div>
-      <p class="transaction-description">
-       {transaction.description}
-      </p>
+      <p class="transaction-description">{transaction.description}</p>
     </StyledListItem>
   );
 };
-
-export default TransactionItem;
