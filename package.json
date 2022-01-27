@@ -4,6 +4,7 @@
   "description": "",
   "scripts": {
     "test": "jest --watchAll --verbose",
+    "server": "json-server --watch db.json --port 8000",
     "dev": "parcel src/index.html",
     "prod": "parcel build src/index.html --public-url ./"
   },
@@ -19,6 +20,8 @@
   },
   "homepage": "https://github.com/m-ossolinski/coderscamp_2021_spa_project_2#readme",
   "dependencies": {
+    "axios": "^0.25.0",
+    "json-server": "^0.17.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",

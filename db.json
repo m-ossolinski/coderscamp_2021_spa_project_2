@@ -1,0 +1,54 @@
+{
+  "transactions": [
+    {
+      "id": 23,
+      "amount":"10",
+      "category":"clothes",
+      "date":"2022-01-12",
+      "description":"t-shirt",
+      "paymentType":"card",
+      "title":"t-shirt",
+      "type":"expense"
+    },
+    {
+      "id": 11,
+      "amount":"20",
+      "category":"food",
+      "date":"2022-01-14",
+      "description":"pizza",
+      "paymentType":"card",
+      "title":"pizza salame",
+      "type":"expense"
+    },
+    {
+      "id": 3,
+      "amount":"5000",
+      "category":"income",
+      "date":"2022-01-10",
+      "description":"income from work",
+      "paymentType":"cash",
+      "title":"salary",
+      "type":"income"
+    },
+    {
+      "id": 33,
+      "amount":"5",
+      "category":"clothes",
+      "date":"2022-01-12",
+      "description":"pants",
+      "paymentType":"cash",
+      "title":"pants",
+      "type":"expense"
+    },
+    {
+      "id": 28,
+      "amount":"50",
+      "category":"education",
+      "date":"2022-01-12",
+      "description":"expense for education",
+      "paymentType":"card",
+      "title":"pants",
+      "type":"expense"
+    }
+  ]
+}
