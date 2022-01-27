@@ -17,7 +17,7 @@
     "date": "2022-01-07",
     "description": "Lorem ipsum dolor sit amet.",
     "paymentType": "card",
-    "type": "expense"
+    "type": "income"
   },
   {
     "id": "363e34d9-6181-40cc-ac85-f19695f422ca",
@@ -47,6 +47,6 @@
     "date": "2022-01-04",
     "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
     "paymentType": "card",
-    "type": "expense"
+    "type": "income"
   }
 ]

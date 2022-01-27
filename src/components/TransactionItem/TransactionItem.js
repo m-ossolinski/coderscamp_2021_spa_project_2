@@ -1,21 +1,28 @@
 import React from "react";
 import { StyledListItem } from "./TransactionItem.styled";
 
-export const TransactionItem = (transaction) => {
+export const TransactionItem = ({
+  type,
+  title,
+  category,
+  date,
+  amount,
+  description,
+}) => {
   return (
     <StyledListItem>
-      <p className="transaction-type">{transaction.type}</p>
+      <p className="transaction-type">{type}</p>
       <div className="transaction-info">
         <div className="transaction-info--main">
           <div className="transaction-info--titles">
-            <h1 className="transaction-title">{transaction.title}</h1>
-            <p className="transaction-category">{transaction.category}</p>
+            <h1 className="transaction-title">{title}</h1>
+            <p className="transaction-category">{category}</p>
           </div>
-          <p className="transaction-date">{transaction.date}</p>
+          <p className="transaction-date">{date}</p>
         </div>
-        <p className="transaction-amount">$ {transaction.amount}</p>
+        <p className="transaction-amount">$ {amount}</p>
       </div>
-      <p className="transaction-description">{transaction.description}</p>
+      <p className="transaction-description">{description}</p>
     </StyledListItem>
   );
 };

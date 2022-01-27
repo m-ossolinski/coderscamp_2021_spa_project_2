@@ -6,22 +6,21 @@ export const StyledListItem = styled.div`
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   width: 500px;
   max-width: 500px;
+  padding: 10px;
 
   & > .transaction-type {
-    padding: 5px 10px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   }
 
   & > .transaction-info {
-    padding: 5px 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 5px;
+    margin: 10px 0;
+    line-height: 1.8;
   }
 
   & > .transaction-info .transaction-info--main {
-    padding: 5px 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -41,7 +40,6 @@ export const StyledListItem = styled.div`
     .transaction-info--titles
     .transaction-category {
     font-style: oblique;
-    margin: 10px 0;
   }
 
   & > .transaction-info .transaction-info--main .transaction-date {
@@ -50,6 +48,6 @@ export const StyledListItem = styled.div`
   }
 
   & > .transaction-description {
-    padding: 5px 10px;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
   }
 `;
