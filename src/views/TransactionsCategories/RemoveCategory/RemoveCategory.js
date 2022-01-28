@@ -20,9 +20,9 @@ export const RemoveCategory = ({ removeCategory, category }) => {
       <Modal
         isVisible={isVisible}
         onCancel={toggleVisibility}
-        modalHeader={""}
-        cancelBtnLabel={"Cancel"}
-        submitBtnLabel={"Remove Category"}
+        modalHeader="Remove Category"
+        cancelBtnLabel="Cancel"
+        submitBtnLabel="Remove"
         onSubmit={handleSubmit}
       >
         <div>Are you sure to delete {category.name} category?</div>

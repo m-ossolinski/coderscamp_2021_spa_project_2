@@ -97,9 +97,9 @@ export const EditCategoryForm = ({ editCategory, category }) => {
       <Modal
         isVisible={isVisible}
         onCancel={handleCancel}
-        modalHeader={"Create Category"}
-        cancelBtnLabel={"Cancel creating category"}
-        submitBtnLabel={"Submit changes"}
+        modalHeader="Edit Category"
+        cancelBtnLabel="Cancel"
+        submitBtnLabel="Submit"
         onSubmit={handleSubmit}
       >
         <Form>
@@ -115,15 +115,8 @@ export const EditCategoryForm = ({ editCategory, category }) => {
 
           <FormGroup>
             <FormLabel>Select Icon</FormLabel>
-            <FormInput
-              onClick={toggleIsIconPickerVissible}
-              value={icon}
-              onChange={iconInputChangeHandler}
-            />
+            <IconPicker iconInputChangeHandler={iconInputChangeHandler} />
 
-            {isIconPickerVisible && (
-              <IconPicker iconInputChangeHandler={iconInputChangeHandler} />
-            )}
             {icon && (
               <IconWrapper>
                 <IconPickerItem icon={icon} />
