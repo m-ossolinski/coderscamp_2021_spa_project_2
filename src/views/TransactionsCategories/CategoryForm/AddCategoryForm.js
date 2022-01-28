@@ -23,8 +23,6 @@ export const AddCategoryForm = ({ createCategory }) => {
   const [color, setColor] = useState("");
   const [formErrors, setFormErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const [isIconPickerVisible, setIsIconPickerVisible] = useState(false);
   const { isVisible, toggleVisibility } = useModal();
 
   useEffect(() => {
@@ -55,10 +53,6 @@ export const AddCategoryForm = ({ createCategory }) => {
     event.preventDefault();
     event.stopPropagation();
     setColor(event.target.value);
-  };
-
-  const toggleIsIconPickerVissible = () => {
-    setIsIconPickerVisible(!isIconPickerVisible);
   };
 
   const handleSubmit = () => {

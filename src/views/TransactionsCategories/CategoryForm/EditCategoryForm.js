@@ -21,9 +21,7 @@ export const EditCategoryForm = ({ editCategory, category }) => {
   const [name, setName] = useState(category.name);
   const [icon, setIcon] = useState(category.icon);
   const [color, setColor] = useState(category.color);
-  const [isIconPickerVisible, setIsIconPickerVisible] = useState(false);
   const { isVisible, toggleVisibility } = useModal();
-
   const [formErrors, setFormErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -59,10 +57,6 @@ export const EditCategoryForm = ({ editCategory, category }) => {
     setColor(event.target.value);
   };
 
-  const toggleIsIconPickerVissible = () => {
-    setIsIconPickerVisible(!isIconPickerVisible);
-  };
-
   const handleSubmit = () => {
     setIsSubmitting(true);
 
@@ -83,9 +77,9 @@ export const EditCategoryForm = ({ editCategory, category }) => {
 
   handleCancel = () => {
     toggleVisibility();
-    setName("");
-    setIcon("");
-    setColor("");
+    setName(name);
+    setIcon(icon);
+    setColor(color);
     setFormErrors("");
   };
 
