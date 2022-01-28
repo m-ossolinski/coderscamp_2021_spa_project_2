@@ -14,7 +14,6 @@ const App = () => {
       <AppWrapper>
         <AppRoutes />
         <ModalExample />
-        <TransactionsList />
       </AppWrapper>
     </>
   );
