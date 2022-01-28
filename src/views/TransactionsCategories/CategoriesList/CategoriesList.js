@@ -1,5 +1,4 @@
 import React from "react";
-import { AddCategoryForm } from "../CategoryForm/AddCategoryForm";
 import { CategoryItem } from "../CategoryItem/CategoryItem";
 import { Table } from "./CategoryList.style";
 
@@ -11,7 +10,6 @@ export const CategoriesList = ({
 }) => {
   return (
     <>
-      <AddCategoryForm createCategory={createCategory} />
       <Table>
         <tbody>
           {categories.map((category) => (

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { IconPicker } from "../IconPicker/IconPicker";
-import { IconWrapper } from "../IconPicker/IconPicker.style";
 import { IconPickerItem } from "../IconPicker/IconPickerItem";
 import Modal from "../../../components/Modal";
 import { useModal } from "../../../services/hooks/useModal";
 import { validateFormValues } from "../../../services/helpers/categoryFormValidationRules";
+import { v4 as uuidv4 } from "uuid";
 
 import {
   Form,
@@ -14,6 +14,7 @@ import {
   ColorInput,
   IconWrapper,
   FormError,
+  Button,
 } from "./CategoryForm.style";
 
 export const AddCategoryForm = ({ createCategory }) => {
@@ -65,7 +66,7 @@ export const AddCategoryForm = ({ createCategory }) => {
 
     if (Object.keys(formErrors).length === 0 && isSubmitting) {
       createCategory({
-        id: Math.floor(Math.random() * 100),
+        id: uuidv4(),
         name: name,
         color: color,
         icon: icon,
@@ -85,9 +86,10 @@ export const AddCategoryForm = ({ createCategory }) => {
     setColor("");
     setFormErrors("");
   };
+
   return (
     <>
-      <button onClick={toggleVisibility}>Add Category</button>
+      <Button onClick={toggleVisibility}>Add Category</Button>
       <Modal
         isVisible={isVisible}
         onCancel={handleCancel}

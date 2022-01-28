@@ -1,22 +1,28 @@
 import React, { useState, useEffect } from "react";
 import { CategoriesList } from "../CategoriesList/CategoriesList";
 import categoriesService from "../../../services/api/categoriesService";
+import { AddCategoryForm } from "../CategoryForm/AddCategoryForm";
+import { CategoryPageWrapper } from "./CategoryPage.style";
 
 export const CategoriesPage = () => {
   const [categories, setCategories] = useState([]);
-
-  const getCategories = async () => {
-    try {
-      const response = await categoriesService.getCategoriesList();
-      setCategories(response);
-    } catch (error) {
-      throw new Error("Categories list could not be shown.");
-    }
-  };
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     getCategories();
   }, []);
+
+  const getCategories = async () => {
+    try {
+      setLoading(true);
+      const response = await categoriesService.getCategoriesList();
+      setCategories(response);
+    } catch (error) {
+      throw new Error("Categories list could not been shown.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const createCategory = async (category) => {
     try {
@@ -24,7 +30,7 @@ export const CategoriesPage = () => {
 
       setCategories([...categories, newCategory]);
     } catch (error) {
-      throw new Error("Category could not have been created.");
+      throw new Error("Category could not be created.");
     }
   };
 
@@ -37,7 +43,7 @@ export const CategoriesPage = () => {
         )
       );
     } catch (error) {
-      throw new Error("Category could not have been eddited");
+      throw new Error("Category could not be eddited");
     }
   };
 
@@ -46,18 +52,20 @@ export const CategoriesPage = () => {
       await categoriesService.removeCategory(id);
       setCategories(categories.filter((category) => category.id !== id));
     } catch (error) {
-      throw new Error("Category could not have been delated.");
+      throw new Error("Category could not be delated.");
     }
   };
 
   return (
-    <>
+    <CategoryPageWrapper>
+      {loading && <p>Category list is loading ...</p>}
+      <AddCategoryForm createCategory={createCategory} />
       <CategoriesList
         categories={categories}
         createCategory={createCategory}
         removeCategory={removeCategory}
         editCategory={editCategory}
       />
-    </>
+    </CategoryPageWrapper>
   );
 };

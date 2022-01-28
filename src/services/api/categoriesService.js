@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "http://localhost:8000/categories";
+const baseUrl = process.env.REACT_APP_CATEGORIES_BASE_URL;
 
 const getCategoriesList = () => {
   const request = axios.get(baseUrl);

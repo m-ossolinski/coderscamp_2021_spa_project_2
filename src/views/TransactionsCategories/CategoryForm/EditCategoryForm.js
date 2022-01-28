@@ -81,6 +81,14 @@ export const EditCategoryForm = ({ editCategory, category }) => {
     }
   };
 
+  handleCancel = () => {
+    toggleVisibility();
+    setName("");
+    setIcon("");
+    setColor("");
+    setFormErrors("");
+  };
+
   return (
     <>
       <IconWrapper onClick={toggleVisibility}>
@@ -88,7 +96,7 @@ export const EditCategoryForm = ({ editCategory, category }) => {
       </IconWrapper>
       <Modal
         isVisible={isVisible}
-        onCancel={toggleVisibility}
+        onCancel={handleCancel}
         modalHeader={"Create Category"}
         cancelBtnLabel={"Cancel creating category"}
         submitBtnLabel={"Submit changes"}
