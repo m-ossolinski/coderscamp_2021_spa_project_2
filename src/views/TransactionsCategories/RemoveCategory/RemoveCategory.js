@@ -1,7 +1,8 @@
 import { FaTrashAlt } from "react-icons/fa";
-import { IconWrapper } from "../CategoryItem/CategoryItem.style";
+import { Confirmation, IconWrapper } from "./RemoveCategory.style";
 import Modal from "../../../components/Modal";
 import { useModal } from "../../../services/hooks/useModal";
+import PropTypes from "prop-types";
 
 export const RemoveCategory = ({ removeCategory, category }) => {
   const { isVisible, toggleVisibility } = useModal();
@@ -25,8 +26,17 @@ export const RemoveCategory = ({ removeCategory, category }) => {
         submitBtnLabel="Remove"
         onSubmit={handleSubmit}
       >
-        <div>Are you sure to delete {category.name} category?</div>
+        <Confirmation>
+          Are you sure to delete {category.name} category?
+        </Confirmation>
       </Modal>
     </>
   );
+};
+
+RemoveCategory.propTypes = {
+  category: PropTypes.object.isRequired,
+  removeCategory: PropTypes.func.isRequired,
+
+  category: PropTypes.objectOf(PropTypes.string.isRequired),
 };

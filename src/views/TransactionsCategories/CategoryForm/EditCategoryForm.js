@@ -6,7 +6,7 @@ import Modal from "../../../components/Modal";
 import { useModal } from "../../../services/hooks/useModal";
 import { FaTools } from "react-icons/fa";
 import { validateFormValues } from "../../../services/helpers/categoryFormValidationRules";
-
+import PropTypes from "prop-types";
 import {
   Form,
   FormGroup,
@@ -48,7 +48,6 @@ export const EditCategoryForm = ({ editCategory, category }) => {
     event.preventDefault();
     event.stopPropagation();
     setIcon(event.currentTarget.value);
-    toggleIsIconPickerVissible();
   };
 
   const colorInputChangeHandler = (event) => {
@@ -68,9 +67,9 @@ export const EditCategoryForm = ({ editCategory, category }) => {
         icon: icon,
       });
       toggleVisibility();
-      setName("");
-      setIcon("");
-      setColor("");
+      setName(name);
+      setIcon(icon);
+      setColor(color);
       setIsSubmitting(false);
     }
   };
@@ -80,7 +79,6 @@ export const EditCategoryForm = ({ editCategory, category }) => {
     setName(name);
     setIcon(icon);
     setColor(color);
-    setFormErrors("");
   };
 
   return (
@@ -132,4 +130,11 @@ export const EditCategoryForm = ({ editCategory, category }) => {
       </Modal>
     </>
   );
+};
+
+EditCategoryForm.propTypes = {
+  category: PropTypes.object.isRequired,
+  editCategory: PropTypes.func.isRequired,
+
+  category: PropTypes.objectOf(PropTypes.string.isRequired),
 };

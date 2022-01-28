@@ -62,7 +62,6 @@ export const CategoriesPage = () => {
       <AddCategoryForm createCategory={createCategory} />
       <CategoriesList
         categories={categories}
-        createCategory={createCategory}
         removeCategory={removeCategory}
         editCategory={editCategory}
       />

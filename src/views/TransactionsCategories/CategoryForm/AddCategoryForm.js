@@ -5,7 +5,7 @@ import Modal from "../../../components/Modal";
 import { useModal } from "../../../services/hooks/useModal";
 import { validateFormValues } from "../../../services/helpers/categoryFormValidationRules";
 import { v4 as uuidv4 } from "uuid";
-
+import PropTypes from "prop-types";
 import {
   Form,
   FormGroup,
@@ -46,7 +46,6 @@ export const AddCategoryForm = ({ createCategory }) => {
     event.preventDefault();
     event.stopPropagation();
     setIcon(event.currentTarget.value);
-    toggleIsIconPickerVissible();
   };
 
   const colorInputChangeHandler = (event) => {
@@ -78,7 +77,7 @@ export const AddCategoryForm = ({ createCategory }) => {
     setName("");
     setIcon("");
     setColor("");
-    setFormErrors("");
+    setIsSubmitting(false);
   };
 
   return (
@@ -130,4 +129,8 @@ export const AddCategoryForm = ({ createCategory }) => {
       </Modal>
     </>
   );
+};
+
+AddCategoryForm.propTypes = {
+  createCategory: PropTypes.func.isRequired,
 };
