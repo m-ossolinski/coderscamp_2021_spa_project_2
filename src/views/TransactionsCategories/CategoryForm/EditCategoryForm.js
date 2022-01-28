@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { IconPicker } from "../IconPicker/IconPicker";
 import { IconWrapper } from "../IconPicker/IconPicker.style";
 import { IconPickerItem } from "../IconPicker/IconPickerItem";
 import Modal from "../../../components/Modal";
 import { useModal } from "../../../services/hooks/useModal";
 import { FaTools } from "react-icons/fa";
+import { validateFormValues } from "../../../services/helpers/categoryFormValidationRules";
 
 import {
   Form,
@@ -13,6 +14,7 @@ import {
   FormInput,
   ColorInput,
   IconWrapper,
+  FormError,
 } from "./CategoryForm.style";
 
 export const EditCategoryForm = ({ editCategory, category }) => {
@@ -22,7 +24,23 @@ export const EditCategoryForm = ({ editCategory, category }) => {
   const [isIconPickerVisible, setIsIconPickerVisible] = useState(false);
   const { isVisible, toggleVisibility } = useModal();
 
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const { id: categoryId } = category;
+
+  useEffect(() => {
+    validateForm();
+  }, [name, color, icon]);
+
+  const validateForm = () => {
+    const formValues = {
+      name: name,
+      icon: icon,
+      color: color,
+    };
+    setFormErrors(validateFormValues(formValues));
+  };
 
   const nameInputChangeHandler = (event) => {
     setName(event.target.value);
@@ -46,17 +64,23 @@ export const EditCategoryForm = ({ editCategory, category }) => {
   };
 
   const handleSubmit = () => {
-    editCategory(categoryId, {
-      id: categoryId,
-      name: name,
-      color: color,
-      icon: icon,
-    });
-    setIcon("");
-    setColor("");
-    setName("");
-    toggleVisibility();
+    setIsSubmitting(true);
+
+    if (Object.keys(formErrors).length === 0 && isSubmitting) {
+      editCategory(categoryId, {
+        id: categoryId,
+        name: name,
+        color: color,
+        icon: icon,
+      });
+      toggleVisibility();
+      setName("");
+      setIcon("");
+      setColor("");
+      setIsSubmitting(false);
+    }
   };
+
   return (
     <>
       <IconWrapper onClick={toggleVisibility}>
@@ -78,6 +102,7 @@ export const EditCategoryForm = ({ editCategory, category }) => {
               value={name}
               onChange={nameInputChangeHandler}
             />
+            {isSubmitting && <FormError>{formErrors.name}</FormError>}
           </FormGroup>
 
           <FormGroup>
@@ -96,6 +121,7 @@ export const EditCategoryForm = ({ editCategory, category }) => {
                 <IconPickerItem icon={icon} />
               </IconWrapper>
             )}
+            {isSubmitting && <FormError>{formErrors.icon}</FormError>}
           </FormGroup>
 
           <FormGroup>
@@ -105,6 +131,7 @@ export const EditCategoryForm = ({ editCategory, category }) => {
               value={color}
               onChange={colorInputChangeHandler}
             />
+            {isSubmitting && <FormError>{formErrors.color}</FormError>}
           </FormGroup>
         </Form>
       </Modal>

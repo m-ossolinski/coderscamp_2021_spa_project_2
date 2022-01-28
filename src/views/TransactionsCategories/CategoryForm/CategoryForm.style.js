@@ -51,3 +51,7 @@ export const IconWrapper = styled.button`
   background-color: transparent;
   font-size: 1.2rem;
 `;
+
+export const FormError = styled.span`
+  color: #cd5c5c;
+`;

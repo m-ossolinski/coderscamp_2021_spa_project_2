@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { IconPicker } from "../IconPicker/IconPicker";
 import { IconWrapper } from "../IconPicker/IconPicker.style";
 import { IconPickerItem } from "../IconPicker/IconPickerItem";
 import Modal from "../../../components/Modal";
 import { useModal } from "../../../services/hooks/useModal";
+import { validateFormValues } from "../../../services/helpers/categoryFormValidationRules";
 
 import {
   Form,
@@ -12,14 +13,31 @@ import {
   FormInput,
   ColorInput,
   IconWrapper,
+  FormError,
 } from "./CategoryForm.style";
 
 export const AddCategoryForm = ({ createCategory }) => {
   const [name, setName] = useState("");
   const [icon, setIcon] = useState("");
   const [color, setColor] = useState("");
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const [isIconPickerVisible, setIsIconPickerVisible] = useState(false);
   const { isVisible, toggleVisibility } = useModal();
+
+  useEffect(() => {
+    validateForm();
+  }, [name, color, icon]);
+
+  const validateForm = () => {
+    const formValues = {
+      name: name,
+      icon: icon,
+      color: color,
+    };
+    setFormErrors(validateFormValues(formValues));
+  };
 
   const nameInputChangeHandler = (event) => {
     setName(event.target.value);
@@ -43,23 +61,36 @@ export const AddCategoryForm = ({ createCategory }) => {
   };
 
   const handleSubmit = () => {
-    createCategory({
-      id: Math.floor(Math.random() * 100),
-      name: name,
-      color: color,
-      icon: icon,
-    });
+    setIsSubmitting(true);
+
+    if (Object.keys(formErrors).length === 0 && isSubmitting) {
+      createCategory({
+        id: Math.floor(Math.random() * 100),
+        name: name,
+        color: color,
+        icon: icon,
+      });
+      toggleVisibility();
+      setName("");
+      setIcon("");
+      setColor("");
+      setIsSubmitting(false);
+    }
+  };
+
+  handleCancel = () => {
+    toggleVisibility();
+    setName("");
     setIcon("");
     setColor("");
-    setName("");
-    toggleVisibility();
+    setFormErrors("");
   };
   return (
     <>
       <button onClick={toggleVisibility}>Add Category</button>
       <Modal
         isVisible={isVisible}
-        onCancel={toggleVisibility}
+        onCancel={handleCancel}
         modalHeader={"Create Category"}
         cancelBtnLabel={"Cancel creating category"}
         submitBtnLabel={"Submit changes"}
@@ -72,7 +103,9 @@ export const AddCategoryForm = ({ createCategory }) => {
               type="text"
               value={name}
               onChange={nameInputChangeHandler}
+              required
             />
+            {isSubmitting && <FormError>{formErrors.name}</FormError>}
           </FormGroup>
 
           <FormGroup>
@@ -81,6 +114,7 @@ export const AddCategoryForm = ({ createCategory }) => {
               onClick={toggleIsIconPickerVissible}
               value={icon}
               onChange={iconInputChangeHandler}
+              required
             />
 
             {isIconPickerVisible && (
@@ -91,6 +125,7 @@ export const AddCategoryForm = ({ createCategory }) => {
                 <IconPickerItem icon={icon} />
               </IconWrapper>
             )}
+            {isSubmitting && <FormError>{formErrors.icon}</FormError>}
           </FormGroup>
 
           <FormGroup>
@@ -99,7 +134,9 @@ export const AddCategoryForm = ({ createCategory }) => {
               type="color"
               value={color}
               onChange={colorInputChangeHandler}
+              required
             />
+            {isSubmitting && <FormError>{formErrors.color}</FormError>}
           </FormGroup>
         </Form>
       </Modal>

@@ -21,6 +21,7 @@ export const CategoriesPage = () => {
   const createCategory = async (category) => {
     try {
       const newCategory = await categoriesService.createCategory(category);
+
       setCategories([...categories, newCategory]);
     } catch (error) {
       throw new Error("Category could not have been created.");
