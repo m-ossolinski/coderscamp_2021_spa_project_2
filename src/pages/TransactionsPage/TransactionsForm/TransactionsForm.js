@@ -9,6 +9,7 @@ import { validate } from "../../../services/helpers/formValidationRules";
 import Modal from "../../../components/Modal";
 import { useModal } from "../../../services/hooks/useModal";
 import { currentDate } from "../../../services/utils/currentDate";
+import { newTransactionSchema } from "../../../services/helpers/Validations/NewTransactionValidation";
 
 export const TransactionForm = ({ initFields }) => {
   const { isVisible, toggleVisibility } = useModal();
@@ -33,7 +34,7 @@ export const TransactionForm = ({ initFields }) => {
     category: false,
   });
 
-  const validateForm = () => {
+  const validateForm = async () => {
     const formValues = {
       title: title,
       description: description,
@@ -41,7 +42,21 @@ export const TransactionForm = ({ initFields }) => {
       date: date,
       category: category,
     };
-    setFormErrors(validate(formValues));
+
+    try {
+      newTransactionSchema.validateSync(formValues, {
+        abortEarly: false,
+      });
+    } catch (err) {
+      let errors = [];
+      err.inner.forEach((error) => {
+        errors.push(error);
+      });
+      console.log(errors);
+      return err.inner;
+    }
+
+    /*setFormErrors(validate(formValues));*/
   };
 
   const handleBlur = (field) => {
