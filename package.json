@@ -19,7 +19,9 @@
   },
   "homepage": "https://github.com/m-ossolinski/coderscamp_2021_spa_project_2#readme",
   "dependencies": {
+    "chart.js": "^3.7.0",
     "react": "^17.0.2",
+    "react-chartjs-2": "^4.0.1",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
     "react-router-dom": "^6.2.1",
