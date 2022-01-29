@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { MainLayout } from "../components/layout/MainLayout/MainLayout";
 import { Header } from "../components/layout/Header/Header";
-import { TransactionsPage } from "../pages/TransactionsPage/TransactionsPage";
+import TransactionsPage from "../pages/TransactionsPage/TransactionsPage";
 
 export const AppRoutes = () => {
   return (

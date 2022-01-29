@@ -1,8 +1,16 @@
-import {
-  TransactionForm,
-  TransactionsForm,
-} from "./TransactionsForm/TransactionsForm";
+import { TransactionForm } from "./TransactionsForm/TransactionsForm";
 
-export const TransactionsPage = () => {
-  return <TransactionForm />;
+const TransactionsPage = () => {
+  const TransactionsFormInitFields = {
+    title: "",
+    description: "",
+    amount: 0,
+    type: "income",
+    date: "",
+    category: "select",
+    paymentType: "cash",
+  };
+  return <TransactionForm initFields={TransactionsFormInitFields} />;
 };
+
+export default TransactionsPage;

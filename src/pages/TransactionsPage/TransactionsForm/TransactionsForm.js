@@ -10,16 +10,20 @@ import Modal from "../../../components/Modal";
 import { useModal } from "../../../services/hooks/useModal";
 import { currentDate } from "../../../services/utils/currentDate";
 
-export const TransactionForm = () => {
+export const TransactionForm = ({ initFields }) => {
   const { isVisible, toggleVisibility } = useModal();
 
-  const [title, setTitle, resetTitle] = useInputState("");
-  const [description, setDescription, resetDescription] = useInputState("");
-  const [amount, setAmount, resetAmount] = useInputState(0);
-  const [type, setType, resetType] = useInputState("income");
-  const [date, setDate, resetDate] = useInputState("");
-  const [category, setCategory] = useState("select");
-  const [paymentType, setPaymentType, resetPaymentType] = useInputState("cash");
+  const [title, setTitle, resetTitle] = useInputState(initFields.title);
+  const [description, setDescription, resetDescription] = useInputState(
+    initFields.description
+  );
+  const [amount, setAmount, resetAmount] = useInputState(initFields.amount);
+  const [type, setType, resetType] = useInputState(initFields.type);
+  const [date, setDate, resetDate] = useInputState(initFields.date);
+  const [category, setCategory] = useState(initFields.category);
+  const [paymentType, setPaymentType, resetPaymentType] = useInputState(
+    initFields.paymentType
+  );
   const [formErrors, setFormErrors] = useState({});
   const [isTouched, setIsTouched] = useState({
     title: false,
