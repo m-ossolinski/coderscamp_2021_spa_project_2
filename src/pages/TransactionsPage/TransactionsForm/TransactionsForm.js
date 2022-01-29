@@ -50,8 +50,15 @@ export const TransactionForm = ({ initFields }) => {
     } catch (err) {
       let errors = [];
       err.inner.forEach((error) => {
-        errors.push(error);
+        errors.push(error.message);
       });
+      const errorMessages = {
+        title: "",
+        description: "",
+        amount: "",
+        date: "",
+        category: "",
+      };
       console.log(errors);
       return err.inner;
     }
