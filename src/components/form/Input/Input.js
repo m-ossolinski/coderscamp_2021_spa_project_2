@@ -24,7 +24,7 @@ export const Input = ({
           onBlur={() => handleBlur(field)}
         />
       </div>
-      {errorMessage && isTouched[field] === true && <p>{errorMessage}</p>}
+      {errorMessage && isTouched === true && <p>{errorMessage}</p>}
     </StyledInput>
   );
 };
@@ -33,9 +33,9 @@ Input.propTypes = {
   type: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   field: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   handleChange: PropTypes.func.isRequired,
-  errorMessage: PropTypes.string.isRequired,
+  errorMessage: PropTypes.string,
   isTouched: PropTypes.bool.isRequired,
   handleBlur: PropTypes.func.isRequired,
 };

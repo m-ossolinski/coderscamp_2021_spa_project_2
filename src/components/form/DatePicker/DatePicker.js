@@ -5,13 +5,12 @@ export const DatePicker = ({
   field,
   value,
   minDate,
+  maxDate,
   handleChange,
   errorMessage,
   isTouched,
   handleBlur,
 }) => {
-  const currentDate = new Date().toJSON().slice(0, 10);
-
   return (
     <StyledDatePicker>
       <div>
@@ -20,13 +19,13 @@ export const DatePicker = ({
           type={field}
           name={field}
           min={minDate}
-          max={currentDate}
+          max={maxDate}
           value={value}
           onChange={handleChange}
           onBlur={() => handleBlur(field)}
         ></input>
       </div>
-      {errorMessage && isTouched[field] === true && <p>{errorMessage}</p>}
+      {errorMessage && isTouched === true && <p>{errorMessage}</p>}
     </StyledDatePicker>
   );
 };
@@ -35,7 +34,7 @@ DatePicker.propTypes = {
   field: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
-  errorMessage: PropTypes.string.isRequired,
+  errorMessage: PropTypes.string,
   isTouched: PropTypes.bool.isRequired,
   handleBlur: PropTypes.func.isRequired,
 };

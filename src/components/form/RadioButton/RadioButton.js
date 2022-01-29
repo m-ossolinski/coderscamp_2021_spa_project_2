@@ -31,7 +31,7 @@ export const RadioButton = ({
   );
 };
 
-DatePicker.propTypes = {
+RadioButton.propTypes = {
   options: PropTypes.array.isRequired,
   field: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,

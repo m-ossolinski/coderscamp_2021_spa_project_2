@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import { validate } from "../../../services/helpers/formValidationRules";
 import Modal from "../../../components/Modal";
 import { useModal } from "../../../services/hooks/useModal";
+import { currentDate } from "../../../services/utils/currentDate";
 
 export const TransactionForm = () => {
   const { isVisible, toggleVisibility } = useModal();
@@ -114,7 +115,7 @@ export const TransactionForm = () => {
             value={title}
             handleChange={setTitle}
             errorMessage={formErrors["title"]}
-            isTouched={isTouched}
+            isTouched={isTouched.title}
             handleBlur={handleBlur}
           />
           <Input
@@ -124,7 +125,7 @@ export const TransactionForm = () => {
             value={description}
             handleChange={setDescription}
             errorMessage={formErrors["description"]}
-            isTouched={isTouched}
+            isTouched={isTouched.description}
             handleBlur={handleBlur}
           />
           <Dropdown
@@ -134,7 +135,7 @@ export const TransactionForm = () => {
             handleChange={setCategory}
             label="Category:"
             errorMessage={formErrors["category"]}
-            isTouched={isTouched}
+            isTouched={isTouched.category}
             handleBlur={handleBlur}
           />
           <Input
@@ -144,16 +145,17 @@ export const TransactionForm = () => {
             value={amount}
             handleChange={setAmount}
             errorMessage={formErrors["amount"]}
-            isTouched={isTouched}
+            isTouched={isTouched.amount}
             handleBlur={handleBlur}
           />
           <DatePicker
             field="date"
             value={date}
             minDate="2000-01-01"
+            maxDate={currentDate}
             handleChange={setDate}
             errorMessage={formErrors["date"]}
-            isTouched={isTouched}
+            isTouched={isTouched.date}
             handleBlur={handleBlur}
           />
           <div>
@@ -169,6 +171,7 @@ export const TransactionForm = () => {
               options={paymentTypes}
               field="type"
               label="In/out:"
+              buttonType="radio"
               value={type}
               handleChange={setType}
             />

@@ -49,7 +49,7 @@ export const Dropdown = ({
           </div>
         )}
       </div>
-      {errorMessage && isTouched[field] === true && <p>{errorMessage}</p>}
+      {errorMessage && isTouched === true && <p>{errorMessage}</p>}
     </StyledDropdown>
   );
 };
@@ -60,7 +60,7 @@ Dropdown.propTypes = {
   field: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
-  errorMessage: PropTypes.string.isRequired,
+  errorMessage: PropTypes.string,
   isTouched: PropTypes.bool.isRequired,
   handleBlur: PropTypes.func.isRequired,
 };
