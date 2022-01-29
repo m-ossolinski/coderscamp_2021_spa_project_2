@@ -133,8 +133,10 @@ export const EditCategoryForm = ({ editCategory, category }) => {
 };
 
 EditCategoryForm.propTypes = {
-  category: PropTypes.object.isRequired,
+  category: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    icon: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired,
+  }).isRequired,
   editCategory: PropTypes.func.isRequired,
-
-  category: PropTypes.objectOf(PropTypes.string.isRequired),
 };

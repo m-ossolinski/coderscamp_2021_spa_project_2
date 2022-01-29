@@ -16,5 +16,5 @@ export const IconPickerList = ({ iconInputChangeHandler, iconList }) => {
 
 IconPickerList.propTypes = {
   iconInputChangeHandler: PropTypes.func.isRequired,
-  iconList: PropTypes.array.isRequired,
+  iconList: PropTypes.arrayOf(PropTypes.string).isRequired,
 };

@@ -35,8 +35,10 @@ export const RemoveCategory = ({ removeCategory, category }) => {
 };
 
 RemoveCategory.propTypes = {
-  category: PropTypes.object.isRequired,
   removeCategory: PropTypes.func.isRequired,
-
-  category: PropTypes.objectOf(PropTypes.string.isRequired),
+  category: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    icon: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired,
+  }).isRequired,
 };
