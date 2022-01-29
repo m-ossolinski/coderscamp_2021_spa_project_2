@@ -150,6 +150,7 @@ export const TransactionForm = () => {
           <DatePicker
             field="date"
             value={date}
+            minDate="2000-01-01"
             handleChange={setDate}
             errorMessage={formErrors["date"]}
             isTouched={isTouched}
@@ -160,6 +161,7 @@ export const TransactionForm = () => {
               options={paymentOptions}
               field="paymenType"
               label="Paid by:"
+              buttonType="radio"
               value={paymentType}
               handleChange={setPaymentType}
             />

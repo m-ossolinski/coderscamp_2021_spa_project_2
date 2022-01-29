@@ -1,6 +1,7 @@
 import { StyledDropdown } from "./Dropdown.styled";
 import { useState } from "react";
 import { AiOutlineArrowDown } from "react-icons/ai";
+import PropTypes from "prop-types";
 
 export const Dropdown = ({
   options,
@@ -51,4 +52,15 @@ export const Dropdown = ({
       {errorMessage && isTouched[field] === true && <p>{errorMessage}</p>}
     </StyledDropdown>
   );
+};
+
+Dropdown.propTypes = {
+  options: PropTypes.array.isRequired,
+  name: PropTypes.string.isRequired,
+  field: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  errorMessage: PropTypes.string.isRequired,
+  isTouched: PropTypes.bool.isRequired,
+  handleBlur: PropTypes.func.isRequired,
 };

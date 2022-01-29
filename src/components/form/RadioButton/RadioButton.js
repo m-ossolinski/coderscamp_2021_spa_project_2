@@ -1,6 +1,14 @@
 import { StyledRadioButton } from "./RadioButton.styled";
+import PropTypes from "prop-types";
 
-export const RadioButton = ({ options, field, label, value, handleChange }) => {
+export const RadioButton = ({
+  options,
+  field,
+  label,
+  buttonType,
+  value,
+  handleChange,
+}) => {
   return (
     <StyledRadioButton>
       <p>{label}</p>
@@ -8,7 +16,7 @@ export const RadioButton = ({ options, field, label, value, handleChange }) => {
       {options.map(({ id, type }) => (
         <div key={id}>
           <input
-            type="radio"
+            type={buttonType}
             id={type}
             name={field}
             value={type}
@@ -21,4 +29,13 @@ export const RadioButton = ({ options, field, label, value, handleChange }) => {
       ))}
     </StyledRadioButton>
   );
+};
+
+DatePicker.propTypes = {
+  options: PropTypes.array.isRequired,
+  field: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  buttonType: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
 };
