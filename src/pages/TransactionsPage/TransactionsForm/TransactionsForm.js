@@ -5,7 +5,6 @@ import { RadioButton } from "../../../components/form/RadioButton/RadioButton";
 import { Dropdown } from "../../../components/form/Dropdown/Dropdown";
 import { useInputState } from "../../../services/hooks/useInputState";
 import { useState, useEffect } from "react";
-import { validate } from "../../../services/helpers/formValidationRules";
 import Modal from "../../../components/Modal";
 import { useModal } from "../../../services/hooks/useModal";
 import { currentDate } from "../../../services/utils/currentDate";
@@ -50,20 +49,11 @@ export const TransactionForm = ({ initFields }) => {
     } catch (err) {
       let errors = [];
       err.inner.forEach((error) => {
-        errors.push(error.message);
+        errors.push({ [error.path]: error.message });
       });
-      const errorMessages = {
-        title: "",
-        description: "",
-        amount: "",
-        date: "",
-        category: "",
-      };
-      console.log(errors);
-      return err.inner;
+      const errorMessages = Object.assign({}, ...errors);
+      setFormErrors(errorMessages);
     }
-
-    /*setFormErrors(validate(formValues));*/
   };
 
   const handleBlur = (field) => {
@@ -81,7 +71,7 @@ export const TransactionForm = ({ initFields }) => {
     resetType();
     resetDate();
     resetPaymentType();
-    setCategory("select");
+    setCategory(initFields.category);
     setIsTouched({
       title: false,
       description: false,

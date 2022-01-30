@@ -6,7 +6,7 @@ const TransactionsPage = () => {
     description: "",
     amount: 0,
     type: "income",
-    date: "",
+    date: "dd/mm/yyyy",
     category: "select",
     paymentType: "cash",
   };

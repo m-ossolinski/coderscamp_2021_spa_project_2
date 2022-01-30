@@ -18,7 +18,8 @@ export const newTransactionSchema = yup.object().shape({
     .positive("Amount cannot be minus")
     .moreThan(0, "Amount cannot be zero"),
   date: yup
-    .date("Please choose valid a date")
-    .max(currentDate, "Date cannot be in the future")
-    .required("Please choose a date"),
+    .date("Please choose a valid date")
+    .required("Please choose a date")
+    .nullable()
+    .max(currentDate, "Date cannot be in the future"),
 });
