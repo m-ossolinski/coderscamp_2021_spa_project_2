@@ -22,7 +22,11 @@ export const TransactionItem = ({
         </div>
         <p className="transaction-amount">$ {amount}</p>
       </div>
-      <p className="transaction-description">{description}</p>
+      <p className="transaction-description">
+        {description.length > 60
+          ? `${description.substring(0, 60)}...`
+          : description}
+      </p>
     </StyledListItem>
   );
 };
