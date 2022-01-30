@@ -1,0 +1,22 @@
+{
+  "categories": [
+    {
+      "id": "d8f13fcc-4418-41a3-ae9b-1f58acbdac3a",
+      "name": "Transport",
+      "color": "#3d19f0",
+      "icon": "FaCar"
+    },
+    {
+      "id": "6478d087-90b4-404d-a199-4d4ef4cf1e10",
+      "name": "Flat",
+      "color": "#f01414",
+      "icon": "FaHome"
+    },
+    {
+      "id": "3da67989-c157-4ce4-832f-7b8956bc85a4",
+      "name": "Clothing",
+      "color": "#015b1c",
+      "icon": "FaTshirt"
+    }
+  ]
+}
