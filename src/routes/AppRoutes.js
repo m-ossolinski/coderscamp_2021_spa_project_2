@@ -1,7 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { MainLayout } from "../components/layout/MainLayout/MainLayout";
 import { Header } from "../components/layout/Header/Header";
-import { List } from "../components/common/List/List";
 
 export const AppRoutes = () => {
   return (
