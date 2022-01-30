@@ -20,7 +20,11 @@ export const AppRoutes = () => {
               </div>
             }
           />
-          <Route exact path="/transactions" element={<List />} />
+          <Route
+            exact
+            path="/transactions"
+            element={<div>Transactions list</div>}
+          />
           <Route exact path="/signup" element={<div>Signup Page</div>} />
         </Routes>
       </MainLayout>
