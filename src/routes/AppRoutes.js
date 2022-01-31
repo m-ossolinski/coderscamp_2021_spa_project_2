@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { MainLayout } from "../components/layout/MainLayout/MainLayout";
 import { Header } from "../components/layout/Header/Header";
+import TransactionsPage from "../pages/TransactionsPage/TransactionsPage";
 
 export const AppRoutes = () => {
   return (
@@ -19,11 +20,7 @@ export const AppRoutes = () => {
               </div>
             }
           />
-          <Route
-            exact
-            path="/transactions"
-            element={<div>Transactions Page</div>}
-          />
+          <Route exact path="/transactions" element={<TransactionsPage />} />
           <Route exact path="/signup" element={<div>Signup Page</div>} />
         </Routes>
       </MainLayout>
