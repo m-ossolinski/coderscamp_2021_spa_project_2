@@ -2,6 +2,7 @@ import React from "react";
 import { AppRoutes } from "./routes/AppRoutes";
 import { ModalExample } from "./components/ModalExample";
 import { MontlyExpenseIncome } from "./components/Charts/MontlyExpenseIncome";
+import { CategoriesPage } from "./views/TransactionsCategories/CategpriesPage/CategoriesPage";
 import styled from "styled-components";
 
 const AppWrapper = styled.div`
@@ -16,6 +17,7 @@ const App = () => {
         <AppRoutes />
         <ModalExample />
         <MontlyExpenseIncome />
+        <CategoriesPage />
       </AppWrapper>
     </>
   );
