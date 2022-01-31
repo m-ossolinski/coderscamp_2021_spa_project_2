@@ -27,6 +27,6 @@ export const NumberOfTransactionsWidget = ({
 };
 
 NumberOfTransactionsWidget.propTypes = {
-  entriesOnPage: PropTypes.number,
-  paginate: PropTypes.func,
+  entriesOnPage: PropTypes.number.isRequired,
+  paginate: PropTypes.func.isRequired,
 };

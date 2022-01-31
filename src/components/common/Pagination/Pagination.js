@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import { PageButton } from "../PageButton/PageButton";
 import { PageNumberButton } from "../PageNumberButton/PageNumberButton";
-import { requestForTransactionsListLength } from "../../../services/api/transactionsListService";
+import { getTransactionsList } from "../../../services/api/transactionsListService";
 import { ButtonsList } from "./Pagination.styled";
 import { StyledItem } from "./Pagination.styled";
-import PropTypes from "prop-types";
 
 const getPaginationButtons = (
   arrayFromNumberOfPages,
@@ -90,38 +90,36 @@ const getPaginationButtons = (
 };
 
 export const Pagination = ({ entriesOnPage, actualPage, paginate }) => {
-  const [length, setLength] = useState(0);
-  const [loading, setLoading] = useState(false);
+  const [transactionsListLength, setTransactionsListLength] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
 
   const numberOfPages =
-    length % entriesOnPage === 0
-      ? Math.floor(length / entriesOnPage)
-      : Math.floor(length / entriesOnPage) + 1;
+    transactionsListLength % entriesOnPage === 0
+      ? Math.floor(transactionsListLength / entriesOnPage)
+      : Math.floor(transactionsListLength / entriesOnPage) + 1;
 
   const arrayFromNumberOfPages = Array.from(
     { length: numberOfPages },
     (_, i) => i + 1
   );
 
-  const getTransactionsListLength = async () => {
+  const requestForTransactionsListLength = async () => {
     try {
-      setLoading(true);
-      const response = await requestForTransactionsListLength();
-      setLength(response);
-    } catch {
-      throw new Error(
-        "An error occurred while invoke function getTransactionsLength: the transactions length cannot be get"
-      );
+      setIsLoading(true);
+      const response = await getTransactionsList();
+      setTransactionsListLength(response);
+    } catch (error) {
+      throw new Error(error);
     } finally {
-      setLoading(false);
+      setIsLoading(false);
     }
   };
 
   useEffect(() => {
-    getTransactionsListLength();
+    requestForTransactionsListLength();
   }, []);
 
-  if (loading) {
+  if (isLoading) {
     return <div>Loading</div>;
   }
 
@@ -165,7 +163,7 @@ export const Pagination = ({ entriesOnPage, actualPage, paginate }) => {
 };
 
 Pagination.propTypes = {
-  entriesOnPage: PropTypes.number,
-  actualPage: PropTypes.number,
-  paginate: PropTypes.func,
+  entriesOnPage: PropTypes.number.isRequired,
+  actualPage: PropTypes.number.isRequired,
+  paginate: PropTypes.func.isRequired,
 };
