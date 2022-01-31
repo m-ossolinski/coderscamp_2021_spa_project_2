@@ -1,8 +1,8 @@
 import React from "react";
 import { AppRoutes } from "./routes/AppRoutes";
 import { ModalExample } from "./components/ModalExample";
-import { MontlyExpenseIncome } from "./components/Charts/MontlyExpenseIncome";
-import { CategoryExpense } from "./components/Charts/CategoryExpense";
+import { MonthlyTransactionsChart } from "./components/Charts/MonthlyTransactionsChart";
+import { CategoriesPieChart } from "./components/Charts/CategoriesPieChart";
 import { CategoriesPage } from "./views/TransactionsCategories/CategpriesPage/CategoriesPage";
 import styled from "styled-components";
 
@@ -17,8 +17,8 @@ const App = () => {
       <AppWrapper>
         <AppRoutes />
         <ModalExample />
-        <MontlyExpenseIncome />
-        <CategoryExpense />
+        <MonthlyTransactionsChart />
+        <CategoriesPieChart />
         <CategoriesPage />
       </AppWrapper>
     </>

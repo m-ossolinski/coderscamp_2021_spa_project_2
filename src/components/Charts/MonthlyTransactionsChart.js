@@ -1,4 +1,5 @@
 import React from "react";
+import barChartUtils from "../../services/utils/barCharUtils.js";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -32,21 +33,7 @@ export const options = {
   },
 };
 
-const labels = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-
+const labels = barChartUtils.labelsYear;
 export const data = {
   labels,
   datasets: [
@@ -63,6 +50,6 @@ export const data = {
   ],
 };
 
-export const MontlyExpenseIncome = () => {
+export const MonthlyTransactionsChart = () => {
   return <Bar options={options} data={data} />;
 };
