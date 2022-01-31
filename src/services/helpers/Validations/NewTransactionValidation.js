@@ -3,17 +3,20 @@ import { currentDate } from "../../utils/currentDate";
 
 export const newTransactionSchema = yup.object().shape({
   title: yup
-    .string()
+    .string("Title is required")
     .min(3, "Title has to have at least 3 letters")
     .required("Title is required"),
   description: yup
-    .string()
+    .string("Title is required")
     .min(3, "Title has to have at least 3 letters")
     .max(30, "Title has to have maximum 30 letters")
     .required("Description is required"),
-  category: yup.string().required("Please choose a category"),
+  category: yup
+    .string()
+    .oneOf(["rent", "clothes", "food"], "Please choose a category")
+    .required("Please choose a category"),
   amount: yup
-    .number()
+    .number("Amount is required")
     .required("Amount is required")
     .positive("Amount cannot be minus")
     .moreThan(0, "Amount cannot be zero"),
