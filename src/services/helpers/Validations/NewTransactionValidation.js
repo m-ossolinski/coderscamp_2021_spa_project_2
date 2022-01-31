@@ -17,11 +17,12 @@ export const newTransactionSchema = yup.object().shape({
     .required("Please choose a category"),
   amount: yup
     .number("Amount is required")
+    .typeError("Amount is required")
     .required("Amount is required")
-    .positive("Amount cannot be minus")
-    .moreThan(0, "Amount cannot be zero"),
+    .moreThan(0, "Amount cannot be zero or minus"),
   date: yup
     .date("Please choose a valid date")
+    .typeError("Please enter a valid date")
     .required("Please choose a date")
     .nullable()
     .max(currentDate, "Date cannot be in the future"),
