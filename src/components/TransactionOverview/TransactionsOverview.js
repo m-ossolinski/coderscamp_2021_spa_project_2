@@ -2,19 +2,16 @@ import React, { useState } from "react";
 import transactions from "../../services/api/transactions.json";
 import { StyledOverview } from "./TransactionsOverview.styled";
 
+const getTotal = (type) => {
+  return transactions.filter((el) => el.type === type)
+  .map((el) => el.amount)
+  .reduce((sum, el) => sum + el, 0)
+  .toFixed(2);
+}
+
 export const TransactionOverview = () => {
-  const totalExpenses = transactions
-    .filter((el) => el.type === "expense")
-    .map((el) => el.amount)
-    .reduce((sum, el) => sum + el, 0)
-    .toFixed(2);
-
-  const totalIncomes = transactions
-    .filter((el) => el.type === "income")
-    .map((el) => el.amount)
-    .reduce((sum, el) => sum + el, 0)
-    .toFixed(2);
-
+  const totalExpenses = getTotal("expense");
+  const totalIncomes = getTotal("income")
   const currentBalance = (+totalExpenses + +totalIncomes).toFixed(2);
 
   return (
