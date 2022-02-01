@@ -3,7 +3,6 @@ import { AppRoutes } from "./routes/AppRoutes";
 import { ModalExample } from "./components/ModalExample";
 import { CategoriesPage } from "./views/TransactionsCategories/CategpriesPage/CategoriesPage";
 import styled from "styled-components";
-import { Loader } from "./components/Loader/Loader";
 
 const AppWrapper = styled.div`
   display: flex;
@@ -15,7 +14,6 @@ const App = () => {
     <>
       <AppWrapper>
         <AppRoutes />
-        <Loader />
         <ModalExample />
         <CategoriesPage />
       </AppWrapper>
