@@ -1,6 +1,5 @@
 import { TransactionForm } from "./TransactionsForm/TransactionsForm";
 import categoriesService from "../../services/api/categoriesService";
-import { useState, useEffect } from "react";
 import { useFetchData } from "../../services/hooks/useFetchData";
 
 const TransactionsPage = () => {

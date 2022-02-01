@@ -34,6 +34,15 @@ export const TransactionForm = ({ initFields, categoriesList }) => {
     category: false,
   });
 
+  const createSchema = async () => {
+    try {
+      const schema = await newTransactionSchema();
+      return schema;
+    } catch (err) {
+      console.log("cannot create schema");
+    }
+  };
+
   const validateForm = async () => {
     const formValues = {
       title: title,
@@ -43,8 +52,10 @@ export const TransactionForm = ({ initFields, categoriesList }) => {
       category: category,
     };
 
+    const schema = await createSchema();
+
     try {
-      newTransactionSchema.validateSync(formValues, {
+      schema.validateSync(formValues, {
         abortEarly: false,
       });
     } catch (err) {
