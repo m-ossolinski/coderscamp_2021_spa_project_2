@@ -39,7 +39,7 @@ export const TransactionForm = ({ initFields, categoriesList }) => {
       const schema = await newTransactionSchema();
       return schema;
     } catch (err) {
-      console.log("cannot create schema");
+      throw new Error("Cannot create schema");
     }
   };
 
