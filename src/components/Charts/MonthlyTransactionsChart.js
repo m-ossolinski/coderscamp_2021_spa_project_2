@@ -38,7 +38,6 @@ export const MonthlyTransactionsChart = () => {
 
   useEffect(() => {
     getTransactionsList();
-    console.log(transactionsList);
 
     // EXPENSE LIST from CURRENT TRANSACTIONS & SUMS by MONTH
     const expenseMonthlySums = [];
