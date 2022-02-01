@@ -10,7 +10,7 @@ import { useModal } from "../../../services/hooks/useModal";
 import { currentDate } from "../../../services/utils/currentDate";
 import { newTransactionSchema } from "../../../services/helpers/Validations/NewTransactionValidation";
 
-export const TransactionForm = ({ initFields }) => {
+export const TransactionForm = ({ initFields, categoriesList }) => {
   const { isVisible, toggleVisibility } = useModal();
 
   const [title, setTitle, resetTitle] = useInputState(initFields.title);
@@ -24,6 +24,7 @@ export const TransactionForm = ({ initFields }) => {
   const [paymentType, setPaymentType, resetPaymentType] = useInputState(
     initFields.paymentType
   );
+
   const [formErrors, setFormErrors] = useState({});
   const [isTouched, setIsTouched] = useState({
     title: false,
@@ -145,7 +146,7 @@ export const TransactionForm = ({ initFields }) => {
             handleBlur={handleBlur}
           />
           <Dropdown
-            options={["rent", "clothes", "food"]}
+            options={categoriesList}
             name={category}
             field="category"
             handleChange={setCategory}

@@ -1,4 +1,5 @@
 import { StyledDropdown } from "./Dropdown.styled";
+import { DropdownItem } from "./DropdownItem";
 import { useState } from "react";
 import { AiOutlineArrowDown } from "react-icons/ai";
 import PropTypes from "prop-types";
@@ -33,18 +34,15 @@ export const Dropdown = ({
         ) : (
           <div>
             {options.map((option) => (
-              <a
-                href="#"
-                key={option}
-                value={option}
-                onClick={(e) => {
-                  handleChange(option);
-                  setIsVisible(!isVisible);
-                  handleBlur(field);
-                }}
-              >
-                {option}
-              </a>
+              <DropdownItem
+                key={option.id}
+                option={option}
+                handleChange={handleChange}
+                setIsVisible={setIsVisible}
+                isVisible={isVisible}
+                handleBlur={handleBlur}
+                field={field}
+              />
             ))}
           </div>
         )}
