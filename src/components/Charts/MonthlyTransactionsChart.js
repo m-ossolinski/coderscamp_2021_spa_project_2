@@ -28,48 +28,56 @@ export const MonthlyTransactionsChart = () => {
 
   const getTransactionsList = async () => {
     try {
+      console.log("fetch start");
       const response = await transactionsService.getTransactionList();
       setTransactionsList(response);
+      console.log("fetch end");
     } catch (error) {
       throw new Error("Transaction list could not been shown.");
     } finally {
     }
   };
 
+  const transactionCategory = { income: "income", expense: "expense" };
+
+  const monthlySumAgregator = async (category) => {
+    console.log("sum start");
+    const monthlySums = [];
+    if ((category = "expense")) {
+      for (let i = 1; i <= 12; i++) {
+        monthlySums.push(
+          transactionsList
+            .filter((trans) => trans.category !== "income")
+            .filter((trans) => parseInt(trans.date.substring(5, 7)) === i)
+            .reduce((acc, trans) => acc + parseInt(trans.amount), 0)
+        );
+        setExpenseChartData(monthlySums);
+      }
+    } else {
+      for (let i = 1; i <= 12; i++) {
+        monthlySums.push(
+          transactionsList
+            .filter((trans) => trans.category === "income")
+            .filter((trans) => parseInt(trans.date.substring(5, 7)) === i)
+            .reduce((acc, trans) => acc + parseInt(trans.amount), 0)
+        );
+        setIncomeChartData(monthlySums);
+      }
+    }
+    console.log("sum end");
+  };
+
   useEffect(() => {
+    console.log("effect start");
     getTransactionsList();
+    console.log("effect end");
+  }, []);
 
-    // EXPENSE LIST from CURRENT TRANSACTIONS & SUMS by MONTH
-    const expenseMonthlySums = [];
-
-    let expenseList = transactionsList.filter(
-      (trans) => trans.category !== "income"
-    );
-
-    for (let i = 1; i <= 12; i++) {
-      expenseMonthlySums.push(
-        expenseList
-          .filter((trans) => parseInt(trans.date.substring(5, 7)) === i)
-          .reduce((acc, item) => acc + parseInt(item.amount), 0)
-      );
-      setExpenseChartData(expenseMonthlySums);
-    }
-
-    // INCOME LIST from CURRENT TRANSACTIONS & SUMS by MONTH
-    const incomeMonthlySums = [];
-
-    let incomeList = transactionsList.filter(
-      (trans) => trans.category === "income"
-    );
-
-    for (let i = 1; i <= 12; i++) {
-      incomeMonthlySums.push(
-        incomeList
-          .filter((trans) => parseInt(trans.date.substring(5, 7)) === i)
-          .reduce((acc, item) => acc + parseInt(item.amount), 0)
-      );
-      setIncomeChartData(incomeMonthlySums);
-    }
+  useEffect(() => {
+    setTimeout(() => {
+      monthlySumAgregator(transactionCategory.income);
+      monthlySumAgregator(transactionCategory.expense);
+    }, 1000);
   }, []);
 
   const options = {
