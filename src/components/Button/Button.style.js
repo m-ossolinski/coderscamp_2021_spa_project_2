@@ -7,9 +7,9 @@ export const StyledButton = styled.button`
   border-radius: 8px;
   border: none;
   text-transform: uppercase;
-  padding: 8px 10px;
-  width: 30%;
-  height: 5rem;
+  padding: 1rem 3rem;
+  min-width: 30%;
+  min-height: 5rem;
   background: transparent;
 
   ${({ type }) =>

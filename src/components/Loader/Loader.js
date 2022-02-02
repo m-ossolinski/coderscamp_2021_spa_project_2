@@ -9,6 +9,6 @@ export const Loader = ({ type }) => {
   );
 };
 
-Button.propTypes = {
+Loader.propTypes = {
   type: PropTypes.string,
 };

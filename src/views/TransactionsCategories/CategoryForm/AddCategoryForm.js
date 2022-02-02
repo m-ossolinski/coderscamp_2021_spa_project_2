@@ -14,7 +14,7 @@ import {
   ColorInput,
   IconWrapper,
   FormError,
-  ButtonCategory,
+  FormWrapper,
 } from "./CategoryForm.style";
 import { Button } from "../../../components/Button/Button";
 
@@ -82,8 +82,12 @@ export const AddCategoryForm = ({ createCategory }) => {
   };
 
   return (
-    <>
-      <Button type="primary" onClick={toggleVisibility} label="Add Category" />
+    <FormWrapper>
+      <Button
+        type="secondary"
+        onClick={toggleVisibility}
+        label="Add Category"
+      />
 
       <Modal
         isVisible={isVisible}
@@ -129,7 +133,7 @@ export const AddCategoryForm = ({ createCategory }) => {
           </FormGroup>
         </Form>
       </Modal>
-    </>
+    </FormWrapper>
   );
 };
 
