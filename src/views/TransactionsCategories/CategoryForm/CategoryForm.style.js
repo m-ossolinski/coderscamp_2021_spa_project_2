@@ -10,7 +10,7 @@ export const Form = styled.form`
   align-items: left;
 `;
 
-export const Button = styled.button`
+export const ButtonCategory = styled.button`
   background-color: transparent;
   width: 30%;
   font-size: 1.5rem;
