@@ -16,18 +16,14 @@ const getTotalAmount = (type) => {
 };
 
 export const TransactionOverview = () => {
+  const totalExpenses = getTotalAmount(TRANSACTIONS_TYPES.expense);
+  const totalIncomes = getTotalAmount(TRANSACTIONS_TYPES.income);
   return (
     <StyledOverview>
       <h3>Transactions overview:</h3>
-      <p>Total expenses: $ {getTotalAmount(TRANSACTIONS_TYPES.expense)}</p>
-      <p>Total incomes: $ {getTotalAmount(TRANSACTIONS_TYPES.income)}</p>
-      <p>
-        Current balance: $
-        {(
-          +getTotalAmount(TRANSACTIONS_TYPES.expense) +
-          +getTotalAmount(TRANSACTIONS_TYPES.income)
-        ).toFixed(2)}
-      </p>
+      <p>Total expenses: $ {totalExpenses}</p>
+      <p>Total incomes: $ {totalIncomes}</p>
+      <p>Current balance: ${(+totalIncomes + +totalExpenses).toFixed(2)}</p>
       <p>Total transactions: {transactions.length}</p>
     </StyledOverview>
   );
