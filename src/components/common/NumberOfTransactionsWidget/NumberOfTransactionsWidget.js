@@ -1,9 +1,34 @@
 import PropTypes from "prop-types";
 
 export const NumberOfTransactionsWidget = ({
-  entriesOnPage,
+  transactionsListSize,
   pageEntriesHandler,
 }) => {
+  const configurationOptions = [
+    {
+      id: 1,
+      value: 10,
+    },
+    {
+      id: 2,
+      value: 25,
+    },
+    {
+      id: 3,
+      value: 50,
+    },
+    {
+      id: 4,
+      value: 100,
+    },
+  ];
+
+  const options = configurationOptions.map(({ id, value }) => (
+    <option key={id} value={value}>
+      {value}
+    </option>
+  ));
+
   return (
     <>
       <label htmlFor="transactions-select">
@@ -12,21 +37,18 @@ export const NumberOfTransactionsWidget = ({
       <select
         name="transactions"
         id="transactions-select"
-        value={entriesOnPage}
+        value={transactionsListSize}
         onChange={(event) =>
           pageEntriesHandler(Number.parseInt(event.target.value))
         }
       >
-        <option value="10">10</option>
-        <option value="25">25</option>
-        <option value="50">50</option>
-        <option value="100">100</option>
+        {options}
       </select>
     </>
   );
 };
 
 NumberOfTransactionsWidget.propTypes = {
-  entriesOnPage: PropTypes.number.isRequired,
-  paginate: PropTypes.func.isRequired,
+  transactionsListSize: PropTypes.number.isRequired,
+  pageEntriesHandler: PropTypes.func.isRequired,
 };

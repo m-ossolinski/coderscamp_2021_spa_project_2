@@ -5,7 +5,7 @@ const baseUrl = "http://localhost:8000/transactions";
 export const getTransactionsList = ({ currentPage, transactionsListSize }) => {
   if (!Number.isInteger(currentPage) && !Number.isInteger(transactionsListSize))
     throw new Error(
-      "An error occurred while invoke function requestForTransactionsList: argument actualPage and entriesOnPage have to be a integer number."
+      "An error occurred while invoke function getTransactionsList: argument currentPage and transactionsListSize have to be a integer number."
     );
 
   const response = axios
@@ -15,7 +15,7 @@ export const getTransactionsList = ({ currentPage, transactionsListSize }) => {
   return response;
 };
 
-export const getTransactionsList = () => {
+export const getTransactionsListLength = () => {
   const response = axios.get(baseUrl).then((response) => response.data.length);
   return response;
 };
