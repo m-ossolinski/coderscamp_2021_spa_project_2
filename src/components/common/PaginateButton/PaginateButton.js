@@ -1,10 +1,19 @@
 import PropTypes from "prop-types";
 import { StyledListLink } from "./PaginateButton.style.";
 
-export const PaginateButton = ({ pageNumber, paginate, children }) => {
+export const PaginateButton = ({
+  pageNumber,
+  paginate,
+  currentPage,
+  children,
+}) => {
   return (
     <li onClick={() => paginate(pageNumber)}>
-      <StyledListLink href="#">
+      <StyledListLink
+        href="#"
+        bg={currentPage === pageNumber ? "#fff" : "transaprent"}
+        textColor={currentPage === pageNumber ? "#131313" : "#fff"}
+      >
         {children ? children : pageNumber}
       </StyledListLink>
     </li>

@@ -1,6 +1,6 @@
 import React from "react";
 import { StyledListItem } from "./TransactionItem.styled";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 export const TransactionItem = ({
   type,
@@ -32,11 +32,11 @@ export const TransactionItem = ({
   );
 };
 
-TransactionItem.PropTypes = {
+TransactionItem.propTypes = {
   type: PropTypes.string,
   title: PropTypes.string,
   category: PropTypes.string,
-  date: PropTypes.number,
+  date: PropTypes.string,
   amount: PropTypes.number,
   description: PropTypes.string,
-}
+};
