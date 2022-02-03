@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "http://localhost:8000/transactions";
+const baseUrl = process.env.REACT_APP_TRANSACTIONS_BASE_URL;
 
 export const getTransactionsList = ({ currentPage, transactionsListSize }) => {
   if (!Number.isInteger(currentPage) && !Number.isInteger(transactionsListSize))
