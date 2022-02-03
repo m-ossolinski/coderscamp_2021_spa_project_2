@@ -1,9 +1,8 @@
 import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AppRoutes } from "./routes/AppRoutes";
-import { ModalExample } from "./components/ModalExample";
-import { CategoriesPage } from "./views/TransactionsCategories/CategpriesPage/CategoriesPage";
-import TransactionList from "./components/TransactionList/TransactionList";
-import { TransactionOverview } from "./components/TransactionOverview/TransactionsOverview";
+import { MainLayout } from "./components/layout/MainLayout/MainLayout";
+import { Header } from "./components/layout/Header/Header";
 import styled from "styled-components";
 
 const AppWrapper = styled.div`
@@ -15,11 +14,12 @@ const App = () => {
   return (
     <>
       <AppWrapper>
-        <AppRoutes />
-        <ModalExample />
-        <CategoriesPage />
-        <TransactionOverview />
-        <TransactionList />
+        <BrowserRouter>
+          <Header />
+          <MainLayout>
+            <AppRoutes />
+          </MainLayout>
+        </BrowserRouter>
       </AppWrapper>
     </>
   );
