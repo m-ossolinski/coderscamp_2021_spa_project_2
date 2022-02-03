@@ -62,7 +62,67 @@
       "type": "expense"
     },
     {
-      "id": 28,
+      "id": 77,
+      "amount": "50",
+      "category": "education",
+      "date": "2022-01-12",
+      "description": "expense for education",
+      "paymentType": "card",
+      "title": "pants",
+      "type": "expense"
+    },
+    {
+      "id": 36,
+      "amount": "50",
+      "category": "education",
+      "date": "2022-01-12",
+      "description": "expense for education",
+      "paymentType": "card",
+      "title": "pants",
+      "type": "expense"
+    },
+    {
+      "id": 44,
+      "amount": "50",
+      "category": "education",
+      "date": "2022-01-12",
+      "description": "expense for education",
+      "paymentType": "card",
+      "title": "pants",
+      "type": "expense"
+    },
+    {
+      "id": 55,
+      "amount": "50",
+      "category": "education",
+      "date": "2022-01-12",
+      "description": "expense for education",
+      "paymentType": "card",
+      "title": "pants",
+      "type": "expense"
+    },
+    {
+      "id": 45,
+      "amount": "50",
+      "category": "education",
+      "date": "2022-01-12",
+      "description": "expense for education",
+      "paymentType": "card",
+      "title": "pants",
+      "type": "expense"
+    },
+    {
+      "id": 17,
+      "amount": "50",
+      "category": "education",
+      "date": "2022-01-12",
+      "description": "expense for education",
+      "paymentType": "card",
+      "title": "pants",
+      "type": "expense"
+    },
+    {
+      "id": 18,
       "amount": "50",
       "category": "education",
       "date": "2022-01-12",

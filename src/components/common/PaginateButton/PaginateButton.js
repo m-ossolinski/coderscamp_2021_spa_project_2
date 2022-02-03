@@ -1,18 +1,18 @@
 import PropTypes from "prop-types";
-import { StyledListLink } from "./PageButton.style";
+import { StyledListLink } from "./PaginateButton.style.";
 
-export const PageButton = ({ direction, pageNumber, paginate }) => {
+export const PaginateButton = ({ pageNumber, paginate, children }) => {
   return (
     <li onClick={() => paginate(pageNumber)}>
       <StyledListLink href="#">
-        <i className={`fas fa-chevron-${direction}`}></i>
+        {children ? children : pageNumber}
       </StyledListLink>
     </li>
   );
 };
 
-PageButton.propTypes = {
-  direction: PropTypes.string.isRequired,
+PaginateButton.propTypes = {
   pageNumber: PropTypes.number.isRequired,
   paginate: PropTypes.func.isRequired,
+  children: PropTypes.node,
 };
