@@ -33,6 +33,7 @@ export const StyledModal = styled.div`
     max-width: 500px;
     line-height: 1.8;
     padding: 80px 30px 25px;
+    font-size: 18px;
   }
 
   .modal-header {
@@ -71,7 +72,8 @@ export const StyledModal = styled.div`
   }
 
   .button-wrapper > button {
-    font-size: 1rem;
+    font-size: 1.6rem;
+    letter-spacing: 0.6px;
     padding: 5px 25px;
     border-radius: 10px;
     background-color: grey;
