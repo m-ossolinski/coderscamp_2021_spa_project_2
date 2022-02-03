@@ -29,16 +29,12 @@ const Modal = ({
                 {children ? <div>{children}</div> : null}
               </div>
               <div className="button-wrapper">
-                <Button
-                  onClick={onCancel}
-                  type="secondary"
-                  label={cancelBtnLabel ?? "Cancel"}
-                />
-                <Button
-                  onClick={onSubmit}
-                  type="primary"
-                  label={submitBtnLabel ?? "Submit"}
-                />
+                <Button secondary onClick={() => onCancel()}>
+                  {cancelBtnLabel ?? "Cancel"}
+                </Button>
+                <Button primary onClick={() => onSubmit()}>
+                  {submitBtnLabel ?? "Submit"}
+                </Button>
               </div>
             </div>
           </div>

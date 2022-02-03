@@ -1,14 +1,9 @@
 import { Spinner, Span } from "./Loader.style";
-import PropTypes from "prop-types";
 
-export const Loader = ({ type }) => {
+export const Loader = ({ ...props }) => {
   return (
     <Span>
-      <Spinner type={type} />
+      <Spinner {...props} />
     </Span>
   );
-};
-
-Loader.propTypes = {
-  type: PropTypes.string,
 };

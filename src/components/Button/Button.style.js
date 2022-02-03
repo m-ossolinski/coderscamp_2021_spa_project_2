@@ -12,27 +12,26 @@ export const StyledButton = styled.button`
   min-height: 5rem;
   background: transparent;
 
-  ${({ type }) =>
-    type === "primary" &&
+  ${(props) =>
+    props.default &&
     css`
-      background: #3cb043;
-      color: #ffffff;
+      background-color: #ffffff;
+      border: 2px solid #7393b3;
+      color: #7393b3;
 
       &:hover {
-        background: #2d8432;
-        border: 2px solid #2d8432;
+        border: 2px solid #45627f;
       }
 
       &:focus {
-        background: #2d8432;
-        border: 2px solid #2d8432;
-        box-shadow: 0 0 10px #2d8432;
+        border: 2px solid #45627f;
+        box-shadow: 0 0 10px #45627f;
         outline: none;
       }
     `}
 
-  ${({ type }) =>
-    type === "secondary" &&
+  ${(props) =>
+    props.secondary &&
     css`
       background: #ffffff;
       color: #3cb043;
@@ -50,22 +49,23 @@ export const StyledButton = styled.button`
         outline: none;
       }
     `}
-  
 
-${({ type }) =>
-    type === "default" &&
+   ${(props) =>
+    props.primary &&
     css`
-      background-color: #ffffff;
-      border: 2px solid #7393b3;
-      color: #7393b3;
+      background: #3cb043;
+      color: #ffffff;
 
       &:hover {
-        border: 2px solid #45627f;
+        background: #2d8432;
+        color: #ffffff;
+        border: 2px solid #2d8432;
       }
 
       &:focus {
-        border: 2px solid #45627f;
-        box-shadow: 0 0 10px #45627f;
+        background: #2d8432;
+        border: 2px solid #2d8432;
+        box-shadow: 0 0 10px #2d8432;
         outline: none;
       }
     `}

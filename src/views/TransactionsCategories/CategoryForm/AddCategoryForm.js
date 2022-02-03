@@ -83,12 +83,9 @@ export const AddCategoryForm = ({ createCategory }) => {
 
   return (
     <FormWrapper>
-      <Button
-        type="secondary"
-        onClick={toggleVisibility}
-        label="Add Category"
-      />
-
+      <Button secondary onClick={() => toggleVisibility()}>
+        Add Category
+      </Button>
       <Modal
         isVisible={isVisible}
         onCancel={handleCancel}

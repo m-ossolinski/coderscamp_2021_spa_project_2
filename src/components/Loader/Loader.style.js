@@ -15,23 +15,22 @@ export const Spinner = styled(ImSpinner9)`
   color: #010057;
   animation: ${rotate} 2s linear infinite;
 
-  ${({ type }) =>
-    type === "primary" &&
+  ${(props) =>
+    props.default &&
     css`
-      color: #ffffff;
+      color: #7393b3;
     `}
 
-  ${({ type }) =>
-    type === "secondary" &&
+  ${(props) =>
+    props.secondary &&
     css`
       color: #3cb043;
     `}
 
-
- ${({ type }) =>
-    type === "default" &&
+   ${(props) =>
+    props.primary &&
     css`
-      color: #7393b3;
+      color: #ffffff;
     `}
 `;
 

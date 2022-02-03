@@ -2,12 +2,12 @@ import { Loader } from "../Loader/Loader";
 import { LabelWrapper, StyledButton } from "../Button/Button.style";
 import PropTypes from "prop-types";
 
-export const Button = ({ type, onClick, label, isLoading, ...props }) => {
+export const Button = ({ type, children, onClick, isLoading, ...props }) => {
   return (
-    <StyledButton type={type} onClick={onClick} {...props}>
+    <StyledButton type={type} onClick={onClick} isLoading {...props}>
       <LabelWrapper>
-        {isLoading && <Loader type={type} />}
-        {label}
+        {isLoading && <Loader {...props} />}
+        {children ? <div>{children}</div> : null}
       </LabelWrapper>
     </StyledButton>
   );
@@ -15,8 +15,7 @@ export const Button = ({ type, onClick, label, isLoading, ...props }) => {
 
 Button.propTypes = {
   type: PropTypes.string,
-  className: PropTypes.string,
+  children: PropTypes.node,
   onClick: PropTypes.func,
-  label: PropTypes.string,
   isLoading: PropTypes.bool,
 };
