@@ -1,26 +1,23 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import { AppRoutes } from "./routes/AppRoutes";
 import { MainLayout } from "./components/layout/MainLayout/MainLayout";
 import { Header } from "./components/layout/Header/Header";
-import styled from "styled-components";
-
-const AppWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
+import { GlobalStyle } from "./GlobalStyle";
+import { StyledApp } from "./App.styled";
 
 const App = () => {
   return (
     <>
-      <AppWrapper>
+      <GlobalStyle />
+      <StyledApp>
         <BrowserRouter>
           <Header />
           <MainLayout>
             <AppRoutes />
           </MainLayout>
         </BrowserRouter>
-      </AppWrapper>
+      </StyledApp>
     </>
   );
 };

@@ -16,7 +16,7 @@ export const AppRoutes = () => {
         }
       />
       <Route exact path="/transactions" element={<TransactionsPage />} />
-      <Route exact path="/signup" element={<div>Signup Page</div>} />
+      <Route exact path="/stats" element={<div>Stats Page</div>} />
     </Routes>
   );
 };
