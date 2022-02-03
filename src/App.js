@@ -5,6 +5,9 @@ import { CategoriesPage } from "./views/TransactionsCategories/CategpriesPage/Ca
 import TransactionList from "./components/TransactionList/TransactionList";
 import { TransactionOverview } from "./components/TransactionOverview/TransactionsOverview";
 import styled from "styled-components";
+import { GlobalStyle } from "./styles/globalStyles";
+import { ThemeProvider } from "styled-components";
+import { theme } from "./styles/Theme";
 
 const AppWrapper = styled.div`
   display: flex;
@@ -14,13 +17,16 @@ const AppWrapper = styled.div`
 const App = () => {
   return (
     <>
-      <AppWrapper>
-        <AppRoutes />
-        <ModalExample />
-        <CategoriesPage />
-        <TransactionOverview />
-        <TransactionList />
-      </AppWrapper>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <AppWrapper>
+          <AppRoutes />
+          <ModalExample />
+          <CategoriesPage />
+          <TransactionOverview />
+          <TransactionList />
+        </AppWrapper>
+      </ThemeProvider>
     </>
   );
 };
