@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "http://localhost:8000/transactions";
+const baseUrl = process.env.REACT_APP_TRANSACTIONS_BASE_URL;
 
 export const getTransactionsList = ({ currentPage, transactionsListSize }) => {
   if (!Number.isInteger(currentPage) && !Number.isInteger(transactionsListSize))
@@ -18,4 +18,10 @@ export const getTransactionsList = ({ currentPage, transactionsListSize }) => {
 export const getTransactionsListLength = () => {
   const response = axios.get(baseUrl).then((response) => response.data.length);
   return response;
+};
+
+export const addNewTransaction = (newTransaction) => {
+  console.log(newTransaction);
+  const request = axios.post(baseUrl, newTransaction);
+  return request.then((response) => response.data);
 };

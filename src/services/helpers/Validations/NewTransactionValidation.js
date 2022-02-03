@@ -25,9 +25,9 @@ export const newTransactionSchema = async () => {
       .min(3, "Title has to have at least 3 letters")
       .required("Title is required"),
     description: yup
-      .string("Title is required")
-      .min(3, "Title has to have at least 3 letters")
-      .max(30, "Title has to have maximum 30 letters")
+      .string("Description is required")
+      .min(3, "Description has to have at least 3 letters")
+      .max(60, "Description has to have maximum 60 letters")
       .required("Description is required"),
     category: yup
       .string()
@@ -36,7 +36,6 @@ export const newTransactionSchema = async () => {
     amount: yup
       .number("Amount is required")
       .typeError("Amount is required")
-      .required("Amount is required")
       .moreThan(0, "Amount cannot be zero or minus"),
     date: yup
       .date("Please choose a valid date")

@@ -9,6 +9,8 @@ import Modal from "../../../components/Modal";
 import { useModal } from "../../../services/hooks/useModal";
 import { currentDate } from "../../../services/utils/currentDate";
 import { newTransactionSchema } from "../../../services/helpers/Validations/NewTransactionValidation";
+import { addNewTransaction } from "../../../services/api/transactionsListService";
+import { v4 as uuidv4 } from "uuid";
 
 export const TransactionForm = ({ initFields, categoriesList }) => {
   const { isVisible, toggleVisibility } = useModal();
@@ -64,7 +66,7 @@ export const TransactionForm = ({ initFields, categoriesList }) => {
         errors.push({ [error.path]: error.message });
       });
       const errorMessages = Object.assign({}, ...errors);
-      setFormErrors(errorMessages);
+      return errorMessages;
     }
   };
 
@@ -72,8 +74,14 @@ export const TransactionForm = ({ initFields, categoriesList }) => {
     setIsTouched((values) => ({ ...values, [field]: true }));
   };
 
-  useEffect(() => {
-    validateForm();
+  useEffect(async () => {
+    const errorMessages = await validateForm();
+
+    if (errorMessages) {
+      setFormErrors(errorMessages);
+    } else {
+      setFormErrors({});
+    }
   }, [title, description, amount, date, category]);
 
   const clearFormValues = () => {
@@ -103,9 +111,23 @@ export const TransactionForm = ({ initFields, categoriesList }) => {
       category: true,
     });
     if (Object.keys(formErrors).length === 0) {
+      const newTransaction = {
+        id: uuidv4(),
+        title: title,
+        description: description,
+        amount: amount,
+        date: date,
+        category: category,
+        type: type,
+        paymentType: paymentType,
+      };
+      addNewTransaction(newTransaction);
       toggleVisibility();
-      clearFormValues();
-      // pass data to json server
+
+      setTimeout(() => {
+        toggleVisibility();
+        clearFormValues();
+      }, 3000);
     }
     return;
   };
