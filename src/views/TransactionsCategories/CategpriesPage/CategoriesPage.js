@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { CategoriesList } from "../CategoriesList/CategoriesList";
 import categoriesService from "../../../services/api/categoriesService";
 import { AddCategoryForm } from "../CategoryForm/AddCategoryForm";
+import { Loader } from "../../../components/Loader/Loader";
 import { CategoryPageWrapper } from "./CategoryPage.style";
 
 export const CategoriesPage = () => {
@@ -58,7 +59,7 @@ export const CategoriesPage = () => {
 
   return (
     <CategoryPageWrapper>
-      {loading && <p>Category list is loading ...</p>}
+      {loading && <Loader />}
       <AddCategoryForm createCategory={createCategory} />
       <CategoriesList
         categories={categories}
