@@ -65,14 +65,4 @@ export const StyledModal = styled.div`
     justify-content: space-around;
     align-items: center;
   }
-
-  .button-wrapper > button {
-    font-size: 1rem;
-    padding: 5px 25px;
-    border-radius: 10px;
-    background-color: grey;
-    color: white;
-    border: 0px;
-    cursor: pointer;
-  }
 `;
