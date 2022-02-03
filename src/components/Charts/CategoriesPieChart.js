@@ -34,24 +34,30 @@ export const CategoriesPieChart = () => {
     }
   };
 
-  useEffect(() => {
-    getTransactionsList();
-
+  const sumEachCategory = () => {
     let sumForEachCategory = [];
     categories.forEach((category) => {
-      const categoryArray = transactionsList.filter(
-        (trans) => trans.category === category
-      );
       sumForEachCategory.push(
-        categoryArray.reduce((acc, item) => acc + parseInt(item.amount), 0)
+        transactionsList
+          .filter((trans) => trans.category === category)
+          .reduce((acc, item) => acc + parseInt(item.amount), 0)
       );
     });
 
     setCategorySums(sumForEachCategory);
+  };
+
+  useEffect(() => {
+    getTransactionsList();
   }, []);
+
+  useEffect(() => {
+    sumEachCategory();
+  }, [transactionsList, categories]);
 
   const chartOptions = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         position: "top",
@@ -78,5 +84,7 @@ export const CategoriesPieChart = () => {
     ],
   };
 
-  return <Pie options={chartOptions} data={chartData} />;
+  return (
+    <Pie options={chartOptions} data={chartData} width="300px" height="300px" />
+  );
 };

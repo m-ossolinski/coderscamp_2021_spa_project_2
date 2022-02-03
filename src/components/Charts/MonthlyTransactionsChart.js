@@ -28,10 +28,8 @@ export const MonthlyTransactionsChart = () => {
 
   const getTransactionsList = async () => {
     try {
-      console.log("fetch start");
       const response = await transactionsService.getTransactionList();
       setTransactionsList(response);
-      console.log("fetch end");
     } catch (error) {
       throw new Error("Transaction list could not been shown.");
     } finally {
@@ -41,9 +39,8 @@ export const MonthlyTransactionsChart = () => {
   const transactionCategory = { income: "income", expense: "expense" };
 
   const monthlySumAgregator = async (category) => {
-    console.log("sum start");
-    const monthlySums = [];
     if ((category = "expense")) {
+      const monthlySums = [];
       for (let i = 1; i <= 12; i++) {
         monthlySums.push(
           transactionsList
@@ -51,9 +48,12 @@ export const MonthlyTransactionsChart = () => {
             .filter((trans) => parseInt(trans.date.substring(5, 7)) === i)
             .reduce((acc, trans) => acc + parseInt(trans.amount), 0)
         );
-        setExpenseChartData(monthlySums);
       }
-    } else {
+      setExpenseChartData(monthlySums);
+    }
+
+    if ((category = "income")) {
+      const monthlySums = [];
       for (let i = 1; i <= 12; i++) {
         monthlySums.push(
           transactionsList
@@ -61,27 +61,23 @@ export const MonthlyTransactionsChart = () => {
             .filter((trans) => parseInt(trans.date.substring(5, 7)) === i)
             .reduce((acc, trans) => acc + parseInt(trans.amount), 0)
         );
-        setIncomeChartData(monthlySums);
       }
+      setIncomeChartData(monthlySums);
     }
-    console.log("sum end");
   };
 
   useEffect(() => {
-    console.log("effect start");
     getTransactionsList();
-    console.log("effect end");
   }, []);
 
   useEffect(() => {
-    setTimeout(() => {
-      monthlySumAgregator(transactionCategory.income);
-      monthlySumAgregator(transactionCategory.expense);
-    }, 1000);
-  }, []);
+    monthlySumAgregator(transactionCategory.income, transactionsList);
+    monthlySumAgregator(transactionCategory.expense, transactionsList);
+  }, [transactionsList]);
 
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         position: "top",
@@ -111,5 +107,5 @@ export const MonthlyTransactionsChart = () => {
     ],
   };
 
-  return <Bar options={options} data={data} />;
+  return <Bar options={options} data={data} width="500px" height="300px" />;
 };
