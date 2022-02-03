@@ -4,18 +4,24 @@ import * as Icons from "react-icons/fa";
 
 export const Navigation = () => {
   const sidebarData = [
-    { label: "Home", href: "/", icon: "BiHome" },
+    { label: "Home", href: "/", icon: "FaHome" },
     { label: "Transactions", href: "/transactions", icon: "FaMoneyBillWave" },
-    { label: "Stats", href: "/stats", icon: "ImStatsDots" },
+    { label: "Stats", href: "/stats", icon: "FaRegChartBar" },
   ];
   return (
     <StyledNavigation>
       <ul>
-        {sidebarData.map((link) => (
-          <li key={link.href}>
-            <StyledNavLink to={link.href}>{link.label}</StyledNavLink>
-          </li>
-        ))}
+        {sidebarData.map((link) => {
+          const { [link.icon]: Icon } = Icons;
+          return (
+            <li key={link.href}>
+              <StyledNavLink to={link.href}>
+                <Icon className="NavLink-icon" />
+                {link.label}
+              </StyledNavLink>
+            </li>
+          );
+        })}
       </ul>
     </StyledNavigation>
   );

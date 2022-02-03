@@ -2,7 +2,8 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const StyledNavLink = styled(NavLink)`
-  display: block;
+  display: flex;
+  align-items: center;
   width: 100%;
   height: 6rem;
   padding-left: 2rem;
@@ -11,6 +12,10 @@ export const StyledNavLink = styled(NavLink)`
   font-size: 2.2rem;
   text-decoration: none;
   line-height: 5.5rem;
+
+  & .NavLink-icon {
+    margin-right: 1rem;
+  }
 
   &.active,
   &:hover {
