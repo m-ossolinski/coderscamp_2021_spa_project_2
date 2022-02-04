@@ -12,7 +12,12 @@ export const PaginateButtons = ({
     paginateButtons = null;
 
   const firstButton = (
-    <PaginateButton key={1} pageNumber={1} paginate={paginate} />
+    <PaginateButton
+      key={1}
+      pageNumber={1}
+      paginate={paginate}
+      currentPage={currentPage}
+    />
   );
 
   const lastButton = (
@@ -20,6 +25,7 @@ export const PaginateButtons = ({
       key={numberOfPages}
       pageNumber={numberOfPages}
       paginate={paginate}
+      currentPage={currentPage}
     />
   );
 
@@ -47,6 +53,7 @@ export const PaginateButtons = ({
           key={pageNumber}
           pageNumber={pageNumber}
           paginate={paginate}
+          currentPage={currentPage}
         />
       ));
 
@@ -54,10 +61,14 @@ export const PaginateButtons = ({
       <>
         {previousPageButtons}
         {paginateButtons}
-        <PaginateButton pageNumber={currentPage + 3} paginate={paginate}>
-          <span>...</span>
-        </PaginateButton>
-        {lastButton}
+        {numberOfPages > 6 ? (
+          <PaginateButton pageNumber={currentPage + 3} paginate={paginate}>
+            <span>...</span>
+          </PaginateButton>
+        ) : (
+          ""
+        )}
+        {numberOfPages > 5 ? lastButton : ""}
         {nextPageButtons}
       </>
     );
@@ -71,6 +82,7 @@ export const PaginateButtons = ({
           key={pageNumber}
           pageNumber={pageNumber}
           paginate={paginate}
+          currentPage={currentPage}
         />
       ));
 
@@ -99,16 +111,21 @@ export const PaginateButtons = ({
           key={pageNumber}
           pageNumber={pageNumber}
           paginate={paginate}
+          currentPage={currentPage}
         />
       ));
 
     return (
       <>
         {previousPageButtons}
-        {firstButton}
-        <PaginateButton pageNumber={currentPage - 3} paginate={paginate}>
-          <span>...</span>
-        </PaginateButton>
+        {numberOfPages > 5 ? firstButton : ""}
+        {numberOfPages > 6 ? (
+          <PaginateButton pageNumber={currentPage - 3} paginate={paginate}>
+            <span>...</span>
+          </PaginateButton>
+        ) : (
+          ""
+        )}
         {paginateButtons}
         {nextPageButtons}
       </>

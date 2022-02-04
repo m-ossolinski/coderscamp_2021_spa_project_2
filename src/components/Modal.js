@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { StyledModal } from "./Modal.styled";
 import PropTypes from "prop-types";
+import { Button } from "./Button/Button";
 
 const Modal = ({
   isVisible,
@@ -28,8 +29,12 @@ const Modal = ({
                 {children ? <div>{children}</div> : null}
               </div>
               <div className="button-wrapper">
-                <button onClick={onCancel}>{cancelBtnLabel ?? "Cancel"}</button>
-                <button onClick={onSubmit}>{submitBtnLabel ?? "Submit"}</button>
+                <Button secondary onClick={() => onCancel()}>
+                  {cancelBtnLabel ?? "Cancel"}
+                </Button>
+                <Button primary onClick={() => onSubmit()}>
+                  {submitBtnLabel ?? "Submit"}
+                </Button>
               </div>
             </div>
           </div>
