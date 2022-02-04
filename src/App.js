@@ -4,18 +4,24 @@ import { AppRoutes } from "./routes/AppRoutes";
 import { MainLayout } from "./components/layout/MainLayout/MainLayout";
 import { Header } from "./components/layout/Header/Header";
 import { StyledApp } from "./App.styled";
+import { ThemeProvider } from "styled-components";
+import { theme } from "./styles/Theme";
+import { GlobalStyle } from "./styles/globalStyles";
 
 const App = () => {
   return (
     <>
-      <StyledApp>
-        <BrowserRouter>
-          <Header />
-          <MainLayout>
-            <AppRoutes />
-          </MainLayout>
-        </BrowserRouter>
-      </StyledApp>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <StyledApp>
+          <BrowserRouter>
+            <Header />
+            <MainLayout>
+              <AppRoutes />
+            </MainLayout>
+          </BrowserRouter>
+        </StyledApp>
+      </ThemeProvider>
     </>
   );
 };
