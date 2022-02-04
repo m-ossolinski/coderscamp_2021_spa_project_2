@@ -3,8 +3,8 @@ import { StyledListLink } from "./PaginateButton.style.";
 
 export const PaginateButton = ({
   pageNumber,
-  paginate,
   currentPage,
+  paginate,
   children,
 }) => {
   return (
@@ -22,6 +22,7 @@ export const PaginateButton = ({
 
 PaginateButton.propTypes = {
   pageNumber: PropTypes.number.isRequired,
+  currentPage: PropTypes.number.isRequired,
   paginate: PropTypes.func.isRequired,
   children: PropTypes.node,
 };

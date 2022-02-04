@@ -32,6 +32,7 @@ export const Pagination = ({
 
 Pagination.propTypes = {
   transactionsListSize: PropTypes.number.isRequired,
+  transactionsListLength: PropTypes.number.isRequired,
   currentPage: PropTypes.number.isRequired,
   paginate: PropTypes.func.isRequired,
 };
