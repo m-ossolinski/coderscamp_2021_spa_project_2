@@ -10,12 +10,3 @@
 html {
   font-size: 62.5%;
 }
-
-body {
-  background: linear-gradient(
-    to right,
-    #ebeef9 33.333%,
-    #bce4df 33.333% 66.666%,
-    #9bdbcb 66.666%
-  );
-}
