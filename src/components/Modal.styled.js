@@ -31,7 +31,9 @@ export const StyledModal = styled.div`
     margin: 1rem auto;
     border-radius: 10px;
     max-width: 500px;
-    padding: 1rem;
+    line-height: 1.8;
+    padding: 80px 30px 25px;
+    font-size: 18px;
   }
 
   .modal-header {
@@ -42,6 +44,9 @@ export const StyledModal = styled.div`
   }
 
   .modal-btn-close {
+    position: absolute;
+    top: 25px;
+    right: 30px;
     width: 35px;
     height: 35px;
     border-radius: 10px;
@@ -62,7 +67,19 @@ export const StyledModal = styled.div`
     width: 100%;
     height: 40px;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
     align-items: center;
+  }
+
+  .button-wrapper > button {
+    font-size: 1.6rem;
+    letter-spacing: 0.6px;
+    padding: 5px 25px;
+    border-radius: 10px;
+    background-color: grey;
+    color: white;
+    border: 0px;
+    cursor: pointer;
+    margin-left: 10px;
   }
 `;
