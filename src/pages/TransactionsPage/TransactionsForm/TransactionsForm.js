@@ -9,8 +9,9 @@ import Modal from "../../../components/Modal";
 import { useModal } from "../../../services/hooks/useModal";
 import { currentDate } from "../../../services/utils/currentDate";
 import { newTransactionSchema } from "../../../services/helpers/Validations/NewTransactionValidation";
+import { Button } from "../../../components/Button/Button";
 
-export const TransactionForm = ({ initFields }) => {
+export const TransactionForm = ({ initFields, categoriesList }) => {
   const { isVisible, toggleVisibility } = useModal();
 
   const [title, setTitle, resetTitle] = useInputState(initFields.title);
@@ -24,6 +25,7 @@ export const TransactionForm = ({ initFields }) => {
   const [paymentType, setPaymentType, resetPaymentType] = useInputState(
     initFields.paymentType
   );
+
   const [formErrors, setFormErrors] = useState({});
   const [isTouched, setIsTouched] = useState({
     title: false,
@@ -32,6 +34,15 @@ export const TransactionForm = ({ initFields }) => {
     date: false,
     category: false,
   });
+
+  const createSchema = async () => {
+    try {
+      const schema = await newTransactionSchema();
+      return schema;
+    } catch (err) {
+      throw new Error("Cannot create schema");
+    }
+  };
 
   const validateForm = async () => {
     const formValues = {
@@ -42,8 +53,10 @@ export const TransactionForm = ({ initFields }) => {
       category: category,
     };
 
+    const schema = await createSchema();
+
     try {
-      newTransactionSchema.validateSync(formValues, {
+      schema.validateSync(formValues, {
         abortEarly: false,
       });
     } catch (err) {
@@ -109,9 +122,9 @@ export const TransactionForm = ({ initFields }) => {
 
   return (
     <>
-      <button className="button-default" onClick={toggleVisibility}>
+      <Button secondary onClick={() => toggleVisibility()}>
         Add new transaction
-      </button>
+      </Button>
       <Modal
         isVisible={isVisible}
         onCancel={() => {
@@ -145,7 +158,7 @@ export const TransactionForm = ({ initFields }) => {
             handleBlur={handleBlur}
           />
           <Dropdown
-            options={["rent", "clothes", "food"]}
+            options={categoriesList}
             name={category}
             field="category"
             handleChange={setCategory}

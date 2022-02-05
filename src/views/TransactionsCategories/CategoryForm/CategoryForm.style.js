@@ -1,5 +1,12 @@
 import styled from "styled-components";
 
+export const FormWrapper = styled.div`
+  font-size: 1.5rem;
+  padding: 1rem;
+  margin: 1rem;
+  width: 100%;
+`;
+
 export const Form = styled.form`
   font-size: 1.5rem;
   padding: 1rem;
@@ -8,14 +15,6 @@ export const Form = styled.form`
   flex-direction: column;
   justify-content: space-evently;
   align-items: left;
-`;
-
-export const Button = styled.button`
-  background-color: transparent;
-  width: 30%;
-  font-size: 1.5rem;
-  padding: 1rem;
-  margin: 1rem;
 `;
 
 export const FormGroup = styled.div`
