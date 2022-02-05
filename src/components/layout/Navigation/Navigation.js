@@ -7,6 +7,7 @@ export const Navigation = () => {
     { label: "Home", href: "/", icon: "FaHome" },
     { label: "Transactions", href: "/transactions", icon: "FaMoneyBillWave" },
     { label: "Stats", href: "/stats", icon: "FaRegChartBar" },
+    { label: "Categories", href: "/categories", icon: "FaBoxes" },
   ];
   return (
     <StyledNavigation>

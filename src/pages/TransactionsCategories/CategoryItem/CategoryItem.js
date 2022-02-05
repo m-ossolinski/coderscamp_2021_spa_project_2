@@ -1,7 +1,7 @@
 import React from "react";
 import * as Icons from "react-icons/fa";
 import { RemoveCategory } from "../RemoveCategory/RemoveCategory";
-import { IconWrapper, TableRow } from "./CategoryItem.style";
+import { IconWrapper, TableRow, TableTd } from "./CategoryItem.styled";
 import { EditCategoryForm } from "../CategoryForm/EditCategoryForm";
 import PropTypes from "prop-types";
 
@@ -11,14 +11,16 @@ export const CategoryItem = ({ category, removeCategory, editCategory }) => {
   return (
     <>
       <TableRow>
-        <IconWrapper>
-          <Icon style={{ color: `${category.color}` }} />
-        </IconWrapper>
-        {category.name}
-      </TableRow>
-      <TableRow>
-        <EditCategoryForm editCategory={editCategory} category={category} />
-        <RemoveCategory removeCategory={removeCategory} category={category} />
+        <TableTd>
+          <IconWrapper>
+            <Icon style={{ color: `${category.color}` }} />
+          </IconWrapper>
+          {category.name}
+        </TableTd>
+        <TableTd>
+          <EditCategoryForm editCategory={editCategory} category={category} />
+          <RemoveCategory removeCategory={removeCategory} category={category} />
+        </TableTd>
       </TableRow>
     </>
   );

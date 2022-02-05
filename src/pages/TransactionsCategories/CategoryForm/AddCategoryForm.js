@@ -15,7 +15,7 @@ import {
   IconWrapper,
   FormError,
   FormWrapper,
-} from "./CategoryForm.style";
+} from "./CategoryForm.styled";
 import { Button } from "../../../components/Button/Button";
 
 export const AddCategoryForm = ({ createCategory }) => {

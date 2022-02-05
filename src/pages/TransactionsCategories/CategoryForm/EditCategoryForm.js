@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { IconPicker } from "../IconPicker/IconPicker";
-import { IconWrapper } from "../IconPicker/IconPicker.style";
+import { IconWrapper } from "../IconPicker/IconPicker.styled";
 import { IconPickerItem } from "../IconPicker/IconPickerItem";
 import Modal from "../../../components/Modal";
 import { useModal } from "../../../services/hooks/useModal";
@@ -15,7 +15,7 @@ import {
   ColorInput,
   IconWrapper,
   FormError,
-} from "./CategoryForm.style";
+} from "./CategoryForm.styled";
 
 export const EditCategoryForm = ({ editCategory, category }) => {
   const [name, setName] = useState(category.name);

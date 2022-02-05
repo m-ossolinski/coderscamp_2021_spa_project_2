@@ -3,7 +3,7 @@ import { CategoriesList } from "../CategoriesList/CategoriesList";
 import categoriesService from "../../../services/api/categoriesService";
 import { AddCategoryForm } from "../CategoryForm/AddCategoryForm";
 import { Loader } from "../../../components/Loader/Loader";
-import { CategoryPageWrapper } from "./CategoryPage.style";
+import { CategoryPageWrapper } from "./CategoryPage.styled";
 
 export const CategoriesPage = () => {
   const [categories, setCategories] = useState([]);

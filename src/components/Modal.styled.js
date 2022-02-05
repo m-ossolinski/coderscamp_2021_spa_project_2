@@ -72,14 +72,6 @@ export const StyledModal = styled.div`
   }
 
   .button-wrapper > button {
-    font-size: 1.6rem;
-    letter-spacing: 0.6px;
-    padding: 5px 25px;
-    border-radius: 10px;
-    background-color: grey;
-    color: white;
-    border: 0px;
-    cursor: pointer;
     margin-left: 10px;
   }
 `;

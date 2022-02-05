@@ -5,6 +5,11 @@ export const IconWrapper = styled.button`
   border: none;
   font-size: 1.6rem;
   padding: 1rem;
+  color: ${({ theme }) => theme.colors.fontDark};
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.primaryDarkest};
+  }
 `;
 
 export const Confirmation = styled.div`
