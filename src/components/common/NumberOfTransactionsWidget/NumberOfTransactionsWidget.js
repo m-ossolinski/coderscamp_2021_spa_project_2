@@ -2,30 +2,11 @@ import PropTypes from "prop-types";
 
 export const NumberOfTransactionsWidget = ({
   transactionsListSize,
-<<<<<<< HEAD
-  pageEntriesHandler,
-=======
   transactionsListSizeHandler,
->>>>>>> develop
 }) => {
   const configurationOptions = [
     {
       id: 1,
-<<<<<<< HEAD
-      value: 10,
-    },
-    {
-      id: 2,
-      value: 25,
-    },
-    {
-      id: 3,
-      value: 50,
-    },
-    {
-      id: 4,
-      value: 100,
-=======
       value: 5,
     },
     {
@@ -39,7 +20,6 @@ export const NumberOfTransactionsWidget = ({
     {
       id: 4,
       value: 50,
->>>>>>> develop
     },
   ];
 
@@ -59,11 +39,7 @@ export const NumberOfTransactionsWidget = ({
         id="transactions-select"
         value={transactionsListSize}
         onChange={(event) =>
-<<<<<<< HEAD
-          pageEntriesHandler(Number.parseInt(event.target.value))
-=======
           transactionsListSizeHandler(Number.parseInt(event.target.value))
->>>>>>> develop
         }
       >
         {options}
@@ -74,9 +50,5 @@ export const NumberOfTransactionsWidget = ({
 
 NumberOfTransactionsWidget.propTypes = {
   transactionsListSize: PropTypes.number.isRequired,
-<<<<<<< HEAD
-  pageEntriesHandler: PropTypes.func.isRequired,
-=======
   transactionsListSizeHandler: PropTypes.func.isRequired,
->>>>>>> develop
 };
