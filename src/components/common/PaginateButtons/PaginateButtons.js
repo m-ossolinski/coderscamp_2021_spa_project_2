@@ -12,7 +12,16 @@ export const PaginateButtons = ({
     paginateButtons = null;
 
   const firstButton = (
+<<<<<<< HEAD
     <PaginateButton key={1} pageNumber={1} paginate={paginate} />
+=======
+    <PaginateButton
+      key={1}
+      pageNumber={1}
+      paginate={paginate}
+      currentPage={currentPage}
+    />
+>>>>>>> develop
   );
 
   const lastButton = (
@@ -20,6 +29,10 @@ export const PaginateButtons = ({
       key={numberOfPages}
       pageNumber={numberOfPages}
       paginate={paginate}
+<<<<<<< HEAD
+=======
+      currentPage={currentPage}
+>>>>>>> develop
     />
   );
 
@@ -47,6 +60,10 @@ export const PaginateButtons = ({
           key={pageNumber}
           pageNumber={pageNumber}
           paginate={paginate}
+<<<<<<< HEAD
+=======
+          currentPage={currentPage}
+>>>>>>> develop
         />
       ));
 
@@ -54,10 +71,21 @@ export const PaginateButtons = ({
       <>
         {previousPageButtons}
         {paginateButtons}
+<<<<<<< HEAD
         <PaginateButton pageNumber={currentPage + 3} paginate={paginate}>
           <span>...</span>
         </PaginateButton>
         {lastButton}
+=======
+        {numberOfPages > 6 ? (
+          <PaginateButton pageNumber={currentPage + 3} paginate={paginate}>
+            <span>...</span>
+          </PaginateButton>
+        ) : (
+          ""
+        )}
+        {numberOfPages > 5 ? lastButton : ""}
+>>>>>>> develop
         {nextPageButtons}
       </>
     );
@@ -71,6 +99,10 @@ export const PaginateButtons = ({
           key={pageNumber}
           pageNumber={pageNumber}
           paginate={paginate}
+<<<<<<< HEAD
+=======
+          currentPage={currentPage}
+>>>>>>> develop
         />
       ));
 
@@ -99,16 +131,31 @@ export const PaginateButtons = ({
           key={pageNumber}
           pageNumber={pageNumber}
           paginate={paginate}
+<<<<<<< HEAD
+=======
+          currentPage={currentPage}
+>>>>>>> develop
         />
       ));
 
     return (
       <>
         {previousPageButtons}
+<<<<<<< HEAD
         {firstButton}
         <PaginateButton pageNumber={currentPage - 3} paginate={paginate}>
           <span>...</span>
         </PaginateButton>
+=======
+        {numberOfPages > 5 ? firstButton : ""}
+        {numberOfPages > 6 ? (
+          <PaginateButton pageNumber={currentPage - 3} paginate={paginate}>
+            <span>...</span>
+          </PaginateButton>
+        ) : (
+          ""
+        )}
+>>>>>>> develop
         {paginateButtons}
         {nextPageButtons}
       </>

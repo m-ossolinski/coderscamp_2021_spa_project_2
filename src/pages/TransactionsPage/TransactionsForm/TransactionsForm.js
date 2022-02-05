@@ -11,6 +11,7 @@ import { currentDate } from "../../../services/utils/currentDate";
 import { newTransactionSchema } from "../../../services/helpers/Validations/NewTransactionValidation";
 import { addNewTransaction } from "../../../services/api/transactionsListService";
 import { v4 as uuidv4 } from "uuid";
+import { Button } from "../../../components/Button/Button";
 
 export const TransactionForm = ({ initFields, categoriesList }) => {
   const { isVisible, toggleVisibility } = useModal();
@@ -143,9 +144,9 @@ export const TransactionForm = ({ initFields, categoriesList }) => {
 
   return (
     <>
-      <button className="button-default" onClick={toggleVisibility}>
+      <Button secondary onClick={() => toggleVisibility()}>
         Add new transaction
-      </button>
+      </Button>
       <Modal
         isVisible={isVisible}
         onCancel={() => {

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { PaginateButtons } from "../PaginateButtons/PaginateButtons";
@@ -8,6 +9,18 @@ export const Pagination = ({ transactionsListSize, currentPage, paginate }) => {
   const [transactionsListLength, setTransactionsListLength] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 
+=======
+import PropTypes from "prop-types";
+import { PaginateButtons } from "../PaginateButtons/PaginateButtons";
+import { ButtonsList } from "./Pagination.styled";
+
+export const Pagination = ({
+  transactionsListSize,
+  transactionsListLength,
+  currentPage,
+  paginate,
+}) => {
+>>>>>>> develop
   const numberOfPages =
     transactionsListLength % transactionsListSize === 0
       ? Math.floor(transactionsListLength / transactionsListSize)
@@ -18,6 +31,7 @@ export const Pagination = ({ transactionsListSize, currentPage, paginate }) => {
     (_, i) => i + 1
   );
 
+<<<<<<< HEAD
   useEffect(async () => {
     try {
       setIsLoading(true);
@@ -34,6 +48,8 @@ export const Pagination = ({ transactionsListSize, currentPage, paginate }) => {
     return <div>Loading</div>;
   }
 
+=======
+>>>>>>> develop
   return (
     <ButtonsList>
       <PaginateButtons
@@ -48,6 +64,10 @@ export const Pagination = ({ transactionsListSize, currentPage, paginate }) => {
 
 Pagination.propTypes = {
   transactionsListSize: PropTypes.number.isRequired,
+<<<<<<< HEAD
+=======
+  transactionsListLength: PropTypes.number.isRequired,
+>>>>>>> develop
   currentPage: PropTypes.number.isRequired,
   paginate: PropTypes.func.isRequired,
 };

@@ -10,13 +10,21 @@ export const getTransactionsList = ({ currentPage, transactionsListSize }) => {
 
   const response = axios
     .get(`${baseUrl}?_page=${currentPage}&_limit=${transactionsListSize}`)
-    .then((response) => response.data);
+    .then((response) => response.data)
+    .catch((error) => {
+      throw new Error(error);
+    });
 
   return response;
 };
 
 export const getTransactionsListLength = () => {
-  const response = axios.get(baseUrl).then((response) => response.data.length);
+  const response = axios
+    .get(baseUrl)
+    .then((response) => response.data.length)
+    .catch((error) => {
+      throw new Error(error);
+    });
   return response;
 };
 
