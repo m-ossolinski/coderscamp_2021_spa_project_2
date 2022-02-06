@@ -3,15 +3,15 @@ import { DatePicker } from "../../../components/form/DatePicker/DatePicker";
 import { Input } from "../../../components/form/Input/Input";
 import { RadioButton } from "../../../components/form/RadioButton/RadioButton";
 import { Dropdown } from "../../../components/form/Dropdown/Dropdown";
+import Modal from "../../../components/Modal";
+import { Button } from "../../../components/Button/Button";
+import { v4 as uuidv4 } from "uuid";
 import { useInputState } from "../../../services/hooks/useInputState";
 import { useState, useEffect } from "react";
-import Modal from "../../../components/Modal";
 import { useModal } from "../../../services/hooks/useModal";
+import { addNewTransaction } from "../../../services/api/transactionsListService";
 import { currentDate } from "../../../services/utils/currentDate";
 import { newTransactionSchema } from "../../../services/helpers/Validations/NewTransactionValidation";
-import { addNewTransaction } from "../../../services/api/transactionsListService";
-import { v4 as uuidv4 } from "uuid";
-import { Button } from "../../../components/Button/Button";
 
 export const TransactionForm = ({ initFields, categoriesList }) => {
   const { isVisible, toggleVisibility } = useModal();
