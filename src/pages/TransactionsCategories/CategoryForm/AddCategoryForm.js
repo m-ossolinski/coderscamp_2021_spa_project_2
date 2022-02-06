@@ -18,7 +18,7 @@ import {
 } from "./CategoryForm.styled";
 import { Button } from "../../../components/Button/Button";
 
-export const AddCategoryForm = ({ createCategory }) => {
+export const AddCategoryForm = ({ createCategory, loading }) => {
   const [name, setName] = useState("");
   const [icon, setIcon] = useState("");
   const [color, setColor] = useState("");
@@ -83,7 +83,7 @@ export const AddCategoryForm = ({ createCategory }) => {
 
   return (
     <FormWrapper>
-      <Button secondary onClick={() => toggleVisibility()}>
+      <Button secondary loading onClick={() => toggleVisibility()}>
         Add Category
       </Button>
       <Modal
