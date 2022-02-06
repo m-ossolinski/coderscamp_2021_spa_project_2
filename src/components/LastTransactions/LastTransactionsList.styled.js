@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
-export const StyledLastTransactionsList = styled.table`
+export const StyledLastTransactionsList = styled.div`
+overflow:hidden;
+    overflow-y: scroll;
+
+  & table {
   margin: 1rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
   height: 100%;
   border-radius: 10px;
   background: ${({ theme }) => theme.colors.primaryLight};
@@ -10,12 +14,16 @@ export const StyledLastTransactionsList = styled.table`
 
   & thead {
     & tr {
-      box-shadow: 5px 5px 12px 1px rgba(0,0,0,0.13);
 }
       & th {
         padding: 0.5rem 1rem;
         width: 150px;
         text-align: center;
+        background: ${({ theme }) => theme.colors.primaryLight};
+        box-shadow: 5px 5px 12px 1px rgba(0,0,0,0.13);
+        top: 0;
+    z-index: 2;
+    position: sticky;
         &:first-child {
           width: 200px;
         }
@@ -40,4 +48,5 @@ export const StyledLastTransactionsList = styled.table`
       }
     }
   }
+}
 `;
