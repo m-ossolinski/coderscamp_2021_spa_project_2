@@ -9,7 +9,7 @@ import { v4 as uuidv4 } from "uuid";
 import { useInputState } from "../../../services/hooks/useInputState";
 import { useState, useEffect } from "react";
 import { useModal } from "../../../services/hooks/useModal";
-import { addNewTransaction } from "../../../services/api/transactionsListService";
+import transactionService from "../../../services/api/transactionsService.";
 import { currentDate } from "../../../services/utils/currentDate";
 import { newTransactionSchema } from "../../../services/helpers/Validations/NewTransactionValidation";
 
@@ -122,7 +122,7 @@ export const TransactionForm = ({ initFields, categoriesList }) => {
         type: type,
         paymentType: paymentType,
       };
-      addNewTransaction(newTransaction);
+      transactionService.createTransaction(newTransaction);
       setTimeout(() => {
         toggleVisibility();
         clearFormValues();

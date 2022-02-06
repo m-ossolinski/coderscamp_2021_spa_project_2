@@ -27,9 +27,3 @@ export const getTransactionsListLength = () => {
     });
   return response;
 };
-
-export const addNewTransaction = (newTransaction) => {
-  console.log(newTransaction);
-  const request = axios.post(baseUrl, newTransaction);
-  return request.then((response) => response.data);
-};
