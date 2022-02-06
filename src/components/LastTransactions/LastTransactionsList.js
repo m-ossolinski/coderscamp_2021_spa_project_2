@@ -9,6 +9,7 @@ export const LastTransactionsList = ({ transactionsList }) => {
   const tableHeader = ["Title", "Category", "Date", "Amount"];
   return (
     <StyledLastTransactionsList>
+      <h1>Latest transactions:</h1>
       <table>
         <thead>
           <tr>

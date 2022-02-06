@@ -4,6 +4,10 @@ export const StyledLastTransactionsList = styled.div`
 overflow:hidden;
     overflow-y: scroll;
 
+  & h1 {
+    font-size: 2rem;
+  }
+
   & table {
   margin: 1rem;
   font-size: 1.5rem;
