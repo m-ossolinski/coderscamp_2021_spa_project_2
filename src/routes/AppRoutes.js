@@ -13,7 +13,13 @@ export const AppRoutes = () => {
             Home Page
             <h1>Welcome to Coders Camp 2021</h1>
             <h2>SPA Project</h2>
-            <Typography tag="h3" size="extraLarge" weight="900" color="#0d9976">
+            <Typography
+              tag="h3"
+              size="extraLarge"
+              weight="900"
+              color="#0d9976"
+              transform="uppercase"
+            >
               Hello typography!
             </Typography>
           </div>

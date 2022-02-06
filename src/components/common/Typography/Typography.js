@@ -16,6 +16,7 @@ export const Typography = ({
   size,
   weight,
   color,
+  transform,
   className,
   children,
 }) => {
@@ -25,6 +26,7 @@ export const Typography = ({
       size={fontSizeMapping[size]}
       weight={weight}
       color={color}
+      transform={transform}
       className={className}
     >
       {children}
@@ -36,12 +38,14 @@ Typography.defaultProps = {
   tag: "p",
   weight: "400",
   color: "#030303",
+  transform: "none",
 };
 
 Typography.propTypes = {
   tag: PropTypes.string,
   weight: PropTypes.string,
   color: PropTypes.string,
+  transform: PropTypes.string,
   className: PropTypes.string,
   children: PropTypes.node.isRequired,
   size: (props, propName, componentName) => {
