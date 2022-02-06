@@ -5,6 +5,7 @@ import {
 } from "react-icons/bs";
 
 export const LastTransactionsList = ({ transactionsList }) => {
+  const latestTransactions = transactionsList.slice(0, 30);
   const tableHeader = ["Title", "Category", "Date", "Amount"];
   return (
     <StyledLastTransactionsList>
@@ -16,7 +17,7 @@ export const LastTransactionsList = ({ transactionsList }) => {
         </tr>
       </thead>
       <tbody>
-        {transactionsList.map((t) => (
+        {latestTransactions.map((t) => (
           <tr key={t.id}>
             <td>{t.title}</td>
             <td>{t.category}</td>
