@@ -73,7 +73,7 @@ export const AddCategoryForm = ({ createCategory }) => {
     }
   };
 
-  handleCancel = () => {
+  const handleCancel = () => {
     toggleVisibility();
     setName("");
     setIcon("");
