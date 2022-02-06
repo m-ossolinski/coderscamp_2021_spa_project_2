@@ -1,5 +1,5 @@
 import { FaTrashAlt } from "react-icons/fa";
-import { Confirmation, IconWrapper } from "./RemoveCategory.style";
+import { Confirmation, IconWrapper } from "./RemoveCategory.styled";
 import Modal from "../../../components/Modal";
 import { useModal } from "../../../services/hooks/useModal";
 import PropTypes from "prop-types";
