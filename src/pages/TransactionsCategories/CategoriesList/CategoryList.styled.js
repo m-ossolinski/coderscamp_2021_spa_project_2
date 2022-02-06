@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Table = styled.table`
   font-size: 1.6rem;
   width: 80%;
-  color: color: ${({ theme }) => theme.colors.fomtDark};
+  color: color: ${({ theme }) => theme.colors.fontDark};
 `;
 
 export const CategoryListWrapper = styled.div`
@@ -14,10 +14,6 @@ export const CategoryListWrapper = styled.div`
   height: 400px;
   overflow-y: auto;
   scroll-behavior: smooth;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
 `;
 
 export const TableRow = styled.tr`
