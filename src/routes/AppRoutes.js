@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import TransactionsPage from "../pages/TransactionsPage/TransactionsPage";
+import { Typography } from "../components/common/Typography/Typography";
 
 export const AppRoutes = () => {
   return (
@@ -12,6 +13,9 @@ export const AppRoutes = () => {
             Home Page
             <h1>Welcome to Coders Camp 2021</h1>
             <h2>SPA Project</h2>
+            <Typography tag="h5" size="medium">
+              Hellow typography!
+            </Typography>
           </div>
         }
       />
