@@ -1,6 +1,6 @@
 import React from "react";
 import { CategoryItem } from "../CategoryItem/CategoryItem";
-import { Table, CategoryListWrapper } from "./CategoryList.styled";
+import { Table, CategoryListWrapper, TableRow } from "./CategoryList.styled";
 import PropTypes from "prop-types";
 
 export const CategoriesList = ({
@@ -13,13 +13,13 @@ export const CategoriesList = ({
       <Table>
         <tbody>
           {categories.map((category) => (
-            <tr key={category.id}>
+            <TableRow key={category.id}>
               <CategoryItem
                 category={category}
                 removeCategory={removeCategory}
                 editCategory={editCategory}
               />
-            </tr>
+            </TableRow>
           ))}
         </tbody>
       </Table>

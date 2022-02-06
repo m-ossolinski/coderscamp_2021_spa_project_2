@@ -19,3 +19,12 @@ export const CategoryListWrapper = styled.div`
   justify-content: space-around;
   align-items: center;
 `;
+
+export const TableRow = styled.tr`
+  background: ${({ theme }) => theme.colors.primaryLight};
+  margin: 0.3rem;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+`;
