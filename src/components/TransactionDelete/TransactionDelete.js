@@ -4,12 +4,10 @@ import { Button } from "../Button/Button";
 import Modal from "../Modal";
 import { useModal } from "../../services/hooks/useModal";
 
+import removeTransaction from "../../services/api/transactionsService.";
+
 export const TransactionDelete = ({ id }) => {
   const { isVisible, toggleVisibility } = useModal();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
 
   return (
     <>
@@ -23,8 +21,12 @@ export const TransactionDelete = ({ id }) => {
         }}
         modalHeader={"Delete transaction"}
         cancelBtnLabel={"Cancel"}
-        submitBtnLabel={"Submit"}
-        onSubmit={handleSubmit}
+        submitBtnLabel={"Delete"}
+        onSubmit={() => {
+          removeTransaction.removeTransaction(id);
+          toggleVisibility();
+          window.location.reload(false);
+        }}
       >
         <p>Are you sure you want delete this transaction?</p>
       </Modal>
