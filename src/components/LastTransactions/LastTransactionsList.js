@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { StyledLastTransactionsList } from "./LastTransactionsList.styled";
 import {
   BsFillArrowDownSquareFill,
@@ -19,28 +20,38 @@ export const LastTransactionsList = ({ transactionsList }) => {
           </tr>
         </thead>
         <tbody>
-          {latestTransactions.map((t) => (
-            <tr key={t.id}>
-              <td>{t.title}</td>
-              <td>{t.category}</td>
-              <td>{t.date.split("-").reverse().join(".")}</td>
-              <td>
-                {t.type === "expense" ? (
-                  <p color="red">
-                    <span>{t.amount}€</span>{" "}
-                    <BsFillArrowDownSquareFill color="#ff5454" />
-                  </p>
-                ) : (
-                  <p color="green">
-                    <span>{t.amount}€</span>{" "}
-                    <BsFillArrowUpRightSquareFill color="#3AD7B2" />
-                  </p>
-                )}
-              </td>
+          {latestTransactions.length !== 0 ? (
+            latestTransactions.map((t) => (
+              <tr key={t.id}>
+                <td>{t.title}</td>
+                <td>{t.category}</td>
+                <td>{t.date.split("-").reverse().join(".")}</td>
+                <td>
+                  {t.type === "expense" ? (
+                    <p color="red">
+                      <span>{t.amount}€</span>{" "}
+                      <BsFillArrowDownSquareFill color="#ff5454" />
+                    </p>
+                  ) : (
+                    <p color="green">
+                      <span>{t.amount}€</span>{" "}
+                      <BsFillArrowUpRightSquareFill color="#3AD7B2" />
+                    </p>
+                  )}
+                </td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td>No transactions to display</td>
             </tr>
-          ))}
+          )}
         </tbody>
       </table>
     </StyledLastTransactionsList>
   );
+};
+
+LastTransactionsList.propTypes = {
+  transactionsList: PropTypes.array,
 };

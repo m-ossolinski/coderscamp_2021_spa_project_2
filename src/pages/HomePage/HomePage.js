@@ -3,7 +3,7 @@ import { LastTransactionsList } from "../../components/LastTransactions/LastTran
 
 const list = [
   {
-    id: "ad7a8aac-8718-4585-924e-55100f495abb",
+    id: "ad7a8aac-8718-4585-924ejjj",
     title: "Gap",
     category: "clothes",
     amount: 432.87,
@@ -14,7 +14,7 @@ const list = [
     type: "expense",
   },
   {
-    id: "94d22477-3870-43d6-935e-7483e06fbd94",
+    id: "94d22477-3870-43d6-935e",
     title: "M&S Food Court",
     category: "food",
     amount: 15.26,
@@ -24,7 +24,7 @@ const list = [
     type: "income",
   },
   {
-    id: "363e34d9-6181-40cc-ac85-f19695f422ca",
+    id: "363e34d9-6181-40cc-ac85",
     title: "Tesco Petrol",
     category: "fuel",
     amount: 150.04,
@@ -34,7 +34,7 @@ const list = [
     type: "expense",
   },
   {
-    id: "58f2124a-ab8b-4b88-bb0d-e2dabf00ac94",
+    id: "58f2124a-ab8b-4",
     title: "Netlix",
     category: "entertainment",
     amount: 7.99,
@@ -45,7 +45,7 @@ const list = [
     type: "expense",
   },
   {
-    id: "ad7a8aac-8718-4585-924e-55100",
+    id: "ad7a8aac-8718-4585-924e-551000000",
     title: "Microwave",
     category: "flat",
     amount: 100,
@@ -55,7 +55,7 @@ const list = [
     type: "expense",
   },
   {
-    id: "ad7a8aac-8718-4325-924e-55440f",
+    id: "ad7a8aac-8718-432000",
     title: "Kettle",
     category: "flat",
     amount: 50,
@@ -65,7 +65,7 @@ const list = [
     type: "expense",
   },
   {
-    id: "ad7a8aac-1234-4325-371d-55440f49",
+    id: "ad7a8aac-1234-4325-371d0000",
     title: "Pay from work",
     category: "payment",
     amount: 1500,
@@ -75,7 +75,7 @@ const list = [
     type: "income",
   },
   {
-    id: "ad7a8aac-8718-4321-756v-55440f495",
+    id: "ad7a8aac-8718-4321-756v-55440f",
     title: "Flowers",
     category: "flat",
     amount: 20,
@@ -85,7 +85,7 @@ const list = [
     type: "expense",
   },
   {
-    id: "ad7a8aac-8718-4321-734f-55440f495a",
+    id: "ad7a8aac-8718-4321-734f-55",
     title: "Books",
     category: "entertaiment",
     amount: 60,
@@ -95,7 +95,7 @@ const list = [
     type: "expense",
   },
   {
-    id: "ad7a8aac-8718-4321-845k-55440f495ab",
+    id: "ad7a8aac-8718-4321-845k-55440999",
     title: "Car petrol",
     category: "fuel",
     amount: 120,
@@ -105,7 +105,7 @@ const list = [
     type: "expense",
   },
   {
-    id: "ad7a8aac-8718-4585-924e-55100f495abb",
+    id: "ad7a8aac-8718-4585-924e-0000",
     title: "Gap",
     category: "clothes",
     amount: 432.87,
@@ -116,7 +116,7 @@ const list = [
     type: "expense",
   },
   {
-    id: "94d22477-3870-43d6-935e-7483e06fbd94",
+    id: "94d22477-3870-43d6-935e-748000884",
     title: "M&S Food Court",
     category: "food",
     amount: 15.26,
@@ -126,7 +126,7 @@ const list = [
     type: "income",
   },
   {
-    id: "363e34d9-6181-40cc-ac85-f19695f422ca",
+    id: "363e34d9-6181-40cc-ac85-f19695f428655",
     title: "Tesco Petrol",
     category: "fuel",
     amount: 150.04,
@@ -136,7 +136,7 @@ const list = [
     type: "expense",
   },
   {
-    id: "58f2124a-ab8b-4b88-bb0d-e2dabf00ac94",
+    id: "58f2124a-",
     title: "Netlix",
     category: "entertainment",
     amount: 7.99,
@@ -157,7 +157,7 @@ const list = [
     type: "expense",
   },
   {
-    id: "ad7a8aac-8718-4325-924e-55440f",
+    id: "ad7a8aac-8718-4325-924e-55",
     title: "Kettle",
     category: "flat",
     amount: 50,
@@ -167,7 +167,7 @@ const list = [
     type: "expense",
   },
   {
-    id: "ad7a8aac-1234-4325-371d-55440f49",
+    id: "ad7a8aac-1234-4325-3",
     title: "Pay from work",
     category: "payment",
     amount: 1500,
@@ -177,7 +177,7 @@ const list = [
     type: "income",
   },
   {
-    id: "ad7a8aac-8718-4321-756v-55440f495",
+    id: "ad7a8aac-8718-4321",
     title: "Flowers",
     category: "flat",
     amount: 20,
@@ -187,7 +187,7 @@ const list = [
     type: "expense",
   },
   {
-    id: "ad7a8aac-8718-4321-734f-55440f495a",
+    id: "ad7a8aac-8718-4",
     title: "Books",
     category: "entertaiment",
     amount: 60,
@@ -197,7 +197,7 @@ const list = [
     type: "expense",
   },
   {
-    id: "ad7a8aac-8718-4321-845k-55440f495ab",
+    id: "ad7a8aac-87",
     title: "Car petrol",
     category: "fuel",
     amount: 120,
@@ -207,7 +207,7 @@ const list = [
     type: "expense",
   },
   {
-    id: "ad7a8aac-8718-4585-924e-55100f495abb",
+    id: "ad7a8aac-8",
     title: "Gap",
     category: "clothes",
     amount: 432.87,
@@ -249,7 +249,7 @@ const list = [
     type: "expense",
   },
   {
-    id: "ad7a8aac-8718-4585-924e-55100",
+    id: "ad7a8a",
     title: "Microwave",
     category: "flat",
     amount: 100,
@@ -259,7 +259,7 @@ const list = [
     type: "expense",
   },
   {
-    id: "ad7a8aac-8718-4325-924e-55440f",
+    id: "ad7a8",
     title: "Kettle",
     category: "flat",
     amount: 50,
@@ -269,7 +269,7 @@ const list = [
     type: "expense",
   },
   {
-    id: "ad7a8aac-1234-4325-371d-55440f49",
+    id: "ad7a",
     title: "Pay from work",
     category: "payment",
     amount: 1500,
@@ -279,7 +279,7 @@ const list = [
     type: "income",
   },
   {
-    id: "ad7a8aac-8718-4321-756v-55440f495",
+    id: "ad7",
     title: "Flowers",
     category: "flat",
     amount: 20,
@@ -289,7 +289,7 @@ const list = [
     type: "expense",
   },
   {
-    id: "ad7a8aac-8718-4321-734f-55440f495a",
+    id: "ad",
     title: "Books",
     category: "entertaiment",
     amount: 60,
@@ -299,7 +299,7 @@ const list = [
     type: "expense",
   },
   {
-    id: "ad7a8aac-8718-4321-845k-55440f495ab",
+    id: "a",
     title: "Car petrol",
     category: "fuel",
     amount: 120,
