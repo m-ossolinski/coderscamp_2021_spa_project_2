@@ -1,25 +1,29 @@
 import React from "react";
 import { StyledListItem } from "./TransactionItem.styled";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
+
+import { TransactionEdit } from "../TransactionEdit/TransactionEdit";
+import { TransactionDelete } from "../TransactionDelete/TransactionDelete";
 
 export const TransactionItem = ({
-  type,
+  id,
   title,
-  category,
-  date,
   amount,
+  date,
   description,
+  category,
+  type,
 }) => {
   return (
     <StyledListItem>
-      <p className="transaction-type">{type}</p>
+      <div className="transaction-header">
+        <p className="transaction-type">{type}</p>
+        <p className="transaction-date">{date}</p>
+      </div>
       <div className="transaction-info">
-        <div className="transaction-info--main">
-          <div className="transaction-info--titles">
-            <h1 className="transaction-title">{title}</h1>
-            <p className="transaction-category">{category}</p>
-          </div>
-          <p className="transaction-date">{date}</p>
+        <div className="transaction-info--titles">
+          <h1 className="transaction-title">{title}</h1>
+          <p className="transaction-category">{category}</p>
         </div>
         <p className="transaction-amount">$ {amount}</p>
       </div>
@@ -28,15 +32,18 @@ export const TransactionItem = ({
           ? `${description.substring(0, 60)}...`
           : description}
       </p>
+
+      <TransactionEdit id={id} />
+      <TransactionDelete id={id} />
     </StyledListItem>
   );
 };
 
-TransactionItem.PropTypes = {
+TransactionItem.propTypes = {
   type: PropTypes.string,
   title: PropTypes.string,
   category: PropTypes.string,
-  date: PropTypes.number,
+  date: PropTypes.string,
   amount: PropTypes.number,
   description: PropTypes.string,
-}
+};

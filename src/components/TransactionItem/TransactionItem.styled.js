@@ -7,9 +7,15 @@ export const StyledListItem = styled.div`
   width: 500px;
   max-width: 500px;
   padding: 10px;
+  font-size: 12px;
 
   & > .transaction-type {
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+  & > .transaction-header {
+    display: flex;
+    justify-content: space-between;
   }
 
   & > .transaction-info {
@@ -20,18 +26,8 @@ export const StyledListItem = styled.div`
     line-height: 1.8;
   }
 
-  & > .transaction-info .transaction-info--main {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  &
-    > .transaction-info
-    .transaction-info--main
-    .transaction-info--titles
-    .transaction-title {
-    font-size: 15px;
+  & > .transaction-info .transaction-info--titles .transaction-title {
+    font-size: 13px;
   }
 
   &
@@ -43,7 +39,6 @@ export const StyledListItem = styled.div`
   }
 
   & > .transaction-info .transaction-info--main .transaction-date {
-    font-size: 12px;
     font-weight: bold;
   }
 

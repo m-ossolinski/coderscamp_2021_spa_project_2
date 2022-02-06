@@ -1,5 +1,9 @@
-import { Spinner } from "./Loader.style";
+import { Spinner, Span } from "./Loader.style";
 
-export const Loader = () => {
-  return <Spinner />;
+export const Loader = ({ ...props }) => {
+  return (
+    <Span>
+      <Spinner {...props} />
+    </Span>
+  );
 };

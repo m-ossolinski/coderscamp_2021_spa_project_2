@@ -1,116 +1,136 @@
 {
 "transactions": [
-    {
-      "id": 23,
-      "amount":"10",
-      "category":"clothes",
-      "date":"2022-01-12",
-      "description":"t-shirt",
-      "paymentType":"card",
-      "title":"t-shirt",
-      "type":"expense"
-    },
-    {
-      "id": 11,
-      "amount":"20",
-      "category":"food",
-      "date":"2022-01-14",
-      "description":"pizza",
-      "paymentType":"card",
-      "title":"pizza salame",
-      "type":"expense"
-    },
-    {
-      "id": 3,
-      "amount":"5000",
-      "category":"income",
-      "date":"2022-01-10",
-      "description":"income from work",
-      "paymentType":"cash",
-      "title":"salary",
-      "type":"income"
-    },
-    {
-      "id": 33,
-      "amount":"5",
-      "category":"clothes",
-      "date":"2022-01-12",
-      "description":"pants",
-      "paymentType":"cash",
-      "title":"pants",
-      "type":"expense"
-    },
-    {
-      "id": 77,
-      "amount":"50",
-      "category":"education",
-      "date":"2022-01-12",
-      "description":"expense for education",
-      "paymentType":"card",
-      "title":"pants",
-      "type":"expense"
-    },
-    {
-      "id": 36,
-      "amount":"50",
-      "category":"education",
-      "date":"2022-01-12",
-      "description":"expense for education",
-      "paymentType":"card",
-      "title":"pants",
-      "type":"expense"
-    },
-    {
-      "id": 44,
-      "amount":"50",
-      "category":"education",
-      "date":"2022-01-12",
-      "description":"expense for education",
-      "paymentType":"card",
-      "title":"pants",
-      "type":"expense"
-    },
-    {
-      "id": 55,
-      "amount":"50",
-      "category":"education",
-      "date":"2022-01-12",
-      "description":"expense for education",
-      "paymentType":"card",
-      "title":"pants",
-      "type":"expense"
-    },
-    {
-      "id": 45,
-      "amount":"50",
-      "category":"education",
-      "date":"2022-01-12",
-      "description":"expense for education",
-      "paymentType":"card",
-      "title":"pants",
-      "type":"expense"
-    },
-    {
-      "id": 17,
-      "amount":"50",
-      "category":"education",
-      "date":"2022-01-12",
-      "description":"expense for education",
-      "paymentType":"card",
-      "title":"pants",
-      "type":"expense"
-    },
-    {
-      "id": 18,
-      "amount":"50",
-      "category":"education",
-      "date":"2022-01-12",
-      "description":"expense for education",
-      "paymentType":"card",
-      "title":"pants",
-      "type":"expense"
-    }
-  ],
+  {
+    "id": "ad7a8aac-8718-4585-924e-55100f495abb",
+    "title": "Gap",
+    "category": "clothes",
+    "amount": 432.87,
+    "date": "2022-01-05",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, corrupti.",
+    "paymentType": "card",
+    "type": "expense"
+  },
+  {
+    "id": "94d22477-3870-43d6-935e-7483e06fbd94",
+    "title": "M&S Food Court",
+    "category": "food",
+    "amount": 15.26,
+    "date": "2022-01-07",
+    "description": "Lorem ipsum dolor sit amet.",
+    "paymentType": "card",
+    "type": "income"
+  },
+  {
+    "id": "363e34d9-6181-40cc-ac85-f19695f422ca",
+    "title": "Tesco Petrol",
+    "category": "fuel",
+    "amount": 150.04,
+    "date": "2022-01-12",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    "paymentType": "card",
+    "type": "expense"
+  },
+  {
+    "id": "58f2124a-ab8b-4b88-bb0d-e2dabf00ac94",
+    "title": "Netlix",
+    "category": "entertainment",
+    "amount": 7.99,
+    "date": "2022-01-13",
+    "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci non voluptatem saepe?",
+    "paymentType": "card",
+    "type": "expense"
+  },
+  {
+    "id": "ad7a8aac-8718-4585-924e-55100f495abc",
+    "title": "Timberland",
+    "category": "clothes",
+    "amount": 710.2,
+    "date": "2022-01-04",
+    "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+    "paymentType": "card",
+    "type": "income"
+  },
+  {
+    "id": "ad7a8aac-8718-4325-924e-55440f495abc",
+    "title": "Timberland",
+    "category": "clothes",
+    "amount": 710.2,
+    "date": "2022-01-04",
+    "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+    "paymentType": "card",
+    "type": "income"
+  },
+  {
+    "id": "ad7a8aac-1234-4325-371d-55440f495abc",
+    "title": "Timberland",
+    "category": "clothes",
+    "amount": 710.2,
+    "date": "2022-01-04",
+    "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+    "paymentType": "card",
+    "type": "income"
+  },
+  {
+    "id": "ad7a8aac-8718-4321-756v-55440f495abc",
+    "title": "Timberland",
+    "category": "clothes",
+    "amount": 710.2,
+    "date": "2022-01-04",
+    "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+    "paymentType": "card",
+    "type": "income"
+  },
+  {
+    "id": "ad7a8aac-8718-4321-734f-55440f495abc",
+    "title": "Timberland",
+    "category": "clothes",
+    "amount": 710.2,
+    "date": "2022-01-04",
+    "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+    "paymentType": "card",
+    "type": "income"
+  },
+  {
+    "id": "ad7a8aac-8718-4321-845k-55440f495abc",
+    "title": "Timberland",
+    "category": "clothes",
+    "amount": 710.2,
+    "date": "2022-01-04",
+    "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+    "paymentType": "card",
+    "type": "income"
+  },
+  {
+    "id": "ad7a8aac-8718-4321-094a-55440f495abc",
+    "title": "Timberland",
+    "category": "clothes",
+    "amount": 710.2,
+    "date": "2022-01-04",
+    "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+    "paymentType": "card",
+    "type": "income"
+  },
+  {
+    "id": "ad7a8aac-8718-4321-637r-55440f495abc",
+    "title": "Timberland",
+    "category": "clothes",
+    "amount": 710.2,
+    "date": "2022-01-04",
+    "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+    "paymentType": "card",
+    "type": "income"
+  },
+  {
+    "id": "ad7a8aac-8718-4321-875j-55440f495abc",
+    "title": "Timberland",
+    "category": "clothes",
+    "amount": 710.2,
+    "date": "2022-01-04",
+    "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+    "paymentType": "card",
+    "type": "income"
+  }
+],
   "categories": [
     {
       "id": "d8f13fcc-4418-41a3-ae9b-1f58acbdac3a",
@@ -129,6 +149,108 @@
       "name": "Clothing",
       "color": "#015b1c",
       "icon": "FaTshirt"
+    }
+  ],
+  "transactions": [
+    {
+      "id": 1,
+      "amount": "10",
+      "category": "clothes",
+      "date": "2022-01-12",
+      "description": "t-shirt",
+      "paymentType": "card",
+      "title": "t-shirt",
+      "type": "expense"
+    },
+    {
+      "id": 2,
+      "amount": "20",
+      "category": "food",
+      "date": "2022-01-14",
+      "description": "pizza",
+      "paymentType": "card",
+      "title": "pizza salame",
+      "type": "expense"
+    },
+    {
+      "id": 3,
+      "amount": "5000",
+      "category": "income",
+      "date": "2022-01-10",
+      "description": "income from work",
+      "paymentType": "cash",
+      "title": "salary",
+      "type": "income"
+    },
+    {
+      "id": 4,
+      "amount": "5",
+      "category": "clothes",
+      "date": "2022-01-12",
+      "description": "pants",
+      "paymentType": "cash",
+      "title": "pants",
+      "type": "expense"
+    },
+    {
+      "id": 5,
+      "amount": "50",
+      "category": "education",
+      "date": "2022-01-12",
+      "description": "expense for education",
+      "paymentType": "card",
+      "title": "pants",
+      "type": "expense"
+    },
+    {
+      "id": 6,
+      "amount": "76",
+      "category": "going out",
+      "date": "2022-01-13",
+      "description": "dinner in fancy restaurant",
+      "paymentType": "card",
+      "title": "Bar Soho",
+      "type": "expense"
+    },
+    {
+      "id": 7,
+      "amount": "267",
+      "category": "car",
+      "date": "2022-01-14",
+      "description": "unleaded petrol",
+      "paymentType": "card",
+      "title": "fuel",
+      "type": "expense"
+    },
+    {
+      "id": 8,
+      "amount": "5",
+      "category": "refreshments",
+      "date": "2022-01-15",
+      "description": "chai latte",
+      "paymentType": "cash",
+      "title": "coffee",
+      "type": "expense"
+    },
+    {
+      "id": 9,
+      "amount": "26",
+      "category": "health",
+      "date": "2022-01-16",
+      "description": "prescription medication",
+      "paymentType": "card",
+      "title": "kocodamol",
+      "type": "expense"
+    },
+    {
+      "id": 10,
+      "amount": "46",
+      "category": "education",
+      "date": "2022-01-17",
+      "description": "expense for education",
+      "paymentType": "card",
+      "title": "react books",
+      "type": "expense"
     }
   ]
 }
