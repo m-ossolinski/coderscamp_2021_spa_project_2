@@ -73,7 +73,7 @@ export const AddCategoryForm = ({ createCategory }) => {
     }
   };
 
-  const cancel = () => {
+  const handleCancel = () => {
     toggleVisibility();
     setName("");
     setIcon("");
@@ -88,7 +88,7 @@ export const AddCategoryForm = ({ createCategory }) => {
       </Button>
       <Modal
         isVisible={isVisible}
-        onCancel={cancel}
+        onCancel={handleCancel}
         modalHeader="Create Category"
         cancelBtnLabel="Cancel"
         submitBtnLabel="Create"

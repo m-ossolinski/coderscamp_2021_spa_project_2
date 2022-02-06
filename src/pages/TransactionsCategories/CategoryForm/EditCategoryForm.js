@@ -74,7 +74,7 @@ export const EditCategoryForm = ({ editCategory, category }) => {
     }
   };
 
-  handleCancel = () => {
+  const handleCancel = () => {
     toggleVisibility();
     setName(name);
     setIcon(icon);
