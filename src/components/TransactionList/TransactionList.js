@@ -5,7 +5,7 @@ import { NumberOfTransactionsWidget } from "../common/NumberOfTransactionsWidget
 import { getTransactionsList } from "../../services/api/transactionsListService";
 import { getTransactionsListLength } from "../../services/api/transactionsListService";
 import {
-  TransactionTabel,
+  TransactionTable,
   TableHeader,
   TableContent,
   TableRow,
@@ -76,7 +76,7 @@ const TransactionList = () => {
 
   return (
     <>
-      <TransactionTabel>
+      <TransactionTable>
         <TableHeader>
           <div>Type</div>
           <div>Title</div>
@@ -85,7 +85,7 @@ const TransactionList = () => {
           <div>Amount</div>
         </TableHeader>
         <TableContent>{renderList}</TableContent>
-      </TransactionTabel>
+      </TransactionTable>
       <Pagination
         transactionsListSize={transactionsListSize}
         transactionsListLength={transactionsListLength}

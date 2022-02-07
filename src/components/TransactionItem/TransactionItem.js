@@ -1,22 +1,15 @@
 import React from "react";
-import { Td } from "./TransactionItem.styled";
+import { TableItem } from "./TransactionItem.styled";
 import PropTypes from "prop-types";
 
-export const TransactionItem = ({
-  type,
-  title,
-  category,
-  date,
-  amount,
-  description,
-}) => {
+export const TransactionItem = ({ type, title, category, date, amount }) => {
   return (
     <>
-      <Td>{type}</Td>
-      <Td>{title}</Td>
-      <Td>{category}</Td>
-      <Td>{date}</Td>
-      <Td>${amount}</Td>
+      <TableItem>{type}</TableItem>
+      <TableItem>{title}</TableItem>
+      <TableItem>{category}</TableItem>
+      <TableItem>{date}</TableItem>
+      <TableItem>${amount}</TableItem>
     </>
   );
 };

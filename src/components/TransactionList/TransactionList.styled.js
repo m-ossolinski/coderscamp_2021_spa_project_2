@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const TransactionTabel = styled.div`
+export const TransactionTable = styled.div`
   font-size: 1.6rem;
   display: flex;
   flex-direction: column;
