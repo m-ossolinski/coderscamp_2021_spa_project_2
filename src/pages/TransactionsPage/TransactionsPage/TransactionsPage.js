@@ -1,5 +1,5 @@
-import { TransactionForm } from "./TransactionsForm/TransactionsForm";
-import TransactionsList from "../../components/TransactionList/TransactionList";
+import { TransactionForm } from "../TransactionsForm/TransactionsForm";
+import TransactionsList from "../../../components/TransactionList/TransactionList";
 import { TransactionPageWrapper } from "./TransactionsPage.styled";
 
 export const TransactionsPage = () => {
