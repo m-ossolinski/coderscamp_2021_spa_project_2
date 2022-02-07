@@ -1,24 +1,7 @@
 import * as yup from "yup";
 import { currentDate } from "../../utils/currentDate";
-import categoriesServices from "../../api/categoriesService";
 
-export const newTransactionSchema = async () => {
-  const getCategoriesList = async () => {
-    try {
-      const res = await categoriesServices.getCategoriesList();
-      let options = [];
-      res.forEach((res) => {
-        options.push(res.name);
-      });
-
-      return options;
-    } catch (err) {
-      throw new Error("Cannot load categories");
-    }
-  };
-
-  const arr = await getCategoriesList();
-
+export const newTransactionSchema = (arr) => {
   const schema = yup.object().shape({
     title: yup
       .string("Title is required")

@@ -7,7 +7,7 @@ import Modal from "../../../components/Modal";
 import { Button } from "../../../components/Button/Button";
 import { v4 as uuidv4 } from "uuid";
 import { useInputState } from "../../../services/hooks/useInputState";
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import { useModal } from "../../../services/hooks/useModal";
 import transactionService from "../../../services/api/transactionsService.";
 import { currentDate } from "../../../services/utils/currentDate";
@@ -43,15 +43,6 @@ export const TransactionForm = ({ initFields }) => {
     category: false,
   });
 
-  const createSchema = async () => {
-    try {
-      const schema = await newTransactionSchema();
-      return schema;
-    } catch (err) {
-      throw new Error("Cannot create schema");
-    }
-  };
-
   const validateForm = async () => {
     const formValues = {
       title: title,
@@ -61,7 +52,9 @@ export const TransactionForm = ({ initFields }) => {
       category: category,
     };
 
-    const schema = await createSchema();
+    let list = [];
+    categoriesList.forEach((c) => list.push(c.name));
+    const schema = newTransactionSchema(list);
 
     try {
       schema.validateSync(formValues, {
