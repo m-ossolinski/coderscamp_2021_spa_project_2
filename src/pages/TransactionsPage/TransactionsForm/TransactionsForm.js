@@ -102,7 +102,7 @@ export const TransactionForm = ({ initFields, categoriesList }) => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsTouched({
       title: true,
@@ -122,11 +122,9 @@ export const TransactionForm = ({ initFields, categoriesList }) => {
         type: type,
         paymentType: paymentType,
       };
-      transactionService.createTransaction(newTransaction);
-      setTimeout(() => {
-        toggleVisibility();
-        clearFormValues();
-      }, 3000);
+      await transactionService.createTransaction(newTransaction);
+      toggleVisibility();
+      clearFormValues();
     }
     return;
   };
