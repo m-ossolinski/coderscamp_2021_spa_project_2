@@ -3,16 +3,24 @@ import { DatePicker } from "../../../components/form/DatePicker/DatePicker";
 import { Input } from "../../../components/form/Input/Input";
 import { RadioButton } from "../../../components/form/RadioButton/RadioButton";
 import { Dropdown } from "../../../components/form/Dropdown/Dropdown";
+import Modal from "../../../components/Modal";
+import { Button } from "../../../components/Button/Button";
+import { v4 as uuidv4 } from "uuid";
 import { useInputState } from "../../../services/hooks/useInputState";
 import { useState, useEffect } from "react";
-import Modal from "../../../components/Modal";
 import { useModal } from "../../../services/hooks/useModal";
+import transactionService from "../../../services/api/transactionsService.";
 import { currentDate } from "../../../services/utils/currentDate";
 import { newTransactionSchema } from "../../../services/helpers/Validations/NewTransactionValidation";
-import { Button } from "../../../components/Button/Button";
+import categoriesService from "../../../services/api/categoriesService";
+import { useFetchData } from "../../../services/hooks/useFetchData";
 
-export const TransactionForm = ({ initFields, categoriesList }) => {
+export const TransactionForm = ({ initFields }) => {
   const { isVisible, toggleVisibility } = useModal();
+  const [categoriesList] = useFetchData(
+    categoriesService.getCategoriesList,
+    "Categories cannot be loaded"
+  );
 
   const [title, setTitle, resetTitle] = useInputState(initFields.title);
   const [description, setDescription, resetDescription] = useInputState(
@@ -35,15 +43,6 @@ export const TransactionForm = ({ initFields, categoriesList }) => {
     category: false,
   });
 
-  const createSchema = async () => {
-    try {
-      const schema = await newTransactionSchema();
-      return schema;
-    } catch (err) {
-      throw new Error("Cannot create schema");
-    }
-  };
-
   const validateForm = async () => {
     const formValues = {
       title: title,
@@ -53,7 +52,9 @@ export const TransactionForm = ({ initFields, categoriesList }) => {
       category: category,
     };
 
-    const schema = await createSchema();
+    let list = [];
+    categoriesList.forEach((c) => list.push(c.name));
+    const schema = newTransactionSchema(list);
 
     try {
       schema.validateSync(formValues, {
@@ -65,7 +66,7 @@ export const TransactionForm = ({ initFields, categoriesList }) => {
         errors.push({ [error.path]: error.message });
       });
       const errorMessages = Object.assign({}, ...errors);
-      setFormErrors(errorMessages);
+      return errorMessages;
     }
   };
 
@@ -73,8 +74,14 @@ export const TransactionForm = ({ initFields, categoriesList }) => {
     setIsTouched((values) => ({ ...values, [field]: true }));
   };
 
-  useEffect(() => {
-    validateForm();
+  useEffect(async () => {
+    const errorMessages = await validateForm();
+
+    if (errorMessages) {
+      setFormErrors(errorMessages);
+    } else {
+      setFormErrors({});
+    }
   }, [title, description, amount, date, category]);
 
   const clearFormValues = () => {
@@ -94,7 +101,7 @@ export const TransactionForm = ({ initFields, categoriesList }) => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsTouched({
       title: true,
@@ -104,9 +111,19 @@ export const TransactionForm = ({ initFields, categoriesList }) => {
       category: true,
     });
     if (Object.keys(formErrors).length === 0) {
+      const newTransaction = {
+        id: uuidv4(),
+        title: title,
+        description: description,
+        amount: amount,
+        date: date,
+        category: category,
+        type: type,
+        paymentType: paymentType,
+      };
+      await transactionService.createTransaction(newTransaction);
       toggleVisibility();
       clearFormValues();
-      // pass data to json server
     }
     return;
   };
