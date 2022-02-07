@@ -13,16 +13,11 @@ import transactionService from "./services/api/transactionsService.";
 
 const App = () => {
   const [transactionsList, setTransactionsList] = useState([]);
-  const [hasDBChanged, setHasDBChanged] = useState(true);
 
   useEffect(async () => {
-    if (hasDBChanged === true) {
-      console.log("fetching updated transqactions...");
-      const data = await transactionService.getTransactionList();
-      setTransactionsList(data);
-      setHasDBChanged(false);
-    } else return;
-  }, [hasDBChanged]);
+    const data = await transactionService.getTransactionList();
+    setTransactionsList(data);
+  }, []);
 
   return (
     <>
@@ -34,7 +29,7 @@ const App = () => {
             <TransactionsListContext.Provider
               value={{
                 transactionsList: transactionsList,
-                setHasDBChanged: setHasDBChanged,
+                setTransactionsList: setTransactionsList,
               }}
             >
               <MainLayout>

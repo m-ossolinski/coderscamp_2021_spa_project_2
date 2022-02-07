@@ -45,7 +45,7 @@ export const TransactionForm = ({ initFields }) => {
     category: false,
   });
 
-  const { setHasDBChanged } = useContext(TransactionsListContext);
+  const { setTransactionsList } = useContext(TransactionsListContext);
 
   const validateForm = async () => {
     const formValues = {
@@ -126,7 +126,8 @@ export const TransactionForm = ({ initFields }) => {
         paymentType: paymentType,
       };
       await transactionService.createTransaction(newTransaction);
-      setHasDBChanged(true);
+      const newTransactionsList = await transactionService.getTransactionList();
+      setTransactionsList(newTransactionsList);
       toggleVisibility();
       clearFormValues();
     }
