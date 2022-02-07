@@ -12,25 +12,25 @@ const rotate = keyframes`
 
 export const Spinner = styled(ImSpinner9)`
   font-size: 2rem;
-  color: #010057;
+  color: ${({ theme }) => theme.colors.fontMid};
   animation: ${rotate} 2s linear infinite;
 
   ${(props) =>
     props.default &&
     css`
-      color: #7393b3;
+      color: ${({ theme }) => theme.colors.fontMid};
     `}
 
   ${(props) =>
     props.secondary &&
     css`
-      color: #3cb043;
+      color: ${({ theme }) => theme.colors.primaryDarkest};
     `}
 
    ${(props) =>
     props.primary &&
     css`
-      color: #ffffff;
+      color: ${({ theme }) => theme.colors.white};
     `}
 `;
 

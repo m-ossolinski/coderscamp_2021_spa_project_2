@@ -1,5 +1,5 @@
 import { IconPickerItem } from "./IconPickerItem";
-import { IconWrapper } from "./IconPicker.style";
+import { IconWrapper } from "./IconPicker.styled";
 import PropTypes from "prop-types";
 
 export const IconPickerList = ({ iconInputChangeHandler, iconList }) => {

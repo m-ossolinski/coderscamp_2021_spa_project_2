@@ -7,8 +7,4 @@ export const IconWrapper = styled.button`
   padding: 1rem;
 `;
 
-export const Confirmation = styled.div`
-  font-size: 1.6rem;
-  padding: 1rem;
-  color: #5e1916;
-`;
+export const TableTd = styled.td``;
