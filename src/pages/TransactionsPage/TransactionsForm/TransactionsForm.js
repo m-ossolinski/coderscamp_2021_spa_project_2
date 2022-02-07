@@ -14,6 +14,8 @@ import { currentDate } from "../../../services/utils/currentDate";
 import { newTransactionSchema } from "../../../services/helpers/Validations/NewTransactionValidation";
 import categoriesService from "../../../services/api/categoriesService";
 import { useFetchData } from "../../../services/hooks/useFetchData";
+import { useContext } from "react";
+import { TransactionsListContext } from "../../../services/context/TransactionsListContext";
 
 export const TransactionForm = ({ initFields }) => {
   const { isVisible, toggleVisibility } = useModal();
@@ -42,6 +44,8 @@ export const TransactionForm = ({ initFields }) => {
     date: false,
     category: false,
   });
+
+  const { setHasDBChanged } = useContext(TransactionsListContext);
 
   const validateForm = async () => {
     const formValues = {
@@ -122,6 +126,7 @@ export const TransactionForm = ({ initFields }) => {
         paymentType: paymentType,
       };
       await transactionService.createTransaction(newTransaction);
+      setHasDBChanged(true);
       toggleVisibility();
       clearFormValues();
     }
