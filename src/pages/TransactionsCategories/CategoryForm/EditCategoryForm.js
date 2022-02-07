@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { IconPicker } from "../IconPicker/IconPicker";
+import { IconWrapper } from "../IconPicker/IconPicker.styled";
 import { IconPickerItem } from "../IconPicker/IconPickerItem";
 import Modal from "../../../components/Modal";
 import { useModal } from "../../../services/hooks/useModal";
+import { FaTools } from "react-icons/fa";
 import { validateFormValues } from "../../../services/helpers/categoryFormValidationRules";
-import { v4 as uuidv4 } from "uuid";
 import PropTypes from "prop-types";
 import {
   Form,
@@ -14,17 +15,17 @@ import {
   ColorInput,
   IconWrapper,
   FormError,
-  FormWrapper,
-} from "./CategoryForm.style";
-import { Button } from "../../../components/Button/Button";
+} from "./CategoryForm.styled";
 
-export const AddCategoryForm = ({ createCategory }) => {
-  const [name, setName] = useState("");
-  const [icon, setIcon] = useState("");
-  const [color, setColor] = useState("");
+export const EditCategoryForm = ({ editCategory, category }) => {
+  const [name, setName] = useState(category.name);
+  const [icon, setIcon] = useState(category.icon);
+  const [color, setColor] = useState(category.color);
+  const { isVisible, toggleVisibility } = useModal();
   const [formErrors, setFormErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { isVisible, toggleVisibility } = useModal();
+
+  const { id: categoryId } = category;
 
   useEffect(() => {
     validateForm();
@@ -59,39 +60,38 @@ export const AddCategoryForm = ({ createCategory }) => {
     setIsSubmitting(true);
 
     if (Object.keys(formErrors).length === 0 && isSubmitting) {
-      createCategory({
-        id: uuidv4(),
+      editCategory(categoryId, {
+        id: categoryId,
         name: name,
         color: color,
         icon: icon,
       });
       toggleVisibility();
-      setName("");
-      setIcon("");
-      setColor("");
+      setName(name);
+      setIcon(icon);
+      setColor(color);
       setIsSubmitting(false);
     }
   };
 
-  handleCancel = () => {
+  const handleCancel = () => {
     toggleVisibility();
-    setName("");
-    setIcon("");
-    setColor("");
-    setIsSubmitting(false);
+    setName(name);
+    setIcon(icon);
+    setColor(color);
   };
 
   return (
-    <FormWrapper>
-      <Button secondary onClick={() => toggleVisibility()}>
-        Add Category
-      </Button>
+    <>
+      <IconWrapper onClick={toggleVisibility}>
+        <FaTools />
+      </IconWrapper>
       <Modal
         isVisible={isVisible}
         onCancel={handleCancel}
-        modalHeader="Create Category"
+        modalHeader="Edit Category"
         cancelBtnLabel="Cancel"
-        submitBtnLabel="Create"
+        submitBtnLabel="Submit"
         onSubmit={handleSubmit}
       >
         <Form>
@@ -101,7 +101,6 @@ export const AddCategoryForm = ({ createCategory }) => {
               type="text"
               value={name}
               onChange={nameInputChangeHandler}
-              required
             />
             {isSubmitting && <FormError>{formErrors.name}</FormError>}
           </FormGroup>
@@ -124,16 +123,20 @@ export const AddCategoryForm = ({ createCategory }) => {
               type="color"
               value={color}
               onChange={colorInputChangeHandler}
-              required
             />
             {isSubmitting && <FormError>{formErrors.color}</FormError>}
           </FormGroup>
         </Form>
       </Modal>
-    </FormWrapper>
+    </>
   );
 };
 
-AddCategoryForm.propTypes = {
-  createCategory: PropTypes.func.isRequired,
+EditCategoryForm.propTypes = {
+  category: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    icon: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired,
+  }).isRequired,
+  editCategory: PropTypes.func.isRequired,
 };

@@ -32,7 +32,7 @@ const Modal = ({
                 <Button secondary onClick={() => onCancel()}>
                   {cancelBtnLabel ?? "Cancel"}
                 </Button>
-                <Button primary onClick={() => onSubmit()}>
+                <Button primary onClick={(e) => onSubmit(e)}>
                   {submitBtnLabel ?? "Submit"}
                 </Button>
               </div>
