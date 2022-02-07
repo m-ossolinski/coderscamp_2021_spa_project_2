@@ -7,14 +7,20 @@ import Modal from "../../../components/Modal";
 import { Button } from "../../../components/Button/Button";
 import { v4 as uuidv4 } from "uuid";
 import { useInputState } from "../../../services/hooks/useInputState";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useModal } from "../../../services/hooks/useModal";
 import transactionService from "../../../services/api/transactionsService.";
 import { currentDate } from "../../../services/utils/currentDate";
 import { newTransactionSchema } from "../../../services/helpers/Validations/NewTransactionValidation";
+import categoriesService from "../../../services/api/categoriesService";
+import { useFetchData } from "../../../services/hooks/useFetchData";
 
-export const TransactionForm = ({ initFields, categoriesList }) => {
+export const TransactionForm = ({ initFields }) => {
   const { isVisible, toggleVisibility } = useModal();
+  const [categoriesList] = useFetchData(
+    categoriesService.getCategoriesList,
+    "Categories cannot be loaded"
+  );
 
   const [title, setTitle, resetTitle] = useInputState(initFields.title);
   const [description, setDescription, resetDescription] = useInputState(
