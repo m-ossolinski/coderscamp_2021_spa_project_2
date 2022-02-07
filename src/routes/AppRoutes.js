@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { CategoriesPage } from "../pages/TransactionsCategories/CategpriesPage/CategoriesPage";
-import TransactionsPage from "../pages/TransactionsPage/TransactionsPage";
+import { TransactionsPage } from "../pages/TransactionsPage/TransactionsPage/TransactionsPage";
 
 export const AppRoutes = () => {
   return (

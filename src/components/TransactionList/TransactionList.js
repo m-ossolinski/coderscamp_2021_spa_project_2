@@ -4,6 +4,12 @@ import { Pagination } from "../common/Pagination/Pagination";
 import { NumberOfTransactionsWidget } from "../common/NumberOfTransactionsWidget/NumberOfTransactionsWidget";
 import { getTransactionsList } from "../../services/api/transactionsListService";
 import { getTransactionsListLength } from "../../services/api/transactionsListService";
+import {
+  TransactionTabel,
+  TableHeader,
+  TableContent,
+  TableRow,
+} from "./TransactionList.styled";
 
 const TransactionList = () => {
   const [transactions, setTransactions] = useState([]);
@@ -51,15 +57,17 @@ const TransactionList = () => {
   };
 
   const renderList = transactions.map((transaction) => (
-    <TransactionItem
-      key={transaction.id}
-      title={transaction.title}
-      amount={transaction.amount}
-      date={transaction.date}
-      description={transaction.description}
-      category={transaction.category}
-      type={transaction.type}
-    />
+    <TableRow>
+      <TransactionItem
+        key={transaction.id}
+        title={transaction.title}
+        amount={transaction.amount}
+        date={transaction.date}
+        description={transaction.description}
+        category={transaction.category}
+        type={transaction.type}
+      />
+    </TableRow>
   ));
 
   if (isLoading) {
@@ -68,7 +76,16 @@ const TransactionList = () => {
 
   return (
     <>
-      <div>{renderList}</div>
+      <TransactionTabel>
+        <TableHeader>
+          <div>Type</div>
+          <div>Title</div>
+          <div>Category</div>
+          <div>Date</div>
+          <div>Amount</div>
+        </TableHeader>
+        <TableContent>{renderList}</TableContent>
+      </TransactionTabel>
       <Pagination
         transactionsListSize={transactionsListSize}
         transactionsListLength={transactionsListLength}

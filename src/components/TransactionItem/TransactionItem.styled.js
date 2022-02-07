@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const Td = styled.div`
+  text-align: left;
+  width: 25%;
+  padding: 0 2rem;
+`;
+
 export const StyledListItem = styled.div`
   padding-bottom: 10px;
   border: none;

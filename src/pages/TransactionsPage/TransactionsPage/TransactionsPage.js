@@ -1,9 +1,10 @@
-import { TransactionForm } from "./TransactionsForm/TransactionsForm";
-import categoriesService from "../../services/api/categoriesService";
-import { useFetchData } from "../../services/hooks/useFetchData";
-import TransactionsList from "../../components/TransactionList/TransactionList";
+import { TransactionForm } from "../TransactionsForm/TransactionsForm";
+import categoriesService from "../../../services/api/categoriesService";
+import { useFetchData } from "../../../services/hooks/useFetchData";
+import TransactionsList from "../../../components/TransactionList/TransactionList";
+import { TransactionPageWrapper } from "./TransactionsPage.styled";
 
-const TransactionsPage = () => {
+export const TransactionsPage = () => {
   const [categoriesList] = useFetchData(
     categoriesService.getCategoriesList,
     "Categories cannot be loaded"
@@ -19,14 +20,12 @@ const TransactionsPage = () => {
     paymentType: "cash",
   };
   return (
-    <>
+    <TransactionPageWrapper>
       <TransactionForm
         initFields={TransactionsFormInitFields}
         categoriesList={categoriesList}
       />
       <TransactionsList />
-    </>
+    </TransactionPageWrapper>
   );
 };
-
-export default TransactionsPage;

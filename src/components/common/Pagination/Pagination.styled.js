@@ -7,7 +7,7 @@ export const ButtonsList = styled.ul`
   padding: 1rem;
   height: 6.5rem;
   border-radius: 3.25rem;
-  background-color: #2f80ed;
+  background-color: ${({ theme }) => theme.colors.primaryDark};
   position: relative;
 `;
 
@@ -18,7 +18,7 @@ export const StyledItem = styled.li`
   border-radius: 50%;
   background-color: #fff;
   margin-right: 5px;
-  font-size: 15px;
+  font-size: 1.6rem;
   text-decoration: none;
   text-align: center;
   color: #131313;
