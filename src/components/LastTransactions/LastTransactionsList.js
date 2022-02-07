@@ -5,7 +5,7 @@ import {
   BsFillArrowUpRightSquareFill,
 } from "react-icons/bs";
 
-export const LastTransactionsList = ({ transactionsList }) => {
+export const LastTransactionsList = ({ transactionsList = [] }) => {
   const latestTransactions = transactionsList.slice(0, 30);
   const tableHeader = ["Title", "Category", "Date", "Amount"];
   return (
