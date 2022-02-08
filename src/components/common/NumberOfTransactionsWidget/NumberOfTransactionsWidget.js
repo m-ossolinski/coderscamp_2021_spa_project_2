@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { WidgetWrapper } from "./NumberOfTransactionsWidget.styled";
 
 export const NumberOfTransactionsWidget = ({
   transactionsListSize,
@@ -30,7 +31,7 @@ export const NumberOfTransactionsWidget = ({
   ));
 
   return (
-    <>
+    <WidgetWrapper>
       <label htmlFor="transactions-select">
         Select the number of transactions:
       </label>
@@ -44,7 +45,7 @@ export const NumberOfTransactionsWidget = ({
       >
         {options}
       </select>
-    </>
+    </WidgetWrapper>
   );
 };
 

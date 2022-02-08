@@ -3,6 +3,12 @@ import { TransactionItem } from "../TransactionItem/TransactionItem";
 import { Pagination } from "../common/Pagination/Pagination";
 import { NumberOfTransactionsWidget } from "../common/NumberOfTransactionsWidget/NumberOfTransactionsWidget";
 import { sortByDate } from "../../services/helpers/sortByDate";
+import {
+  TransactionTable,
+  TableHeader,
+  TableContent,
+  TableRow,
+} from "./TransactionList.styled";
 
 const TransactionList = ({ transactionsList = [] }) => {
   const [transactionsPerPage, setTransactionsPerPage] = useState([]);
@@ -40,15 +46,17 @@ const TransactionList = ({ transactionsList = [] }) => {
   };
 
   const renderList = transactionsPerPage.map((transaction) => (
-    <TransactionItem
-      key={transaction.id}
-      title={transaction.title}
-      amount={transaction.amount}
-      date={transaction.date}
-      description={transaction.description}
-      category={transaction.category}
-      type={transaction.type}
-    />
+    <TableRow>
+      <TransactionItem
+        key={transaction.id}
+        title={transaction.title}
+        amount={transaction.amount}
+        date={transaction.date}
+        description={transaction.description}
+        category={transaction.category}
+        type={transaction.type}
+      />
+    </TableRow>
   ));
 
   if (isLoading) {
@@ -57,7 +65,16 @@ const TransactionList = ({ transactionsList = [] }) => {
 
   return (
     <>
-      <div>{renderList}</div>
+      <TransactionTable>
+        <TableHeader>
+          <div>Type</div>
+          <div>Title</div>
+          <div>Category</div>
+          <div>Date</div>
+          <div>Amount</div>
+        </TableHeader>
+        <TableContent>{renderList}</TableContent>
+      </TransactionTable>
       <Pagination
         transactionsListSize={transactionsListSize}
         transactionsListLength={transactionsListLength}

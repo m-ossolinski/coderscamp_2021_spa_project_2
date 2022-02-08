@@ -68,6 +68,14 @@ export const IconWrapper = styled.button`
   }
 `;
 
+export const SelectedIcon = styled.div`
+  text-align: left;
+  border: none;
+  font-size: 1.6rem;
+  padding: 1rem;
+  color: ${(props) => props.color};
+`;
+
 export const FormError = styled.span`
   color: #cd5c5c;
 `;
