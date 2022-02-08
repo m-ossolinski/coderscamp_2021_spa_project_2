@@ -1,18 +1,36 @@
 import React from "react";
+import { FaTools } from "react-icons/fa";
+import { IconWrapper } from "../../pages/TransactionsCategories/RemoveCategory/RemoveCategory.styled";
 
-import { Button } from "../Button/Button";
 import Modal from "../Modal";
 import { useModal } from "../../services/hooks/useModal";
-// import { StyledTransactionForm } from "../../pages/TransactionsPage/TransactionsForm.styled";
-// import { Input } from "../form/Input/Input";
-// import { Dropdown } from "../form/Dropdown/Dropdown";
-// import { DatePicker } from "../form/DatePicker/DatePicker";
-// import { RadioButton } from "../form/RadioButton/RadioButton";
+import StyledTransactionForm from "../../pages/TransactionsPage/TransactionsForm/TransactionsForm.styled";
+import { Input } from "../form/Input/Input";
+import { DatePicker } from "../form/DatePicker/DatePicker";
+import { Dropdown } from "../form/Dropdown/Dropdown";
+import { RadioButton } from "../form/RadioButton/RadioButton";
 
 import getTransactionOne from "../../services/api/transactionsService.";
 
-export const TransactionEdit = ({ id }) => {
+export const TransactionEdit = ({ initFields, transaction }) => {
   const { isVisible, toggleVisibility } = useModal();
+
+  // const [categoriesList] = useFetchData(
+  //   categoriesService.getCategoriesList,
+  //   "Categories cannot be loaded"
+  // );
+
+  // const [title, setTitle, resetTitle] = useInputState(initFields.title);
+  // const [description, setDescription, resetDescription] = useInputState(
+  //   initFields.description
+  // );
+  // const [amount, setAmount, resetAmount] = useInputState(initFields.amount);
+  // const [type, setType, resetType] = useInputState(initFields.type);
+  // const [date, setDate, resetDate] = useInputState(initFields.date);
+  // const [category, setCategory] = useState(initFields.category);
+  // const [paymentType, setPaymentType, resetPaymentType] = useInputState(
+  //   initFields.paymentType
+  // );
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,9 +43,9 @@ export const TransactionEdit = ({ id }) => {
 
   return (
     <>
-      <Button secondary onClick={() => toggleVisibility()}>
-        Edit
-      </Button>
+      <IconWrapper onClick={toggleVisibility}>
+        <FaTools />
+      </IconWrapper>
       <Modal
         isVisible={isVisible}
         onCancel={() => {
@@ -43,7 +61,7 @@ export const TransactionEdit = ({ id }) => {
           window.location.reload(true);
         }}
       >
-        {/* <StyledTransactionForm>
+        <StyledTransactionForm>
           <Input
             type="text"
             label="Title:"
@@ -112,7 +130,7 @@ export const TransactionEdit = ({ id }) => {
               handleChange={setType}
             />
           </div>
-        </StyledTransactionForm> */}
+        </StyledTransactionForm>
       </Modal>
     </>
   );
