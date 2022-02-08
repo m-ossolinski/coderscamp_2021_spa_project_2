@@ -3,11 +3,11 @@ import React from "react";
 import { Button } from "../Button/Button";
 import Modal from "../Modal";
 import { useModal } from "../../services/hooks/useModal";
-import { StyledTransactionForm } from "../../pages/TransactionsPage/TransactionsForm.styled";
-import { Input } from "../form/Input/Input";
-import { Dropdown } from "../form/Dropdown/Dropdown";
-import { DatePicker } from "../form/DatePicker/DatePicker";
-import { RadioButton } from "../form/RadioButton/RadioButton";
+// import { StyledTransactionForm } from "../../pages/TransactionsPage/TransactionsForm.styled";
+// import { Input } from "../form/Input/Input";
+// import { Dropdown } from "../form/Dropdown/Dropdown";
+// import { DatePicker } from "../form/DatePicker/DatePicker";
+// import { RadioButton } from "../form/RadioButton/RadioButton";
 
 import getTransactionOne from "../../services/api/transactionsService.";
 
@@ -43,7 +43,7 @@ export const TransactionEdit = ({ id }) => {
           window.location.reload(true);
         }}
       >
-        <StyledTransactionForm>
+        {/* <StyledTransactionForm>
           <Input
             type="text"
             label="Title:"
@@ -112,7 +112,7 @@ export const TransactionEdit = ({ id }) => {
               handleChange={setType}
             />
           </div>
-        </StyledTransactionForm>
+        </StyledTransactionForm> */}
       </Modal>
     </>
   );

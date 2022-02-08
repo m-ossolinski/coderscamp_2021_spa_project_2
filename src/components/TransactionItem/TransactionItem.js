@@ -2,7 +2,17 @@ import React from "react";
 import { TableItem } from "./TransactionItem.styled";
 import PropTypes from "prop-types";
 
-export const TransactionItem = ({ type, title, category, date, amount }) => {
+import { TransactionEdit } from "../TransactionEdit/TransactionEdit";
+import { TransactionDelete } from "../TransactionDelete/TransactionDelete";
+
+export const TransactionItem = ({
+  id,
+  type,
+  title,
+  category,
+  date,
+  amount,
+}) => {
   return (
     <>
       <TableItem>{type}</TableItem>
@@ -10,6 +20,8 @@ export const TransactionItem = ({ type, title, category, date, amount }) => {
       <TableItem>{category}</TableItem>
       <TableItem>{date}</TableItem>
       <TableItem>${amount}</TableItem>
+      <TransactionEdit key={id} id={id} />
+      <TransactionDelete key={id} id={id} />
     </>
   );
 };
