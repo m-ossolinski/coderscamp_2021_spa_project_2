@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { TransactionItem } from "../TransactionItem/TransactionItem";
 import { Pagination } from "../common/Pagination/Pagination";
 import { NumberOfTransactionsWidget } from "../common/NumberOfTransactionsWidget/NumberOfTransactionsWidget";
-import { getTransactionsList } from "../../services/api/transactionsListService";
-import { getTransactionsListLength } from "../../services/api/transactionsListService";
+import { sortByDate } from "../../services/helpers/sortByDate";
 import {
   TransactionTable,
   TableHeader,
@@ -11,41 +10,31 @@ import {
   TableRow,
 } from "./TransactionList.styled";
 
-const TransactionList = () => {
-  const [transactions, setTransactions] = useState([]);
+const TransactionList = ({ transactionsList = [] }) => {
+  const [transactionsPerPage, setTransactionsPerPage] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [transactionsListLength, setTransactionsListLength] = useState(0);
   const [transactionsListSize, setTransactionsListSize] = useState(5);
 
-  const transactionListOptions = {
-    currentPage,
-    transactionsListSize,
-  };
-
-  useEffect(async () => {
-    try {
-      setIsLoading(true);
-      const response = await getTransactionsList(transactionListOptions);
-      setTransactions(response);
-    } catch (error) {
-      throw new Error(error);
-    } finally {
+  useEffect(() => {
+    if (transactionsList.length !== 0) {
+      const sortedTransactionsList = sortByDate(transactionsList, "date");
+      const begin = transactionsListSize * (currentPage - 1);
+      const end = currentPage * transactionsListSize;
+      const transactionsOnPage = sortedTransactionsList.slice(begin, end);
+      setTransactionsPerPage(transactionsOnPage);
       setIsLoading(false);
-    }
-  }, [currentPage, transactionsListSize]);
-
-  useEffect(async () => {
-    try {
+    } else {
       setIsLoading(true);
-      const response = await getTransactionsListLength();
-      setTransactionsListLength(response);
-    } catch (error) {
-      throw new Error(error);
-    } finally {
-      setIsLoading(false);
     }
-  }, [transactionsListLength]);
+  }, [transactionsList, currentPage, transactionsListSize]);
+
+  useEffect(() => {
+    setIsLoading(true);
+    setTransactionsListLength(transactionsList.length);
+    setIsLoading(false);
+  }, [transactionsList]);
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -56,7 +45,7 @@ const TransactionList = () => {
     setCurrentPage(1);
   };
 
-  const renderList = transactions.map((transaction) => (
+  const renderList = transactionsPerPage.map((transaction) => (
     <TableRow>
       <TransactionItem
         key={transaction.id}
