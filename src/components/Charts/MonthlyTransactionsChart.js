@@ -38,7 +38,7 @@ export const MonthlyTransactionsChart = () => {
 
   const transactionCategory = { income: "income", expense: "expense" };
 
-  const monthlySumAgregator = async (category) => {
+  const monthlySumAgregator = async () => {
     if ((category = "expense")) {
       const monthlySums = [];
       for (let i = 1; i <= 12; i++) {
