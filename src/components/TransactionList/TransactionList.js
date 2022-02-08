@@ -12,9 +12,14 @@ const TransactionList = ({ transactionsList = [] }) => {
 
   useEffect(() => {
     if (transactionsList.length !== 0) {
+      const sortedTransactionsList = transactionsList.sort((a, b) => {
+        let dateA = new Date(a.date);
+        let dateB = new Date(b.date);
+        return dateB - dateA;
+      });
       const begin = transactionsListSize * (currentPage - 1);
       const end = currentPage * transactionsListSize;
-      const transactionsOnPage = transactionsList.slice(begin, end);
+      const transactionsOnPage = sortedTransactionsList.slice(begin, end);
       setTransactionsPerPage(transactionsOnPage);
       setIsLoading(false);
     } else {
