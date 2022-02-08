@@ -7,4 +7,5 @@ export const StyledMainLayout = styled.main`
   padding: 3rem;
   border-radius: 15px;
   height: 80vh;
+  overflow-y: scroll;
 `;

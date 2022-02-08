@@ -4,13 +4,11 @@ import {
   BsFillArrowDownSquareFill,
   BsFillArrowUpRightSquareFill,
 } from "react-icons/bs";
+import { convertDate } from "../../services/helpers/convertDate";
+import { sortByDate } from "../../services/helpers/sortByDate";
 
 export const LastTransactionsList = ({ transactionsList = [] }) => {
-  const latestTransactions = transactionsList.slice(0, 30).sort((a, b) => {
-    let dateA = new Date(a.date);
-    let dateB = new Date(b.date);
-    return dateA - dateB;
-  });
+  const latestTransactions = sortByDate(transactionsList, "date");
   const tableHeader = ["Title", "Category", "Date", "Amount"];
   return (
     <StyledLastTransactionsList>
@@ -24,12 +22,12 @@ export const LastTransactionsList = ({ transactionsList = [] }) => {
           </tr>
         </thead>
         <tbody>
-          {!latestTransactions ? (
+          {latestTransactions.length !== 0 ? (
             latestTransactions.map((t) => (
               <tr key={t.id}>
                 <td>{t.title}</td>
                 <td>{t.category}</td>
-                <td>{t.date.split("-").reverse().join(".")}</td>
+                <td>{convertDate(t.date)}</td>
                 <td>
                   {t.type === "expense" ? (
                     <p color="red">

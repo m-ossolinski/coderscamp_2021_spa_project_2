@@ -7,8 +7,18 @@ import { StyledApp } from "./App.styled";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./styles/Theme";
 import { GlobalStyle } from "./styles/globalStyles";
+import { useState, useEffect } from "react";
+import { TransactionsListContext } from "./services/context/TransactionsListContext";
+import transactionService from "./services/api/transactionsService.";
 
 const App = () => {
+  const [transactionsList, setTransactionsList] = useState([]);
+
+  useEffect(async () => {
+    const transactionsList = await transactionService.getTransactionList();
+    setTransactionsList(transactionsList);
+  }, []);
+
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -16,9 +26,13 @@ const App = () => {
         <StyledApp>
           <BrowserRouter>
             <Header />
-            <MainLayout>
-              <AppRoutes />
-            </MainLayout>
+            <TransactionsListContext.Provider
+              value={{ transactionsList, setTransactionsList }}
+            >
+              <MainLayout>
+                <AppRoutes />
+              </MainLayout>
+            </TransactionsListContext.Provider>
           </BrowserRouter>
         </StyledApp>
       </ThemeProvider>

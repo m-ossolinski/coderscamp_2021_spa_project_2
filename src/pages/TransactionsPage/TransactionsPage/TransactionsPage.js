@@ -1,6 +1,8 @@
+import { useContext } from "react";
 import { TransactionForm } from "../TransactionsForm/TransactionsForm";
 import TransactionsList from "../../../components/TransactionList/TransactionList";
 import { TransactionPageWrapper } from "./TransactionsPage.styled";
+import { TransactionsListContext } from "../../../services/context/TransactionsListContext";
 
 export const TransactionsPage = () => {
   const TransactionsFormInitFields = {
@@ -12,10 +14,11 @@ export const TransactionsPage = () => {
     category: "select",
     paymentType: "cash",
   };
+  const { transactionsList } = useContext(TransactionsListContext);
   return (
     <TransactionPageWrapper>
       <TransactionForm initFields={TransactionsFormInitFields} />
-      <TransactionsList />
+      <TransactionsList transactionsList={transactionsList} />/
     </TransactionPageWrapper>
   );
 };
