@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { TransactionItem } from "../TransactionItem/TransactionItem";
 import { Pagination } from "../common/Pagination/Pagination";
 import { NumberOfTransactionsWidget } from "../common/NumberOfTransactionsWidget/NumberOfTransactionsWidget";
+import { sortByDate } from "../../services/helpers/sortByDate";
 
 const TransactionList = ({ transactionsList = [] }) => {
   const [transactionsPerPage, setTransactionsPerPage] = useState([]);
@@ -12,11 +13,7 @@ const TransactionList = ({ transactionsList = [] }) => {
 
   useEffect(() => {
     if (transactionsList.length !== 0) {
-      const sortedTransactionsList = transactionsList.sort((a, b) => {
-        let dateA = new Date(a.date);
-        let dateB = new Date(b.date);
-        return dateB - dateA;
-      });
+      const sortedTransactionsList = sortByDate(transactionsList, "date");
       const begin = transactionsListSize * (currentPage - 1);
       const end = currentPage * transactionsListSize;
       const transactionsOnPage = sortedTransactionsList.slice(begin, end);

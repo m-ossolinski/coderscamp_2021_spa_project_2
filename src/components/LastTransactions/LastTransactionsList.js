@@ -5,13 +5,10 @@ import {
   BsFillArrowUpRightSquareFill,
 } from "react-icons/bs";
 import { convertDate } from "../../services/helpers/convertDate";
+import { sortByDate } from "../../services/helpers/sortByDate";
 
 export const LastTransactionsList = ({ transactionsList = [] }) => {
-  const latestTransactions = transactionsList.slice(0, 30).sort((a, b) => {
-    let dateA = new Date(a.date);
-    let dateB = new Date(b.date);
-    return dateB - dateA;
-  });
+  const latestTransactions = sortByDate(transactionsList, "date");
   const tableHeader = ["Title", "Category", "Date", "Amount"];
   return (
     <StyledLastTransactionsList>
