@@ -6,8 +6,12 @@ const getTransactionList = () => {
   const request = axios.get(baseUrl);
   return request.then((response) => response.data);
 };
+const getTransactionOne = (id) => {
+  const request = axios.get(`${baseUrl}/${id}`);
+  return request.then((response) => response.data);
+};
 
-const createTransaction = (transaction) => {
+const createTransaction = () => {
   const request = axios.post(baseUrl, transaction);
   return request.then((response) => response.data);
 };
@@ -27,4 +31,5 @@ export default {
   createTransaction,
   updateTransaction,
   removeTransaction,
+  getTransactionOne,
 };

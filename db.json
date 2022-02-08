@@ -1,16 +1,6 @@
 {
   "transactions": [
     {
-      "id": 6,
-      "amount": "76",
-      "category": "going out",
-      "date": "2022-01-13",
-      "description": "dinner in fancy restaurant",
-      "paymentType": "card",
-      "title": "Bar Soho",
-      "type": "expense"
-    },
-    {
       "id": 7,
       "amount": "267",
       "category": "car",
