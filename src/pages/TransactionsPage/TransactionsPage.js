@@ -1,5 +1,7 @@
 import { TransactionForm } from "./TransactionsForm/TransactionsForm";
 import TransactionsList from "../../components/TransactionList/TransactionList";
+import { useContext } from "react";
+import { TransactionsListContext } from "../../services/context/TransactionsListContext";
 
 const TransactionsPage = () => {
   const TransactionsFormInitFields = {
@@ -11,10 +13,11 @@ const TransactionsPage = () => {
     category: "select",
     paymentType: "cash",
   };
+  const { transactionsList } = useContext(TransactionsListContext);
   return (
     <>
       <TransactionForm initFields={TransactionsFormInitFields} />
-      <TransactionsList />
+      <TransactionsList transactionsList={transactionsList} />
     </>
   );
 };
