@@ -20,7 +20,7 @@ export const LastTransactionsList = ({ transactionsList }) => {
           </tr>
         </thead>
         <tbody>
-          {latestTransactions.length !== 0 ? (
+          {!latestTransactions ? (
             latestTransactions.map((t) => (
               <tr key={t.id}>
                 <td>{t.title}</td>
