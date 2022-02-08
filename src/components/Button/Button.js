@@ -1,5 +1,5 @@
 import { Loader } from "../Loader/Loader";
-import { LabelWrapper, StyledButton } from "../Button/Button.style";
+import { LabelWrapper, StyledButton } from "./Button.styled";
 import PropTypes from "prop-types";
 
 export const Button = ({ type, children, onClick, isLoading, ...props }) => {

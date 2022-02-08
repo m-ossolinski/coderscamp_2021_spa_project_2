@@ -56,11 +56,24 @@ export const ColorInput = styled.input`
 `;
 
 export const IconWrapper = styled.button`
-  width: 3.2rem;
-  height: 3rem;
   background-color: transparent;
-  font-size: 1.8rem;
+  text-align: left;
   border: none;
+  font-size: 1.6rem;
+  padding: 1rem;
+  color: ${({ theme }) => theme.colors.fontDark};
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.primaryDarkest};
+  }
+`;
+
+export const SelectedIcon = styled.div`
+  text-align: left;
+  border: none;
+  font-size: 1.6rem;
+  padding: 1rem;
+  color: ${(props) => props.color};
 `;
 
 export const FormError = styled.span`

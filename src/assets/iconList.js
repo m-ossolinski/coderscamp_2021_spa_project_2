@@ -1,6 +1,6 @@
 export const iconList = [
   "FaHome",
-  "FaEarlybirds",
+  "FaShoppingCart",
   "FaFly",
   "FaFortAwesome",
   "FaGetPocket",
