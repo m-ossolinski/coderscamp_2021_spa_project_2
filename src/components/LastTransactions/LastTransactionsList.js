@@ -9,7 +9,7 @@ export const LastTransactionsList = ({ transactionsList = [] }) => {
   const latestTransactions = transactionsList.slice(0, 30).sort((a, b) => {
     let dateA = new Date(a.date);
     let dateB = new Date(b.date);
-    return dateA - dateB;
+    return dateB - dateA;
   });
   const tableHeader = ["Title", "Category", "Date", "Amount"];
   return (
