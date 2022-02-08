@@ -34,11 +34,12 @@ export const StyledModal = styled.div`
     line-height: 1.8;
     padding: 80px 30px 25px;
     font-size: 18px;
+    color: ${({ theme }) => theme.colors.fontDark};
   }
 
   .modal-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     height: 40px;
   }
@@ -61,6 +62,10 @@ export const StyledModal = styled.div`
   .modal-body {
     min-height: 300px;
     margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
   }
 
   .button-wrapper {

@@ -10,7 +10,7 @@ export const StyledInput = styled.div`
   }
 
   & label {
-    font-size: 0.7rem;
+    font-size: 1.5rem;
     margin-bottom: 10px;
   }
 
