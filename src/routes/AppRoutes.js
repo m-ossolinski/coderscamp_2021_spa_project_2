@@ -1,7 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import HomePage from "../pages/HomePage/HomePage";
 import { CategoriesPage } from "../pages/TransactionsCategories/CategpriesPage/CategoriesPage";
-import TransactionsPage from "../pages/TransactionsPage/TransactionsPage";
+import { TransactionsPage } from "../pages/TransactionsPage/TransactionsPage/TransactionsPage";
+import { Typography } from "../components/common/Typography/Typography";
 
 export const AppRoutes = () => {
   return (

@@ -15,6 +15,7 @@ import {
   ColorInput,
   IconWrapper,
   FormError,
+  SelectedIcon,
 } from "./CategoryForm.styled";
 
 export const EditCategoryForm = ({ editCategory, category }) => {
@@ -110,9 +111,9 @@ export const EditCategoryForm = ({ editCategory, category }) => {
             <IconPicker iconInputChangeHandler={iconInputChangeHandler} />
 
             {icon && (
-              <IconWrapper>
+              <SelectedIcon color={color}>
                 <IconPickerItem icon={icon} />
-              </IconWrapper>
+              </SelectedIcon>
             )}
             {isSubmitting && <FormError>{formErrors.icon}</FormError>}
           </FormGroup>
