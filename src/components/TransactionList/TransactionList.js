@@ -61,6 +61,7 @@ const TransactionList = () => {
       <TransactionItem
         key={transaction.id}
         id={transaction.id}
+        id={transaction.id}
         title={transaction.title}
         amount={transaction.amount}
         date={transaction.date}

@@ -19,8 +19,8 @@ export const TransactionItem = ({
       <TableItem>{category}</TableItem>
       <TableItem>{date}</TableItem>
       <TableItem>${amount}</TableItem>
-      <TransactionEdit key={id} id={id} />
-      <TransactionDelete key={id} id={id} />
+      <TransactionEdit key={`${id}-edt`} id={id} />
+      <TransactionDelete key={`${id}-del`} id={id} />
     </>
   );
 };

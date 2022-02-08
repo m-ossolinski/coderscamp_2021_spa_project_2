@@ -22,7 +22,7 @@ export const TransactionEdit = ({ id }) => {
   const fetchTransaction = async (id) => {
     const transactionData = await transactionService.getTransactionOne(id);
     setTransaction(await transactionData);
-    console.log(transaction);
+    console.log(await transaction);
   };
 
   useEffect(() => {
@@ -55,36 +55,27 @@ export const TransactionEdit = ({ id }) => {
         }}
       >
         <div>
-          <p>{transaction.id}</p>
-          <p>{transaction.amount}</p>
-          <p>{transaction.category}</p>
-          <p>{transaction.date}</p>
-          <p>{transaction.description}</p>
-          <p>{transaction.paymentType}</p>
-          <p>{transaction.title}</p>
-          <p>{transaction.type}</p>
-
-          {/* <Input
+          <Input
             type="text"
             label="Title:"
             field="title"
-            value={title}
-            handleChange={setTitle}
-            errorMessage={formErrors["title"]}
-            isTouched={isTouched.title}
-            handleBlur={handleBlur}
+            value={transaction.title}
+            // handleChange={setTitle}
+            // errorMessage={formErrors["title"]}
+            // isTouched={isTouched.title}
+            // handleBlur={handleBlur}
           />
           <Input
             type="text"
             label="Description:"
             field="description"
-            value={description}
-            handleChange={setDescription}
-            errorMessage={formErrors["description"]}
-            isTouched={isTouched.description}
-            handleBlur={handleBlur}
+            value={transaction.description}
+            // handleChange={setDescription}
+            // errorMessage={formErrors["description"]}
+            // isTouched={isTouched.description}
+            // handleBlur={handleBlur}
           />
-          <Dropdown
+          {/* <Dropdown
             options={categoriesList}
             name={category}
             field="category"
@@ -93,18 +84,19 @@ export const TransactionEdit = ({ id }) => {
             errorMessage={formErrors["category"]}
             isTouched={isTouched.category}
             handleBlur={handleBlur}
-          />
+          /> */}
+          <Input type="text" label="Category" value={transaction.category} />
           <Input
             type="number"
             label="Paid:"
             field="amount"
-            value={amount}
-            handleChange={setAmount}
-            errorMessage={formErrors["amount"]}
-            isTouched={isTouched.amount}
-            handleBlur={handleBlur}
+            value={transaction.amount}
+            // handleChange={setAmount}
+            // errorMessage={formErrors["amount"]}
+            // isTouched={isTouched.amount}
+            // handleBlur={handleBlur}
           />
-          <DatePicker
+          {/* <DatePicker
             field="date"
             value={date}
             minDate="2000-01-01"
