@@ -4,6 +4,7 @@ import {
   BsFillArrowDownSquareFill,
   BsFillArrowUpRightSquareFill,
 } from "react-icons/bs";
+import { convertDate } from "../../services/helpers/convertDate";
 
 export const LastTransactionsList = ({ transactionsList = [] }) => {
   const latestTransactions = transactionsList.slice(0, 30).sort((a, b) => {
@@ -29,7 +30,7 @@ export const LastTransactionsList = ({ transactionsList = [] }) => {
               <tr key={t.id}>
                 <td>{t.title}</td>
                 <td>{t.category}</td>
-                <td>{t.date.split("-").reverse().join(".")}</td>
+                <td>{convertDate(t.date)}</td>
                 <td>
                   {t.type === "expense" ? (
                     <p color="red">

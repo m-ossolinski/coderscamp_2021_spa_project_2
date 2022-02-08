@@ -15,8 +15,8 @@ const App = () => {
   const [transactionsList, setTransactionsList] = useState([]);
 
   useEffect(async () => {
-    const data = await transactionService.getTransactionList();
-    setTransactionsList(data);
+    const transactionsList = await transactionService.getTransactionList();
+    setTransactionsList(transactionsList);
   }, []);
 
   return (
@@ -27,10 +27,7 @@ const App = () => {
           <BrowserRouter>
             <Header />
             <TransactionsListContext.Provider
-              value={{
-                transactionsList: transactionsList,
-                setTransactionsList: setTransactionsList,
-              }}
+              value={{ transactionsList, setTransactionsList }}
             >
               <MainLayout>
                 <AppRoutes />
