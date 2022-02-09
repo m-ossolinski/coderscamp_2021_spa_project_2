@@ -36,15 +36,15 @@ export const MonthlyTransactionsChart = () => {
     }
   };
 
-  const transactionCategory = { income: "income", expense: "expense" };
+  const transactionType = { income: "income", expense: "expense" };
 
   const monthlySumAgregator = async () => {
-    if ((category = "expense")) {
+    if ((type = "expense")) {
       const monthlySums = [];
       for (let i = 1; i <= 12; i++) {
         monthlySums.push(
           transactionsList
-            .filter((trans) => trans.category !== "income")
+            .filter((trans) => trans.type === type)
             .filter((trans) => parseInt(trans.date.substring(5, 7)) === i)
             .reduce((acc, trans) => acc + parseInt(trans.amount), 0)
         );
@@ -52,12 +52,12 @@ export const MonthlyTransactionsChart = () => {
       setExpenseChartData(monthlySums);
     }
 
-    if ((category = "income")) {
+    if ((type = "income")) {
       const monthlySums = [];
       for (let i = 1; i <= 12; i++) {
         monthlySums.push(
           transactionsList
-            .filter((trans) => trans.category === "income")
+            .filter((trans) => trans.type === type)
             .filter((trans) => parseInt(trans.date.substring(5, 7)) === i)
             .reduce((acc, trans) => acc + parseInt(trans.amount), 0)
         );
@@ -71,8 +71,8 @@ export const MonthlyTransactionsChart = () => {
   }, []);
 
   useEffect(() => {
-    monthlySumAgregator(transactionCategory.income, transactionsList);
-    monthlySumAgregator(transactionCategory.expense, transactionsList);
+    monthlySumAgregator(transactionType.income, transactionsList);
+    monthlySumAgregator(transactionType.expense, transactionsList);
   }, [transactionsList]);
 
   const options = {
