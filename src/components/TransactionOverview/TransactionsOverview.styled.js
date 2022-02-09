@@ -12,6 +12,7 @@ export const StyledElement = styled.div`
     flex-basis: 20%;
     border-radius: 10px;
     padding: 1rem;
+    box-shadow: 5px 5px 12px 1px rgb(0 0 0 / 13%);
 
     h5,
     p {
