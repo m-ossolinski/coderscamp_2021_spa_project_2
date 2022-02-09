@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 
+import { ListButton } from "../ListButton/ListButton";
 import { Button } from "../Button/Button";
 import Modal from "../Modal";
 import { useModal } from "../../services/hooks/useModal";
@@ -8,7 +9,6 @@ import { Input } from "../form/Input/Input";
 import { Dropdown } from "../form/Dropdown/Dropdown";
 import { DatePicker } from "../form/DatePicker/DatePicker";
 import { RadioButton } from "../form/RadioButton/RadioButton";
-// import { useInputState } from "../../services/hooks/useInputState";
 
 import transactionService from "../../services/api/transactionsService.";
 import categoriesService from "../../services/api/categoriesService";
@@ -26,12 +26,25 @@ export const TransactionEdit = ({ id }) => {
   const [category, setCategory] = useState();
   const [paymentType, setPaymentType] = useState();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (e) => {
+    // e.preventDefault();
+    const updatedTransaction = {
+      id: id,
+      title: title,
+      category: category,
+      amount: amount,
+      date: date,
+      description: description,
+      paymentType: paymentType,
+      type: type,
+    };
+    await transactionService.updateTransaction(id, updatedTransaction);
   };
 
   const fetchTransaction = async (id) => {
-    setTransaction(await transactionService.getTransactionOne(id));
+    setTransaction(await transactionService.getTransactionOne(id)).then(
+      toggleVisibility()
+    );
   };
 
   const fetchCategories = async () => {
@@ -59,7 +72,7 @@ export const TransactionEdit = ({ id }) => {
 
   return (
     <>
-      <Button
+      <ListButton
         secondary
         onClick={() => {
           toggleVisibility();
@@ -67,7 +80,7 @@ export const TransactionEdit = ({ id }) => {
         }}
       >
         Edit
-      </Button>
+      </ListButton>
       <Modal
         isVisible={isVisible}
         onCancel={() => {
@@ -78,7 +91,7 @@ export const TransactionEdit = ({ id }) => {
         submitBtnLabel={"Submit"}
         onSubmit={() => {
           handleSubmit(id);
-          toggleVisibility();
+
           window.location.reload(true);
         }}
       >

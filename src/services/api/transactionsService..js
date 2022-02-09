@@ -17,7 +17,7 @@ const createTransaction = () => {
 };
 
 const updateTransaction = (id, transaction) => {
-  const request = axios.put(`${baseUrl}/${id}`, category);
+  const request = axios.patch(`${baseUrl}/${id}`, transaction);
   return request.then((response) => response.data);
 };
 

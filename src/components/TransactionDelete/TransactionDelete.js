@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Button } from "../Button/Button";
+import { ListButton } from "../ListButton/ListButton";
 import Modal from "../Modal";
 import { useModal } from "../../services/hooks/useModal";
 
@@ -11,9 +12,9 @@ export const TransactionDelete = ({ id }) => {
 
   return (
     <>
-      <Button secondary onClick={() => toggleVisibility()}>
+      <ListButton secondary onClick={() => toggleVisibility()}>
         Delete
-      </Button>
+      </ListButton>
       <Modal
         isVisible={isVisible}
         onCancel={() => {
