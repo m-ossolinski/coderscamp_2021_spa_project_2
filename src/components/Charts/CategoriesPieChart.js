@@ -39,6 +39,7 @@ export const CategoriesPieChart = () => {
     categories.forEach((category) => {
       sumForEachCategory.push(
         transactionsList
+          .filter((trans) => trans.type === "expense")
           .filter((trans) => trans.category === category)
           .reduce((acc, item) => acc + parseInt(item.amount), 0)
       );
