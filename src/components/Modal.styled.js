@@ -59,7 +59,8 @@ export const StyledModal = styled.div`
   }
 
   .modal-body {
-    min-height: 300px;
+    min-height: 350px;
+    max-height: 700px;
     margin-top: 1rem;
   }
 
