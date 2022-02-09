@@ -26,8 +26,7 @@ export const TransactionEdit = ({ id }) => {
   const [category, setCategory] = useState();
   const [paymentType, setPaymentType] = useState();
 
-  const handleSubmit = async (e) => {
-    // e.preventDefault();
+  const updateTransaction = async (id, updatedCategory) => {
     const updatedTransaction = {
       id: id,
       title: title,
@@ -38,7 +37,17 @@ export const TransactionEdit = ({ id }) => {
       paymentType: paymentType,
       type: type,
     };
-    await transactionService.updateTransaction(id, updatedTransaction);
+
+    try {
+      await transactionService.updateTransaction(id, updatedTransaction);
+    } catch (error) {
+      throw new Error("Transaction could not be eddited");
+    }
+  };
+
+  const handleSubmit = async () => {
+    // e.preventDefault();
+    updateTransaction();
   };
 
   const fetchTransaction = async (id) => {
