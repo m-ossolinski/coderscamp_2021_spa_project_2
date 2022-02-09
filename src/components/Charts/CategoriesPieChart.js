@@ -85,6 +85,13 @@ export const CategoriesPieChart = () => {
   };
 
   return (
-    <Pie options={chartOptions} data={chartData} width="300px" height="300px" />
+    <div className="PieChart">
+      <Pie
+        options={chartOptions}
+        data={chartData}
+        width="300px"
+        height="300px"
+      />
+    </div>
   );
 };

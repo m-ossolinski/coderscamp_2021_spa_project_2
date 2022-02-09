@@ -9,4 +9,8 @@ export const StyledHomePage = styled.div`
     "transactions stats";
   gap: 2rem;
   height: 100%;
+
+  & .PieChart {
+    margin: 1rem;
+  }
 `;

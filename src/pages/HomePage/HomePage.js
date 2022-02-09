@@ -3,6 +3,7 @@ import { LastTransactionsList } from "../../components/LastTransactions/LastTran
 import { useContext } from "react";
 import { TransactionsListContext } from "../../services/context/TransactionsListContext";
 import { TransactionOverview } from "../../components/TransactionOverview/TransactionsOverview";
+import { CategoriesPieChart } from "../../components/Charts/CategoriesPieChart";
 
 const HomePage = () => {
   const { transactionsList } = useContext(TransactionsListContext);
@@ -10,7 +11,7 @@ const HomePage = () => {
     <StyledHomePage>
       <TransactionOverview />
       <LastTransactionsList transactionsList={transactionsList} />
-      <div>widgets component</div>
+      <CategoriesPieChart />
     </StyledHomePage>
   );
 };
