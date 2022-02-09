@@ -56,7 +56,7 @@ export const MonthlyCategoriesPieChart = () => {
   }, [transactionsList, categories]);
 
   const chartOptions = {
-    responsive: true,
+    responsive: false,
     maintainAspectRatio: false,
     plugins: {
       legend: {
@@ -100,12 +100,7 @@ export const MonthlyCategoriesPieChart = () => {
         <option value="11">November</option>
         <option value="12">December</option>
       </select>
-      <Pie
-        options={chartOptions}
-        data={chartData}
-        width="300px"
-        height="300px"
-      />
+      <Pie options={chartOptions} data={chartData} />
     </>
   );
 };

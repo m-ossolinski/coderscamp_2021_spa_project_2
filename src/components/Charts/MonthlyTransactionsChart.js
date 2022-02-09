@@ -107,5 +107,5 @@ export const MonthlyTransactionsChart = () => {
     ],
   };
 
-  return <Bar options={options} data={data} width="500px" height="300px" />;
+  return <Bar options={options} data={data} height="200px" />;
 };

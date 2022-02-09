@@ -6,11 +6,11 @@ import { MonthlyCategoriesPieChart } from "../../components/Charts/MonthlyCatego
 export const StatsView = () => {
   return (
     <StyledStatsView>
-      <div>
-        <MonthlyTransactionsChart />
-      </div>
-      <div>
+      {/* <div className="chart-holder">
         <MonthlyCategoriesPieChart />
+      </div> */}
+      <div className="chart-holder">
+        <MonthlyTransactionsChart />
       </div>
     </StyledStatsView>
   );
