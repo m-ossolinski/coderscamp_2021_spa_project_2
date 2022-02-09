@@ -5,6 +5,10 @@ export const FormWrapper = styled.div`
   padding: 1rem;
   margin: 1rem;
   width: 100%;
+
+  & p {
+    margin-bottom: 2rem;
+  }
 `;
 
 export const Form = styled.form`
