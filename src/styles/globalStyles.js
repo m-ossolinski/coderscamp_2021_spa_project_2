@@ -11,10 +11,6 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
-  
-  html, body {
-    height: 100%;
-  }
 
   body {
     line-height: 1.5;
