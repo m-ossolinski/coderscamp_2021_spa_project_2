@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 
 import { ListButton } from "../ListButton/ListButton";
-import { Button } from "../Button/Button";
 import Modal from "../Modal";
 import { useModal } from "../../services/hooks/useModal";
-import { StyledTransactionForm } from "../../pages/TransactionsPage/TransactionsPage/TransactionsPage.styled";
 import { Input } from "../form/Input/Input";
 import { Dropdown } from "../form/Dropdown/Dropdown";
 import { DatePicker } from "../form/DatePicker/DatePicker";
 import { RadioButton } from "../form/RadioButton/RadioButton";
-
+import { TransactionsListContext } from "../../services/context/TransactionsListContext";
+import { newTransactionSchema } from "../../services/helpers/Validations/NewTransactionValidation";
 import transactionService from "../../services/api/transactionsService.";
 import categoriesService from "../../services/api/categoriesService";
+import { currentDate } from "../../services/utils/currentDate";
 
 export const TransactionEdit = ({ id }) => {
   const { isVisible, toggleVisibility } = useModal();
@@ -26,34 +26,113 @@ export const TransactionEdit = ({ id }) => {
   const [category, setCategory] = useState();
   const [paymentType, setPaymentType] = useState();
 
-  const updateTransaction = async (id, updatedCategory) => {
-    const updatedTransaction = {
-      id: id,
+  const [formErrors, setFormErrors] = useState({});
+  const [isTouched, setIsTouched] = useState({
+    title: false,
+    description: false,
+    amount: false,
+    date: false,
+    category: false,
+  });
+
+  const { setTransactionsList, transactionsList } = useContext(
+    TransactionsListContext
+  );
+
+  const validateForm = async () => {
+    const formValues = {
       title: title,
-      category: category,
+      description: description,
       amount: amount,
       date: date,
-      description: description,
-      paymentType: paymentType,
-      type: type,
+      category: category,
     };
 
+    let list = [];
+    categoryList.forEach((c) => list.push(c.name));
+    const schema = newTransactionSchema(list);
+
+    try {
+      schema.validateSync(formValues, {
+        abortEarly: false,
+      });
+    } catch (err) {
+      let errors = [];
+      err.inner.forEach((error) => {
+        errors.push({ [error.path]: error.message });
+      });
+      const errorMessages = Object.assign({}, ...errors);
+      return errorMessages;
+    }
+  };
+
+  const handleBlur = (field) => {
+    setIsTouched((values) => ({ ...values, [field]: true }));
+  };
+
+  useEffect(async () => {
+    const errorMessages = await validateForm();
+
+    if (errorMessages) {
+      setFormErrors(errorMessages);
+    } else {
+      setFormErrors({});
+    }
+  }, [title, description, amount, date, category]);
+
+  const updateTransaction = async (id, updatedTransaction) => {
     try {
       await transactionService.updateTransaction(id, updatedTransaction);
+      setTransactionsList(
+        transactionsList.map((transaction) =>
+          transaction.id === id ? updatedTransaction : transaction
+        )
+      );
     } catch (error) {
       throw new Error("Transaction could not be eddited");
     }
   };
 
-  const handleSubmit = async () => {
-    // e.preventDefault();
-    updateTransaction();
+  const handleSubmit = () => {
+    setIsTouched({
+      title: true,
+      description: true,
+      amount: true,
+      date: true,
+      category: true,
+    });
+    if (Object.keys(formErrors).length === 0) {
+      const updatedTransaction = {
+        id: id,
+        title: title,
+        category: category,
+        amount: amount,
+        date: date,
+        description: description,
+        paymentType: paymentType,
+        type: type,
+      };
+      updateTransaction(id, updatedTransaction);
+      toggleVisibility();
+      setIsTouched({
+        title: false,
+        description: false,
+        amount: false,
+        date: false,
+        category: false,
+      });
+    }
+    return;
   };
 
   const fetchTransaction = async (id) => {
-    setTransaction(await transactionService.getTransactionOne(id)).then(
-      toggleVisibility()
-    );
+    try {
+      const response = await transactionService.getTransactionOne(id);
+      setTransaction(response);
+      toggleVisibility();
+    } catch (error) {
+      throw new Error("Transaction could not been shown.");
+    }
   };
 
   const fetchCategories = async () => {
@@ -99,9 +178,7 @@ export const TransactionEdit = ({ id }) => {
         cancelBtnLabel={"Cancel"}
         submitBtnLabel={"Submit"}
         onSubmit={() => {
-          handleSubmit(id);
-
-          window.location.reload(true);
+          handleSubmit();
         }}
       >
         {
@@ -114,9 +191,9 @@ export const TransactionEdit = ({ id }) => {
               handleChange={(e) => {
                 setTitle(e.target.value);
               }}
-              // errorMessage={formErrors["title"]}
-              // isTouched={isTouched.title}
-              // handleBlur={handleBlur}
+              errorMessage={formErrors["title"]}
+              isTouched={isTouched.title}
+              handleBlur={handleBlur}
             />
             <Input
               type="text"
@@ -126,9 +203,9 @@ export const TransactionEdit = ({ id }) => {
               handleChange={(e) => {
                 setDescription(e.target.value);
               }}
-              // errorMessage={formErrors["description"]}
-              // isTouched={isTouched.description}
-              // handleBlur={handleBlur}
+              errorMessage={formErrors["description"]}
+              isTouched={isTouched.description}
+              handleBlur={handleBlur}
             />
             <Dropdown
               options={categoryList}
@@ -136,10 +213,10 @@ export const TransactionEdit = ({ id }) => {
               field="category"
               value={category}
               handleChange={setCategory}
-              // label="Category:"
-              // errorMessage={formErrors["category"]}
-              // isTouched={isTouched.category}
-              // handleBlur={handleBlur}
+              label="Category:"
+              errorMessage={formErrors["category"]}
+              isTouched={isTouched.category}
+              handleBlur={handleBlur}
             />
             <Input
               type="number"
@@ -149,21 +226,21 @@ export const TransactionEdit = ({ id }) => {
               handleChange={(e) => {
                 setAmount(e.target.value);
               }}
-              // errorMessage={formErrors["amount"]}
-              // isTouched={isTouched.amount}
-              // handleBlur={handleBlur}
+              errorMessage={formErrors["amount"]}
+              isTouched={isTouched.amount}
+              handleBlur={handleBlur}
             />
             <DatePicker
               field="date"
               value={date}
               minDate="2000-01-01"
-              // maxDate={currentDate}
+              maxDate={currentDate}
               handleChange={(e) => {
                 setDate(e.target.value);
               }}
-              // errorMessage={formErrors["date"]}
-              // isTouched={isTouched.date}
-              // handleBlur={handleBlur}
+              errorMessage={formErrors["date"]}
+              isTouched={isTouched.date}
+              handleBlur={handleBlur}
             />
             <div>
               <RadioButton

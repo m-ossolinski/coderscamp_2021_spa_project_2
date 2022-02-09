@@ -2,14 +2,14 @@ import styled, { css } from "styled-components";
 
 export const StyledListButton = styled.button`
   cursor: pointer;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   border-radius: 8px;
   border: none;
   text-transform: uppercase;
-  padding: 1rem 3rem;
-  min-width: 60px;
-  min-height: 5rem;
+  padding: 0.5rem;
+  min-width: 8rem;
   background: transparent;
+  margin-right: 0.5rem;
 
   ${(props) =>
     props.default &&
