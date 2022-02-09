@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import HomePage from "../pages/HomePage/HomePage";
 import { CategoriesPage } from "../pages/TransactionsCategories/CategpriesPage/CategoriesPage";
-import TransactionsPage from "../pages/TransactionsPage/TransactionsPage";
 import { StatsView } from "../pages/Stats/StatsView";
 import { TransactionsPage } from "../pages/TransactionsPage/TransactionsPage/TransactionsPage";
 
