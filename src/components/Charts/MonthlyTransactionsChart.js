@@ -1,4 +1,3 @@
-import transactionsService from "../../services/api/transactionsService.";
 import React, { useState, useEffect } from "react";
 import barChartUtils from "../../services/utils/barCharUtils.js";
 import {
@@ -21,24 +20,18 @@ ChartJS.register(
   Legend
 );
 
-export const MonthlyTransactionsChart = () => {
-  const [transactionsList, setTransactionsList] = useState([]);
+export const MonthlyTransactionsChart = ({ transactions = [] }) => {
+  const [transactionsList, setTransactionsList] = useState(transactions);
   const [incomeChartData, setIncomeChartData] = useState([]);
   const [expenseChartData, setExpenseChartData] = useState(0);
 
-  const getTransactionsList = async () => {
-    try {
-      const response = await transactionsService.getTransactionList();
-      setTransactionsList(response);
-    } catch (error) {
-      throw new Error("Transaction list could not been shown.");
-    } finally {
-    }
-  };
+  useEffect(() => {
+    setTransactionsList(transactions);
+  }, [transactions]);
 
   const transactionType = { income: "income", expense: "expense" };
 
-  const monthlySumAgregator = async () => {
+  const monthlySumAgregator = () => {
     if ((type = "expense")) {
       const monthlySums = [];
       for (let i = 1; i <= 12; i++) {
@@ -65,10 +58,6 @@ export const MonthlyTransactionsChart = () => {
       setIncomeChartData(monthlySums);
     }
   };
-
-  useEffect(() => {
-    getTransactionsList();
-  }, []);
 
   useEffect(() => {
     monthlySumAgregator(transactionType.income, transactionsList);
