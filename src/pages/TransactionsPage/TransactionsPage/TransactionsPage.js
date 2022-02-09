@@ -20,7 +20,7 @@ export const TransactionsPage = () => {
     <TransactionPageWrapper>
       <Typography
         tag="h3"
-        size="extraLarge"
+        size="large"
         weight="900"
         color="#0d9976"
         transform="uppercase"
