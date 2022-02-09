@@ -75,6 +75,7 @@ const TransactionList = ({ transactionsList = [] }) => {
           <div>Category</div>
           <div>Date</div>
           <div>Amount</div>
+          <div>Action Buttons</div>
         </TableHeader>
         <TableContent>{renderList}</TableContent>
       </TransactionTable>
