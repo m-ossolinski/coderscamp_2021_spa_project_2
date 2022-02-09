@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const StyledLastTransactionsList = styled.div`
+grid-area: list;
 overflow:hidden;
     overflow-y: scroll;
 
