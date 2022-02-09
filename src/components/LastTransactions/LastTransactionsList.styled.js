@@ -1,20 +1,23 @@
 import styled from "styled-components";
 
 export const StyledLastTransactionsList = styled.div`
-overflow:hidden;
-    overflow-y: scroll;
+    grid-area: transactions;
 
   & h1 {
     font-size: 2rem;
+    margin-bottom: 2rem;
   }
 
-  & table {
-  margin: 1rem;
+  & div {
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 90%;
+
+    & table {
   font-size: 1.5rem;
   height: 100%;
   border-radius: 10px;
   background: ${({ theme }) => theme.colors.primaryLight};
-  box-shadow: 5px 5px 12px 1px rgba(0, 0, 0, 0.13);
 
   & thead {
     & tr {
@@ -53,4 +56,5 @@ overflow:hidden;
     }
   }
 }
+  }
 `;

@@ -8,4 +8,5 @@ export const StyledOverview = styled.div`
   max-width: 500px;
   line-height: 2;
   padding: 5px 10px;
+  grid-area: overview;
 `;
