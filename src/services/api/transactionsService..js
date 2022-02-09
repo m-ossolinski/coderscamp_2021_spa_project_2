@@ -11,7 +11,7 @@ const getTransactionOne = (id) => {
   return request.then((response) => response.data);
 };
 
-const createTransaction = () => {
+const createTransaction = (transaction) => {
   const request = axios.post(baseUrl, transaction);
   return request.then((response) => response.data);
 };
