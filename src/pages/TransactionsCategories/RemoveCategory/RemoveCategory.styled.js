@@ -15,5 +15,5 @@ export const IconWrapper = styled.button`
 export const Confirmation = styled.div`
   font-size: 1.6rem;
   padding: 1rem;
-  color: #5e1916;
+  color: ${({ theme }) => theme.colors.fontDark};
 `;

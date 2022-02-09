@@ -15,6 +15,7 @@ import {
   IconWrapper,
   FormError,
   FormWrapper,
+  SelectedIcon,
 } from "./CategoryForm.styled";
 import { Button } from "../../../components/Button/Button";
 
@@ -111,9 +112,9 @@ export const AddCategoryForm = ({ createCategory, loading }) => {
             <IconPicker iconInputChangeHandler={iconInputChangeHandler} />
 
             {icon && (
-              <IconWrapper>
+              <SelectedIcon color={color}>
                 <IconPickerItem icon={icon} />
-              </IconWrapper>
+              </SelectedIcon>
             )}
             {isSubmitting && <FormError>{formErrors.icon}</FormError>}
           </FormGroup>

@@ -8,7 +8,7 @@ export const StyledDropdown = styled.div`
   margin: 10px 0;
 
   & p {
-    font-size: 0.7rem;
+    font-size: 1.5rem;
     width: 100%;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -20,7 +20,7 @@ export const StyledDropdown = styled.div`
     background-color: #fff;
     color: black;
     height: 30px;
-    width: 105px;
+    width: 160px;
     padding: 5px 10px;
     border: 1px solid lightgray;
     border-radius: 5px;

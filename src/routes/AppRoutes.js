@@ -1,13 +1,14 @@
 import { Route, Routes } from "react-router-dom";
+import HomePage from "../pages/HomePage/HomePage";
 import { CategoriesPage } from "../pages/TransactionsCategories/CategpriesPage/CategoriesPage";
 import TransactionsPage from "../pages/TransactionsPage/TransactionsPage";
 import { StatsView } from "../pages/Stats/StatsView";
-import { HomeView } from "../pages/Home/HomeView";
+import { TransactionsPage } from "../pages/TransactionsPage/TransactionsPage/TransactionsPage";
 
 export const AppRoutes = () => {
   return (
     <Routes>
-      <Route exact path="/" element={<HomeView />} />
+      <Route exact path="/" element={<HomePage />} />
       <Route exact path="/transactions" element={<TransactionsPage />} />
       <Route exact path="/stats" element={<StatsView />} />
       <Route exact path="/categories" element={<CategoriesPage />} />
