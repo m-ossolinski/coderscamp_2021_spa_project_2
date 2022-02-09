@@ -1,3 +1,8 @@
+import { useContext } from "react";
+import { useInputState } from "../../../services/hooks/useInputState";
+import { useState, useEffect } from "react";
+import { useModal } from "../../../services/hooks/useModal";
+import { useFetchData } from "../../../services/hooks/useFetchData";
 import { StyledTransactionForm } from "./TransactionsForm.styled";
 import { DatePicker } from "../../../components/form/DatePicker/DatePicker";
 import { Input } from "../../../components/form/Input/Input";
@@ -6,14 +11,11 @@ import { Dropdown } from "../../../components/form/Dropdown/Dropdown";
 import Modal from "../../../components/Modal";
 import { Button } from "../../../components/Button/Button";
 import { v4 as uuidv4 } from "uuid";
-import { useInputState } from "../../../services/hooks/useInputState";
-import { useState, useEffect } from "react";
-import { useModal } from "../../../services/hooks/useModal";
 import transactionService from "../../../services/api/transactionsService.";
 import { currentDate } from "../../../services/utils/currentDate";
 import { newTransactionSchema } from "../../../services/helpers/Validations/NewTransactionValidation";
 import categoriesService from "../../../services/api/categoriesService";
-import { useFetchData } from "../../../services/hooks/useFetchData";
+import { TransactionsListContext } from "../../../services/context/TransactionsListContext";
 
 export const TransactionForm = ({ initFields }) => {
   const { isVisible, toggleVisibility } = useModal();
@@ -42,6 +44,8 @@ export const TransactionForm = ({ initFields }) => {
     date: false,
     category: false,
   });
+
+  const { setTransactionsList } = useContext(TransactionsListContext);
 
   const validateForm = async () => {
     const formValues = {
@@ -122,6 +126,8 @@ export const TransactionForm = ({ initFields }) => {
         paymentType: paymentType,
       };
       await transactionService.createTransaction(newTransaction);
+      const newTransactionsList = await transactionService.getTransactionList();
+      setTransactionsList(newTransactionsList);
       toggleVisibility();
       clearFormValues();
     }

@@ -6,7 +6,7 @@ export const StyledRadioButton = styled.div`
   padding: 0.5rem 0;
 
   & p {
-    font-size: 0.7rem;
+    font-size: 1.5rem;
     margin: 0 0.3rem;
   }
 

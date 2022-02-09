@@ -6,7 +6,7 @@ import { Pie } from "react-chartjs-2";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export const CategoriesPieChart = () => {
+export const MonthlyCategoriesPieChart = () => {
   const [transactionsList, setTransactionsList] = useState([]);
   const [categories, setCategories] = useState([]);
   const [categorySums, setCategorySums] = useState(0);
@@ -39,7 +39,6 @@ export const CategoriesPieChart = () => {
     categories.forEach((category) => {
       sumForEachCategory.push(
         transactionsList
-          .filter((trans) => trans.type === "expense")
           .filter((trans) => trans.category === category)
           .reduce((acc, item) => acc + parseInt(item.amount), 0)
       );
@@ -57,7 +56,7 @@ export const CategoriesPieChart = () => {
   }, [transactionsList, categories]);
 
   const chartOptions = {
-    responsive: true,
+    responsive: false,
     maintainAspectRatio: false,
     plugins: {
       legend: {
@@ -86,13 +85,22 @@ export const CategoriesPieChart = () => {
   };
 
   return (
-    <div className="PieChart">
-      <Pie
-        options={chartOptions}
-        data={chartData}
-        width="300px"
-        height="300px"
-      />
-    </div>
+    <>
+      <select name="months" id="months">
+        <option value="01">January</option>
+        <option value="02">February</option>
+        <option value="03">March</option>
+        <option value="04">April</option>
+        <option value="05">May</option>
+        <option value="06">June</option>
+        <option value="07">July</option>
+        <option value="08">August</option>
+        <option value="09">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+      </select>
+      <Pie options={chartOptions} data={chartData} />
+    </>
   );
 };

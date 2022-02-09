@@ -1,4 +1,3 @@
-import transactionsService from "../../services/api/transactionsService.";
 import React, { useState, useEffect } from "react";
 import barChartUtils from "../../services/utils/barCharUtils.js";
 import {
@@ -21,30 +20,24 @@ ChartJS.register(
   Legend
 );
 
-export const MonthlyTransactionsChart = () => {
-  const [transactionsList, setTransactionsList] = useState([]);
+export const MonthlyTransactionsChart = ({ transactions = [] }) => {
+  const [transactionsList, setTransactionsList] = useState(transactions);
   const [incomeChartData, setIncomeChartData] = useState([]);
   const [expenseChartData, setExpenseChartData] = useState(0);
 
-  const getTransactionsList = async () => {
-    try {
-      const response = await transactionsService.getTransactionList();
-      setTransactionsList(response);
-    } catch (error) {
-      throw new Error("Transaction list could not been shown.");
-    } finally {
-    }
-  };
+  useEffect(() => {
+    setTransactionsList(transactions);
+  }, [transactions]);
 
-  const transactionCategory = { income: "income", expense: "expense" };
+  const transactionType = { income: "income", expense: "expense" };
 
-  const monthlySumAgregator = async (category) => {
-    if ((category = "expense")) {
+  const monthlySumAgregator = (type, transactionsList) => {
+    if (type === "expense") {
       const monthlySums = [];
       for (let i = 1; i <= 12; i++) {
         monthlySums.push(
           transactionsList
-            .filter((trans) => trans.category !== "income")
+            .filter((trans) => trans.type === type)
             .filter((trans) => parseInt(trans.date.substring(5, 7)) === i)
             .reduce((acc, trans) => acc + parseInt(trans.amount), 0)
         );
@@ -52,12 +45,12 @@ export const MonthlyTransactionsChart = () => {
       setExpenseChartData(monthlySums);
     }
 
-    if ((category = "income")) {
+    if (type === "income") {
       const monthlySums = [];
       for (let i = 1; i <= 12; i++) {
         monthlySums.push(
           transactionsList
-            .filter((trans) => trans.category === "income")
+            .filter((trans) => trans.type === type)
             .filter((trans) => parseInt(trans.date.substring(5, 7)) === i)
             .reduce((acc, trans) => acc + parseInt(trans.amount), 0)
         );
@@ -67,12 +60,8 @@ export const MonthlyTransactionsChart = () => {
   };
 
   useEffect(() => {
-    getTransactionsList();
-  }, []);
-
-  useEffect(() => {
-    monthlySumAgregator(transactionCategory.income, transactionsList);
-    monthlySumAgregator(transactionCategory.expense, transactionsList);
+    monthlySumAgregator(transactionType.income, transactionsList);
+    monthlySumAgregator(transactionType.expense, transactionsList);
   }, [transactionsList]);
 
   const options = {
@@ -107,5 +96,5 @@ export const MonthlyTransactionsChart = () => {
     ],
   };
 
-  return <Bar options={options} data={data} width="500px" height="300px" />;
+  return <Bar options={options} data={data} height="200px" />;
 };
