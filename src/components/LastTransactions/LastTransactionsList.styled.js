@@ -1,21 +1,26 @@
 import styled from "styled-components";
 
 export const StyledLastTransactionsList = styled.div`
-grid-area: list;
-overflow:hidden;
-    overflow-y: scroll;
+    grid-area: list;
+    overflow: hidden;
 
   & h1 {
     font-size: 2rem;
+    margin-bottom: 2rem;
   }
 
-  & table {
-  margin: 1rem;
+  & div {
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 90%;
+
+    & table {
+      width: 100%;
   font-size: 1.5rem;
   height: 100%;
   border-radius: 10px;
   background: ${({ theme }) => theme.colors.primaryLight};
-  box-shadow: 5px 5px 12px 1px rgba(0, 0, 0, 0.13);
+  border-collapse: collapse;
 
   & thead {
     & tr {
@@ -24,8 +29,7 @@ overflow:hidden;
         padding: 0.5rem 1rem;
         width: 150px;
         text-align: center;
-        background: ${({ theme }) => theme.colors.primaryLight};
-        box-shadow: 5px 5px 12px 1px rgba(0,0,0,0.13);
+        background: ${({ theme }) => theme.colors.primaryDark};
         top: 0;
     z-index: 2;
     position: sticky;
@@ -37,9 +41,12 @@ overflow:hidden;
   }
 
   & tbody {
-    border: 1px solid black;
     & tr {
       height: 50px;
+
+    &:nth-child(2n) {
+      background-color: ${({ theme }) => theme.colors.primary};
+    }
     }
     & td {
       text-align: center;
@@ -48,10 +55,11 @@ overflow:hidden;
         margin-right: 10px;
       }
 
-      &:nth-child(3) {
-        font-size: 1.5rem;
+      &:nth-child(2), &:nth-child(3) {
+        font-size: 1.2rem;
       }
     }
   }
 }
+  }
 `;

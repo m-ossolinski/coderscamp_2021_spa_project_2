@@ -6,7 +6,11 @@ export const StyledHomePage = styled.div`
   grid-template-columns: 55% 45%;
   grid-template-areas:
     "overview overview"
-    "list list";
+    "list stats";
   gap: 2rem;
   height: 100%;
+
+  & .PieChart {
+    margin: 1rem;
+  }
 `;

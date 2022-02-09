@@ -15,12 +15,15 @@ const getTotalAmount = (type, transactions) => {
     .toFixed(2);
 };
 
-export const TransactionOverview = ({ transactions }) => {
+export const TransactionOverview = ({ transactionsList }) => {
   const totalExpenses = getTotalAmount(
     TRANSACTIONS_TYPES.expense,
-    transactions
+    transactionsList
   );
-  const totalIncomes = getTotalAmount(TRANSACTIONS_TYPES.income, transactions);
+  const totalIncomes = getTotalAmount(
+    TRANSACTIONS_TYPES.income,
+    transactionsList
+  );
   return (
     <StyledOverview>
       <StyledElement>
@@ -48,7 +51,7 @@ export const TransactionOverview = ({ transactions }) => {
         <p>Current balance</p>
       </StyledElement>
       <StyledElement>
-        <h5>{transactions.length}</h5>
+        <h5>{transactionsList.length}</h5>
         <p>Total transactions</p>
       </StyledElement>
     </StyledOverview>
@@ -56,5 +59,5 @@ export const TransactionOverview = ({ transactions }) => {
 };
 
 TransactionOverview.propTypes = {
-  transactions: PropTypes.array,
+  transactionsList: PropTypes.array,
 };

@@ -5,16 +5,13 @@ export const GlobalStyle = createGlobalStyle`
   *::before,
   *::after {
     box-sizing: border-box; 
-  }
-
-  * {
     margin: 0;
     padding: 0;
   }
-  
-  html, body {
-    height: 100%;
-  }
+
+  html {
+  font-size: 62.5%;
+}
 
   body {
     line-height: 1.5;

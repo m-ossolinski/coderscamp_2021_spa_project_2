@@ -18,6 +18,7 @@ import {
   SelectedIcon,
 } from "./CategoryForm.styled";
 import { Button } from "../../../components/Button/Button";
+import { Typography } from "../../../components/common/Typography/Typography";
 
 export const AddCategoryForm = ({ createCategory, loading }) => {
   const [name, setName] = useState("");
@@ -84,6 +85,9 @@ export const AddCategoryForm = ({ createCategory, loading }) => {
 
   return (
     <FormWrapper>
+      <Typography tag="h3" size="large" weight="900" color="#0d9976">
+        <p>Manage your categories</p>
+      </Typography>
       <Button secondary loading onClick={() => toggleVisibility()}>
         Add Category
       </Button>

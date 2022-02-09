@@ -9,6 +9,7 @@ import {
   TableContent,
   TableRow,
 } from "./TransactionList.styled";
+import { convertDate } from "../../services/helpers/convertDate";
 
 const TransactionList = ({ transactionsList = [] }) => {
   const [transactionsPerPage, setTransactionsPerPage] = useState([]);
@@ -51,7 +52,7 @@ const TransactionList = ({ transactionsList = [] }) => {
         key={transaction.id}
         title={transaction.title}
         amount={transaction.amount}
-        date={transaction.date}
+        date={convertDate(transaction.date)}
         description={transaction.description}
         category={transaction.category}
         type={transaction.type}
