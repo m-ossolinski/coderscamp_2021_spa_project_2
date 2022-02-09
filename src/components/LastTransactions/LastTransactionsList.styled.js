@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const StyledLastTransactionsList = styled.div`
-    grid-area: transactions;
+    grid-area: list;
+    overflow: hidden;
 
   & h1 {
     font-size: 2rem;
@@ -14,6 +15,7 @@ export const StyledLastTransactionsList = styled.div`
     height: 90%;
 
     & table {
+      width: 100%;
   font-size: 1.5rem;
   height: 100%;
   border-radius: 10px;

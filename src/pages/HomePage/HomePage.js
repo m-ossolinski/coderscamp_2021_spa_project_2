@@ -9,7 +9,7 @@ const HomePage = () => {
   const { transactionsList } = useContext(TransactionsListContext);
   return (
     <StyledHomePage>
-      <TransactionOverview />
+      <TransactionOverview transactionsList={transactionsList} />
       <LastTransactionsList transactionsList={transactionsList} />
       <CategoriesPieChart />
     </StyledHomePage>
