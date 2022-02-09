@@ -31,8 +31,8 @@ export const MonthlyTransactionsChart = ({ transactions = [] }) => {
 
   const transactionType = { income: "income", expense: "expense" };
 
-  const monthlySumAgregator = () => {
-    if ((type = "expense")) {
+  const monthlySumAgregator = (type, transactionsList) => {
+    if (type === "expense") {
       const monthlySums = [];
       for (let i = 1; i <= 12; i++) {
         monthlySums.push(
@@ -45,7 +45,7 @@ export const MonthlyTransactionsChart = ({ transactions = [] }) => {
       setExpenseChartData(monthlySums);
     }
 
-    if ((type = "income")) {
+    if (type === "income") {
       const monthlySums = [];
       for (let i = 1; i <= 12; i++) {
         monthlySums.push(
