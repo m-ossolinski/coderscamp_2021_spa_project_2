@@ -15,6 +15,7 @@ export const StyledStatsView = styled.div`
 
   .chart-holder canvas {
     display: block;
+    margin-top: 30px;
   }
 
   /* The container must be positioned relative: */
