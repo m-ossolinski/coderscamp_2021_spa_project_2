@@ -16,7 +16,7 @@
 
 ## Authors
 
-To code this project our team collaborated as part of CodersCamp Bootcamp. The Budget App was coded by students with help of our amazing Mentors and delivered on 10.02.2022 for demo presentation. Please feel free to check all collaborator's Github profiles to get to find out more about them and to see their projects.
+To code this project our team collaborated as part of CodersCamp Bootcamp. The Budget App was coded by students with help of our amazing Mentors and delivered on 10.02.2022 for demo presentation. Please feel free to check all collaborator's Github profiles to find out more about them and to see their projects.
 
 Students:
 
