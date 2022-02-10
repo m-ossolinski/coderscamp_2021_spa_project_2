@@ -18,13 +18,13 @@ export const TransactionEdit = ({ id }) => {
   const [transaction, setTransaction] = useState(null);
   const [categoryList, setCategoryList] = useState([]);
 
-  const [title, setTitle] = useState();
-  const [description, setDescription] = useState();
-  const [amount, setAmount] = useState();
-  const [type, setType] = useState();
-  const [date, setDate] = useState();
-  const [category, setCategory] = useState();
-  const [paymentType, setPaymentType] = useState();
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [amount, setAmount] = useState("");
+  const [type, setType] = useState("");
+  const [date, setDate] = useState("");
+  const [category, setCategory] = useState("");
+  const [paymentType, setPaymentType] = useState("");
 
   const [formErrors, setFormErrors] = useState({});
   const [isTouched, setIsTouched] = useState({
