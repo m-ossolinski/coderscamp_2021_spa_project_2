@@ -9,9 +9,9 @@ export const StatsView = () => {
   const { transactionsList } = useContext(TransactionsListContext);
   return (
     <StyledStatsView>
-      {/* <div className="chart-holder">
+      <div className="chart-holder">
         <MonthlyCategoriesPieChart />
-      </div> */}
+      </div>
       <div className="chart-holder">
         <MonthlyTransactionsChart transactions={transactionsList} />
       </div>
