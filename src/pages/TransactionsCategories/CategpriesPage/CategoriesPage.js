@@ -17,6 +17,7 @@ export const CategoriesPage = () => {
       setLoading(true);
       const response = await categoriesService.getCategoriesList();
       setCategories(response);
+      console.log(response);
     } catch (error) {
       throw new Error("Categories list could not been shown.");
     } finally {

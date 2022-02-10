@@ -10,6 +10,7 @@ export const MonthlyCategoriesPieChart = () => {
   const [transactionsList, setTransactionsList] = useState([]);
   const [categories, setCategories] = useState([]);
   const [categorySums, setCategorySums] = useState(0);
+  const [selectedMonth, setSelectedMonth] = useState();
 
   const getCategoriesList = async (response) => {
     let transactionCategories = await response.map((item) => item.category);
@@ -39,12 +40,19 @@ export const MonthlyCategoriesPieChart = () => {
     categories.forEach((category) => {
       sumForEachCategory.push(
         transactionsList
+          .filter((trans) => trans.type === "expense")
           .filter((trans) => trans.category === category)
+          .filter((trans) => parseInt(trans.date.substring(5, 7)) === "01")
           .reduce((acc, item) => acc + parseInt(item.amount), 0)
       );
     });
 
     setCategorySums(sumForEachCategory);
+  };
+
+  const updateMonthChart = (event) => {
+    setSelectedMonth(event.target.value);
+    sumEachCategory();
   };
 
   useEffect(() => {
@@ -60,11 +68,11 @@ export const MonthlyCategoriesPieChart = () => {
     maintainAspectRatio: false,
     plugins: {
       legend: {
-        position: "top",
+        position: "right",
       },
       title: {
         display: true,
-        text: "Expense by Category",
+        text: "Expense by Month",
       },
     },
   };
@@ -86,21 +94,17 @@ export const MonthlyCategoriesPieChart = () => {
 
   return (
     <>
-      <select name="months" id="months">
+      <select value={selectedMonth} onChange={updateMonthChart}>
         <option value="01">January</option>
         <option value="02">February</option>
         <option value="03">March</option>
-        <option value="04">April</option>
-        <option value="05">May</option>
-        <option value="06">June</option>
-        <option value="07">July</option>
-        <option value="08">August</option>
-        <option value="09">September</option>
-        <option value="10">October</option>
-        <option value="11">November</option>
-        <option value="12">December</option>
       </select>
-      <Pie options={chartOptions} data={chartData} />
+      <Pie
+        options={chartOptions}
+        data={chartData}
+        width="700px"
+        height="225px"
+      />
     </>
   );
 };

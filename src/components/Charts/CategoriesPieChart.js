@@ -61,7 +61,7 @@ export const CategoriesPieChart = () => {
     maintainAspectRatio: false,
     plugins: {
       legend: {
-        position: "top",
+        position: "bottom",
       },
       title: {
         display: true,
