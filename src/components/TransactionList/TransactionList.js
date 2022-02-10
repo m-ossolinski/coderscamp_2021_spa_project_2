@@ -47,9 +47,8 @@ const TransactionList = ({ transactionsList = [] }) => {
   };
 
   const renderList = transactionsPerPage.map((transaction) => (
-    <TableRow>
+    <TableRow key={transaction.id}>
       <TransactionItem
-        key={transaction.id}
         id={transaction.id}
         id={transaction.id}
         title={transaction.title}

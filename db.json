@@ -689,6 +689,106 @@
       "category": "Business",
       "type": "income",
       "paymentType": "card"
+    },
+    {
+      "id": "62cf5ded-f61c-48c7-8482-231225a900e3",
+      "title": "cat",
+      "description": "Princess",
+      "amount": "500.00",
+      "date": "2021-08-12",
+      "category": "Flat",
+      "type": "expense",
+      "paymentType": "cash"
+    },
+    {
+      "id": "bb9030dc-f3c4-411f-99b9-e116246cbf81",
+      "title": "groceries",
+      "description": "food",
+      "amount": "23.45",
+      "date": "2021-08-12",
+      "category": "Food",
+      "type": "expense",
+      "paymentType": "card"
+    },
+    {
+      "id": "55539424-5728-4563-a430-9a4abedf9619",
+      "title": "bills",
+      "description": "gas & electric bill",
+      "amount": "97.89",
+      "date": "2021-08-14",
+      "category": "Flat",
+      "type": "expense",
+      "paymentType": "card"
+    },
+    {
+      "id": "9f160fee-e9e8-46a9-a1c2-9cb5492a5bdb",
+      "title": "salary",
+      "description": "Recruitment ",
+      "amount": "2300.00",
+      "date": "2021-08-17",
+      "category": "Business",
+      "type": "income",
+      "paymentType": "card"
+    },
+    {
+      "id": "30a2aaca-0863-441e-bb58-a36ebafac5a8",
+      "title": "salary",
+      "description": "Recruitment",
+      "amount": "2400.00",
+      "date": "2021-09-17",
+      "category": "Business",
+      "type": "income",
+      "paymentType": "card"
+    },
+    {
+      "id": "6850ee66-fc72-4cc3-9c28-ed186bc7e274",
+      "title": "cat food",
+      "description": "5kg",
+      "amount": "27.80",
+      "date": "2021-08-20",
+      "category": "Flat",
+      "type": "expense",
+      "paymentType": "card"
+    },
+    {
+      "id": "0367d010-a73c-4c1d-bbe6-ca18025f7234",
+      "title": "bath bombs",
+      "description": "gift",
+      "amount": "17.80",
+      "date": "2021-08-22",
+      "category": "Celebration",
+      "type": "expense",
+      "paymentType": "cash"
+    },
+    {
+      "id": "961da3a0-53dd-480e-b97f-cd3b0c66b6b6",
+      "title": "table",
+      "description": "kitchen table",
+      "amount": "120.00",
+      "date": "2021-08-24",
+      "category": "Flat",
+      "type": "expense",
+      "paymentType": "cash"
+    },
+    {
+      "id": "aa81f61f-7e0c-4255-91c4-d86cd746be1f",
+      "title": "cutlery",
+      "description": "set for 4",
+      "amount": "38.99",
+      "date": "2021-08-25",
+      "category": "Flat",
+      "type": "expense",
+      "paymentType": "cash"
+    },
+    {
+      "id": "3166fe1a-83f1-424d-a376-c2a2fbdd0ee0",
+      "title": "bills",
+      "description": "water",
+      "amount": "80.00",
+      "date": "2021-09-11",
+      "category": "Flat",
+      "type": "expense",
+      "paymentType": "cash"
     }
   ],
   "categories": [

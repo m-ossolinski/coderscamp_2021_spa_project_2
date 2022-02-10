@@ -31,6 +31,6 @@ TransactionItem.propTypes = {
   title: PropTypes.string,
   category: PropTypes.string,
   date: PropTypes.string,
-  amount: PropTypes.number,
+  amount: PropTypes.string,
   description: PropTypes.string,
 };
