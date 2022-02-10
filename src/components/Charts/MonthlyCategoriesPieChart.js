@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import pieChartUtils from "../../services/utils/pieCharUtils.js";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
+import { date } from "yup";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -10,7 +11,7 @@ export const MonthlyCategoriesPieChart = () => {
   const [transactionsList, setTransactionsList] = useState([]);
   const [categories, setCategories] = useState([]);
   const [categorySums, setCategorySums] = useState(0);
-  const [selectedMonth, setSelectedMonth] = useState();
+  const [selectedMonth, setSelectedMonth] = useState("01");
 
   const getCategoriesList = async (response) => {
     let transactionCategories = await response.map((item) => item.category);
@@ -35,24 +36,23 @@ export const MonthlyCategoriesPieChart = () => {
     }
   };
 
-  const sumEachCategory = () => {
+  const sumEachCategory = (monthData) => {
     let sumForEachCategory = [];
     categories.forEach((category) => {
       sumForEachCategory.push(
         transactionsList
           .filter((trans) => trans.type === "expense")
           .filter((trans) => trans.category === category)
-          .filter((trans) => parseInt(trans.date.substring(5, 7)) === "01")
+          .filter((trans) => trans.date.substring(5, 7) === monthData)
           .reduce((acc, item) => acc + parseInt(item.amount), 0)
       );
     });
-
     setCategorySums(sumForEachCategory);
   };
 
   const updateMonthChart = (event) => {
     setSelectedMonth(event.target.value);
-    sumEachCategory();
+    sumEachCategory(selectedMonth);
   };
 
   useEffect(() => {
@@ -60,8 +60,8 @@ export const MonthlyCategoriesPieChart = () => {
   }, []);
 
   useEffect(() => {
-    sumEachCategory();
-  }, [transactionsList, categories]);
+    sumEachCategory(selectedMonth);
+  }, [transactionsList, categories, selectedMonth]);
 
   const chartOptions = {
     responsive: false,
