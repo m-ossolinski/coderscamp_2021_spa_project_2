@@ -10,7 +10,7 @@
   - [Links](#links)
 - [Our process](#our-process)
   - [Built with](#built-with)
-  - [What We learned](#what-i-learned)
+  - [What We learned](#what-we-learned)
   - [Project structure](#project-structure)
   - [How to run the project](#how-to-run-the-project)
 
