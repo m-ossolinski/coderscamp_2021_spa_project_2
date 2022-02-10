@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import pieChartUtils from "../../services/utils/pieCharUtils.js";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
+import { StyledSelect } from "./ChartsSelect.styled";
 import { date } from "yup";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -94,17 +95,39 @@ export const MonthlyCategoriesPieChart = () => {
 
   return (
     <>
-      <select value={selectedMonth} onChange={updateMonthChart}>
-        <option value="01">January</option>
-        <option value="02">February</option>
-        <option value="03">March</option>
-      </select>
-      <Pie
-        options={chartOptions}
-        data={chartData}
-        width="700px"
-        height="225px"
-      />
+      <StyledSelect>
+        <label for="standard-select">Select month:</label>
+        <div class="select">
+          <select
+            id="standard-select"
+            value={selectedMonth}
+            onChange={updateMonthChart}
+          >
+            <option value="01">January</option>
+            <option value="02">February</option>
+            <option value="03">March</option>
+            <option value="04">April</option>
+            <option value="05">May</option>
+            <option value="06">Jun</option>
+            <option value="07">July</option>
+            <option value="08">August</option>
+            <option value="09">Septemeber</option>
+            <option value="10">Ocotober</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+          </select>
+          <span class="focus"></span>
+        </div>
+      </StyledSelect>
+
+      <div>
+        <Pie
+          options={chartOptions}
+          data={chartData}
+          width="700px"
+          height="225px"
+        />
+      </div>
     </>
   );
 };
