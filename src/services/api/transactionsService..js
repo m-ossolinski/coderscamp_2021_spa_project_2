@@ -6,6 +6,10 @@ const getTransactionList = () => {
   const request = axios.get(baseUrl);
   return request.then((response) => response.data);
 };
+const getTransactionOne = (id) => {
+  const request = axios.get(`${baseUrl}/${id}`);
+  return request.then((response) => response.data);
+};
 
 const createTransaction = (transaction) => {
   const request = axios.post(baseUrl, transaction);
@@ -13,7 +17,7 @@ const createTransaction = (transaction) => {
 };
 
 const updateTransaction = (id, transaction) => {
-  const request = axios.put(`${baseUrl}/${id}`, category);
+  const request = axios.patch(`${baseUrl}/${id}`, transaction);
   return request.then((response) => response.data);
 };
 
@@ -27,4 +31,5 @@ export default {
   createTransaction,
   updateTransaction,
   removeTransaction,
+  getTransactionOne,
 };

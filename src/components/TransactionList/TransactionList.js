@@ -50,6 +50,8 @@ const TransactionList = ({ transactionsList = [] }) => {
     <TableRow>
       <TransactionItem
         key={transaction.id}
+        id={transaction.id}
+        id={transaction.id}
         title={transaction.title}
         amount={transaction.amount}
         date={convertDate(transaction.date)}
@@ -73,6 +75,7 @@ const TransactionList = ({ transactionsList = [] }) => {
           <div>Category</div>
           <div>Date</div>
           <div>Amount</div>
+          <div>Action Buttons</div>
         </TableHeader>
         <TableContent>{renderList}</TableContent>
       </TransactionTable>
