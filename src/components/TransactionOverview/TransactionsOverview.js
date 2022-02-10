@@ -47,7 +47,7 @@ export const TransactionOverview = ({ transactionsList }) => {
         <p>Total incomes</p>
       </StyledElement>
       <StyledElement>
-        <h5>${(+totalIncomes + +totalExpenses).toFixed(2)}</h5>
+        <h5>${(+totalIncomes - +totalExpenses).toFixed(2)}</h5>
         <p>Current balance</p>
       </StyledElement>
       <StyledElement>
